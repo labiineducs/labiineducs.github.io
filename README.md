@@ -1,6 +1,4 @@
----
-layout: default
----
+
 
 # Grupo Interdisciplinario de Investigación en Educación en Ciencias Experimentales y de la Computación
 
