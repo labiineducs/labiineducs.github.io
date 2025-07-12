@@ -856,6 +856,7 @@ a:focus {
 }
 
 .donate .donate-form .btn-group {
+
     justify-content: space-between;
     margin-bottom: 15px;
 }
