@@ -1,1351 +1,852 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>LABIIN.EduCs</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="LABIIN.EduCs" name="keywords">
+        <meta content="LABIIN.EduCs" name="description">
 
-<head>
-    <meta charset="utf-8">
-    <title>JADiCC - 2025</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="JADiCC - 2025">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+        <!-- Favicon -->
+        <link href="img/Recurso_1.ico" rel="icon">
 
-    <!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<![endif]-->
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        
+        <!-- CSS Libraries -->
+        
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-    <!-- CSS Files
-    ================================================== -->
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="css/animate.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery.countdown.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/color.css" type="text/css">
-	<link rel="stylesheet" href="css/colors/orange.css" type="text/css">
-    <link rel="stylesheet" href="css/colors/gradient-1.css" type="text/css">
-    
-    <!-- background -->
-    <link rel="stylesheet" href="css/bg.css" type="text/css">
-</head>
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
 
-<body id="homepage">
-
-    <div id="wrapper">
-
-        <!-- header begin -->
-        <header>
-
-            <div class="container">
+    <body>
+        <!-- Top Bar Start -->
+        <div class="top-bar d-none d-md-block">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <!-- logo begin -->
-                        <div id="logo">
-                            <a href="index.html">
-                                <img class="logo" src="images/logo-light-jadicc.png" alt="logo">
-                                <img class="logo-2" src="images/logo-dark-jadicc.png" alt="logo">
-                            </a>
+                    <div class="col-md-8">
+                        <div class="top-bar-left">
+                            <div class="text">
+                               <div class="text">
+                                <i class="fa fa-envelope"></i>
+                                <p>cursoprogramacion@dc.exa.unrc.edu.ar</p>
+                               </div> 
+                            </div>
                         </div>
-                        <!-- logo close -->
+                    </div>
+                    <div class="col-md-4">
+                        <div class="top-bar-right">
+                            <div class="social">
+                                <a href="https://dc.exa.unrc.edu.ar/"><img class="top-bar-img" src="img/logo-dc.png" alt="logo DC"></a>
+                                <a href="https://www.exa.unrc.edu.ar/"><img class="top-bar-img" src="img/logo-exa.png" alt="logo DC"></a>
+                                <a href="https://www.unrc.edu.ar/"><img class="top-bar-img" src="img/logo-unrc.png" alt="logo DC"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Bar End -->
 
-                        <!-- small button begin -->
-                        <span id="menu-btn"></span>
-                        <!-- small button close -->
+        <!-- Nav Bar Start -->
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">LABIIN.EduCs</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                        <!-- mainmenu begin -->
-                        <nav>
-                            <ul id="mainmenu">
-                                <li><a class="active" href="index.html#top">Inicio</a></li>
-                                <li><a href="index.html#section-about">Jornadas</a></li>
-                                <li><a href="index.html#section-registro">Inscripción</a></li>
-                                <li><a href="index.html#section-schedules">Cronograma</a></li>
-                                <li><a href="index.html#section-organizacion">Organizadores</a></li>								
-                                <li><a href="call.html" target="_blank">Llamado</a></li>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="index.html#about-id" class="nav-item nav-link">About</a>
+                        <a href="causes.html" class="nav-item nav-link">Causes</a>
+                        <a href="event.html" class="nav-item nav-link">Events</a>
+                        <a href="blog.html" class="nav-item nav-link">Blog</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu">
+                                <a href="single.html" class="dropdown-item">Detail Page</a>
+                                <a href="service.html" class="dropdown-item">What We Do</a>
+                                <a href="team.html" class="dropdown-item">Meet The Team</a>
+                                <a href="donate.html" class="dropdown-item">Donate Now</a>
+                                <a href="volunteer.html" class="dropdown-item">Become A Volunteer</a>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+
+
+        <!-- Carousel Start -->
+        <div class="carousel">
+            <div class="container-fluid">
+                <div class="owl-carousel">
+                    <div class="carousel-item">
+                      
+                        <div class="carousel-text">
+                            <h1>Laboratorio Interdisciplinario de Investigación en Educación en Ciencias</h1>
+                            <p>
+                               Innovación en educación científica con mirada interdisciplinaria.
+                            </p>
+                            <div class="carousel-btn">
+                                <a class="btn btn-custom" href="">Info</a>
+                                <a class="btn btn-custom btn-play" data-toggle="modal" data-src="" data-target="#videoModal">Info Modal</a>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+        <!-- Video Modal Start-->
+        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>        
+                        <!-- 16:9 aspect ratio -->
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <!-- Video Modal End -->
+        
+
+        <!-- About Start -->
+        <div class="about" id="about-id">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="about-img" data-parallax="scroll" data-image-src="img/bombilla-libros.webp"></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="section-header">
+                            <p>LABIIN.EduCs</p>
+                            <h3>Escuela, territorio, computación y futuro</h3>
+                        </div>
+                        <div class="about-tab">
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="pill" href="#tab-content-1">📌 Acerca de</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#tab-content-2">🎯 Mission</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#tab-content-3">🌟 Vision</a>
+                                </li>
                             </ul>
-                        </nav>
 
+                            <div class="tab-content">
+                                <div id="tab-content-1" class="container tab-pane active">
+                                    <p>Somos un equipo interdisciplinario de la Universidad Nacional de Río Cuarto, con trayectorias en Química, Física, Matemática, 
+                                    Computación y en didáctica de las ciencias. LABIIN.EduCs nace como un laboratorio de ideas, investigación e innovación para 
+                                    transformar la forma en que enseñamos y aprendemos ciencias. Nos enfocamos en la formación docente en Ciencias 
+                                    de la Computación y Ciencias Experimentales, desde un enfoque que incluye ciudadanía digital, resolución de problemas, 
+                                    programación, robótica e inteligencia artificial.</p>
+                                    <p>Nuestra propuesta se centra en integrar estas herramientas no solo como contenidos en sí mismos, sino también como recursos 
+                                    didácticos para enseñar otras disciplinas. Nos interesa formar docentes capaces de usar el pensamiento computacional como una 
+                                    forma de ver y abordar los problemas en el aula.</p>
+                                </div>
+                                <div id="tab-content-2" class="container tab-pane fade">
+                                   <p>Promover la investigación, el desarrollo y la innovación en el campo de la educación en ciencias desde una perspectiva 
+                                   interdisciplinaria, inclusiva y situada. </p>
+                                   <p>LABIIN.EduCs busca generar conocimiento original, diseñar propuestas didácticas transformadoras y articular saberes científicos, 
+                                   tecnológicos y socioculturales para mejorar la enseñanza y el aprendizaje de las ciencias en todos los niveles educativos.</p>
+                                </div>
+                                <div id="tab-content-3" class="container tab-pane fade">
+                                    <p>Ser un espacio de referencia nacional e internacional en investigación educativa en ciencias, reconocible por su enfoque 
+                                    crítico, creativo y comprometido con los desafíos contemporáneos de la educación.</p>
+                                    <p>LABIIN.EduCs aspira a construir puentes entre disciplinas, territorios y saberes, 
+                                    fomentando una educación científica inclusiva, equitativa y relevante para las sociedad.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- mainmenu close -->
-
                 </div>
             </div>
-        </header>
-        <!-- header close -->
-
-        <!-- content begin -->
-        <div id="content" class="no-bottom no-top">
-            <div id="top"></div>
-
-            <!-- section begin -->
-            <section id="section-intro" class="full-height relative owl-slide-wrapper no-top no-bottom text-white" data-stellar-background-ratio=".2">
-                <div class="overlay-gradient">
-
-                 <!--   <div class="owl-slider-nav">
-                        <div class="next"></div>
-                        <div class="prev"></div>
-                    </div>
-                  -->
-                    <div id="custom-owl-slider" class="owl-slide" data-scroll-speed="2">
-                        <div class="item">
-                            <img src="images/slider/1.jpg" alt="fondo jadicc">
-                        </div>
-                   <!--     <div class="item">
-                            <img src="images/slider/2.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="images/slider/3.jpeg" alt="">
-                        </div>
-                   -->     
-                    </div> 
-                    <div class="center-y relative">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-									<div class="spacer-half sm-hide"></div>
-                                    <div class="spacer-double sm-hide"></div>
-                                    <h2>Jornadas Argentinas de Didáctica de las</h2>
-                                    <h1 class="s3">Ciencias de la Computación.</h1>
-                                    <div class="spacer-single"></div>
-                                    <div class="subtitle s2">
-										<span><i class="icon-calendar"></i>30 y 31 de Octubre de 2025.</span>
-										<span><i class="icon-global"></i>Híbrido.</span>
-								<!--		<span><i class="icon_gift_alt"></i>Gratuito.</span> -->
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 text-center">
-                                    <div class="inline-block md-float-right">
-                                        <div class="spacer-single sm-hide"></div>
-                                        <div class="spacer-double"></div>
-                                        <a href="noticias.html" class="btn-custom scroll-to" target="_blank"><font style="color:#0c3c63">Noticias</font></a>
-                                        <div class="spacer-single"></div>
-                                        <div class="subtitle s3 mb20">Comienzan en</div> 
-                                        <div id="defaultCountdown" class="countdown-s1"></div>
-                                        <div class="spacer-single"></div>
-                                        <div class="clearfix"></div>
-                                        <a href="call.html" class="btn-custom scroll-to" target="_blank"><font style="color:#0c3c63">Presentá tu Trabajo</font></a>
-                                        <div class="spacer-single"></div>
-                                        <div class="clearfix"></div>
-                                     <!-- <a href="index.html#section-registro" class="btn-custom scroll-to"><font style="color:#0c3c63">Registrate para participar</font></a>   -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <!-- section close -->
-
-            <!-- section begin -->
-            <section id="section-about">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h2 class="wow fadeInUp">Las Jornadas</h2>
-                            <div class="small-border wow fadeInUp" data-wow-delay=".2s"></div>
-                        </div>
-                        <div class="col-md-12 text-center">
-                            <p class="lead wow fadeInUp">Estas jornadas son la continuidad de las Jornadas Argentinas de Didáctica de la Programación (JaDiPro) organizadas en 2018 y 2019 en la Universidad Nacional de Quilmes y la Universidad Nacional de Córdoba. En la edición de 2021 se extendió el área de interés a la didáctica de las Ciencias de la Computación en general. A partir de entonces las JADICC se llevaron a cabo en 2021, en modalidad virtual organizadas por la Fundación Sadosky, en 2022 se retornó a la presencialidad en la Universidad Nacional del Nordeste, la Universidad Nacional del Comahue fue sede en 2023. En 2024 se realizaron en modalidad virtual, organizadas por la Universidad Nacional de Río Cuarto.</p>
-
-                            <p class="lead wow fadeInUp">Este año se realizarán en formato híbrido, organizadas por la Universidad Nacional de San Luis.</p>
-
-                            <p class="lead wow fadeInUp">Las jornadas proporcionarán un punto de encuentro para docentes de todos los niveles educativos, estudiantes de nivel superior, investigadores y diseñadores de políticas interesados en compartir, intercambiar y discutir nuevas ideas relacionadas con la enseñanza y el aprendizaje de las Ciencias de la Computación.</p>
-
-                            <p class="lead wow fadeInUp">La agenda prevista incluirá conferencias, paneles de discusión y talleres, además de la presentación de artículos y experiencias docentes.</p>
-
-                            <p class="lead wow fadeInUp">La participación puede ser presencial o virtual y requiere inscripción previa.</p>
-                            <div class="spacer-single"></div> 
-                        </div>
-                            
-                    <div class="col-md-12" id="section-registro">
-                            <div class="item pricing">
-                                <div class="row">
-                                  <div class="spacer-single"></div> 
-
-                           <div class="row">
-                            <div class="col-md-12 text-center">
-                                <h2 class="wow fadeInUp">Inscripción</h2>
-                                <div class="small-border wow fadeInUp" data-wow-delay=".2s"></div>
-                            </div>
-                            <div class="col-md-6 col-md-offset-3 text-center">
-                                <p class="lead wow fadeInUp">Las inscripciones a las Jornadas se habilitarán en septiembre.</p>
-                                <div class="spacer-single"></div>        
-                            </div>
-                           </div>
-
-                                   <!-- inscripción 
-                                    <div class="col-md-6 col-md-offset-3 text-center col-sm-12 wow fadeIn" data-wow-delay=".2s">
-                              
-                                        <div class="pricing-s1 bg-custom mb30" data-bgimage="url(images/background/p2.jpg)" data-stellar-background-ratio=".2">
-                                            <div class="inner">
-                                                <div class="ribbon">Recomendado</div>
-                                                <div class="top">
-                                                    <h2>Inscribite para participar ...</h2>
-                                                    <p class="price"><span class="currency"></span> <b>Gratuito</b></p>
-                                                </div>
-                                                <div class="bottom">
-                                                    <ul>
-														<li><i class="icon_check"></i>Virtual</li>
-                                                        <li><i class="icon_check"></i>Conferencias</li>
-                                                        <li><i class="icon_check"></i>Mesas de Discusión</li>
-                                                        <li><i class="icon_check"></i>Presentaciones Trabajos</li>
-                                                        <li><i class="icon_check"></i>Talleres</li>
-                                                        <li><i class="icon_check"></i>Certificación</li>
-                                                    </ul>
-                                                    <a href="https://forms.gle/fsHBX9eFd7qL9qpN7" target="_blank" class="btn-border scroll-to">Registrate</a>
-                                                </div>
-                                           </div>
-                                        </div>
-             -->                      </div>
-                                    
-                                </div>
-                            </div>
-                      
-                      
-                      
-                    </div>
-                </div>
-            </section>
-            <!-- section close -->
-
-            <!-- section begin -->
-          <!--  <section >
-                <div class="container">
-                    <div class="row">
-
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <h2 class="wow fadeInUp">Inscripción</h2>
-                                <div class="small-border wow fadeInUp" data-wow-delay=".2s"></div>
-                            </div>
-                            <div class="col-md-6 col-md-offset-3 text-center">
-                                <p class="lead wow fadeInUp">Para participar de las activiades deber inscribirte.</p>
-                                <div class="spacer-single"></div>        
-                            </div>
-                        </div>
-              
-                        
-                     
-                    </div>
-                </div>
-            </section>
-            <!-- section close -->
-
-
-    <!-- section begin -->
-            <section id="section-schedules" class="no-top no-bottom text-light" data-stellar-background-ratio=".2">
-                <div class="overlay-gradient pt80 pb80">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <h2 class="wow fadeInUp">Cronograma de Actividades</h2>
-                                <div class="small-border wow fadeInUp" data-wow-delay=".2s"></div>
-                            </div>
-                            <div class="col-md-6 col-md-offset-3 text-center">
-                     <!-- boton descargar cronograma 
-                              <p class="lead wow fadeInUp">
-                                 <a href="docs/CronogramaJadicc2024.pdf" class="btn-custom scroll-to" target="_blank"><font style="color:#0c3c63">Descargar Cronograma de Actividades</font></a>
-                     -->           </p>
-                                
-                                <div class="spacer-single"></div>
-                            </div>
-
-                            <div class="col-md-12 wow fadeInUp">
-                                <div class="de_tab tab_style_4 text-center">
-                                    <ul class="de_nav">
-								<!--		<li  data-link="#section-services-tab">
-                                            <h3>Lunes <span> </span></h3>
-                                            <h4>22 de Octubre 2024 </h4>
-                                            <h4>Talleres JADiCC</h4>
-                                        </li>
-										<li data-link="#section-services-tab">
-                                            <h3>Martes <span> </span></h3>
-                                            <h4> 22 de Octubre 2024</h4>
-                                            <h4>Talleres JADiCC</h4>
-                                        </li>
-                                        <li data-link="#section-services-tab">
-                                            <h3>Miércoles <span></span></h3>
-                                            <h4>23 de Octubre 2024</h4>
-                                            <h4>Talleres - Demos </h4>
-                                        </li>
-                                  -->      <li class="active" data-link="#section-services-tab">
-                                            <h3>Jueves <span></span></h3>
-                                            <h4>30 de Octubre 2025</h4>
-                                            <h4>Jornadas</h4>
-                                        </li>
-                                        <li data-link="#section-services-tab">
-                                            <h3>Viernes <span></span></h3>
-                                            <h4>31 de Octubre 2025</h4>
-                                            <h4>Jornadas</h4>
-                                        </li>
-                                    </ul>
-
-                                    <div class="de_tab_content text-left">
-
-                                        <div id="tab2" class="tab_single_content">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                               
-                                                    <div class="schedule-listing">
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">09:00 - 09:30</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images2.jpeg" class="img-circle" alt="foto disertante">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Acto </h4>
-                                                                <span>UNSL </span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                <h3>Acto de Inauguración</h3>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="schedule-listing">
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">09:30 - 10:30</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images2.jpeg" class="img-circle" alt="foto disertante">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Conferencia</h4>
-                                                                <span>Inaugural</span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                <h3>TBA</h3>
-                                                                <p>Disertante - Filiación</p>
-                                                                <p>Resumen</p>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="schedule-listing">
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">11:00 - 13:00</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images.jpeg" class="img-circle" alt="foto disertante">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Sesiones</h4>
-                                                                <span> </span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                <h3>Sesión 1: Artículos </h3>
-                                                                <h3>Sesión 1: Experiencias Docentes </h3>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="schedule-listing">
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">14:00 - 16:00</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images1.jpeg" class="img-circle" alt="foto disertante">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Mesa</h4>
-                                                                <span>Discusión</span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                <h3>TBA</h3>
-                                                                
-                                                                <p>Disertantes</p>
-                                                                
-                                                                <p>Resumen.  </p>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-
-                                              <!--      <div class="schedule-listing">
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">16:30 - 17:30</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images.jpeg" class="img-circle" alt="">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Charla</h4>
-                                                                <span></span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                <h3>Charla</h3>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                               --> 
-                                                      <div class="schedule-listing">
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">18:00 - 20:00</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images1.jpeg" class="img-circle" alt="foto disertante">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Mesa</h4>
-                                                                <span>Discusión</span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                <h3>TBA</h3>
-                                                                
-                                                                <p>Disertantes</p>
-                                                                
-                                                                <p>Resumen.  </p>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div id="tab3" class="tab_single_content">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="schedule-listing">
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">09:00 - 11:00</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images.jpeg" class="img-circle" alt="foto disertante">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Sesiones</h4>
-                                                                <span> </span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                <h3>Sesión 2: Artículos </h3>
-                                                                <h3>Sesión 2: Experiencias Docentes </h3>
-
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="schedule-listing">
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">11:00 - 13:00</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images1.jpeg" class="img-circle" alt="foto disertante">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Mesa</h4>
-                                                                <span>Discusión</span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                  <h3>TBA</h3>
-                                                                
-                                                                <p>Disertantes</p>
-                                                                
-                                                                <p>Resumen.  </p>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    
-
-                                                    <div class="schedule-listing">
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">14:00 - 16:00</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images.jpeg" class="img-circle" alt="foto disertante">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Sesiones</h4>
-                                                                <span> </span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                <h3>Sesión 3: Artículos </h3>
-                                                                <h3>Sesión 3: Experiencias Docentes </h3>
-
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="schedule-listing">
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">16:00 - 18:00</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images1.jpeg" class="img-circle" alt="foto disertante">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Mesa</h4>
-                                                                <span>Discusión</span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                 <h3>TBA</h3>
-                                                                
-                                                                <p>Disertantes</p>
-                                                                
-                                                                <p>Resumen.  </p>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>                                                  
-                                                    
-                                                    <div class="schedule-listing">
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">18:00 - 19:00</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images2.jpeg" class="img-circle" alt="foto disertante">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Conferencia</h4>
-                                                                <span>Cierre</span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                <h3>TBA</h3>
-                                                                <p> Disertante </p>
-                                                                <p>Resumen.</p>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="schedule-listing"> 
-                                                        <div class="schedule-item">
-                                                            <div class="sc-time">19:00 - 19:30</div>
-                                                            <div class="sc-pic">
-                                                                <img src="images/team/small/images2.jpeg" class="img-circle" alt="foto disertante">
-                                                            </div>
-                                                            <div class="sc-name">
-                                                                <h4>Acto </h4>
-                                                                <span>Cierre </span>
-                                                            </div>
-                                                            <div class="sc-info">
-                                                                <h3>Acto de Cierre</h3>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </div>
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- section close -->
-
-            <!-- section begin -->
-    <!--        <section id="section-call" class="no-top no-bottom text-light" data-stellar-background-ratio=".2">
-                <div class="overlay-gradient pt80 pb80">
-                    <div class="container">
-                        <div class="row">
-
-							<div class="col-md-12 text-center">
-                                <h2 class="wow fadeInUp">Llamado a Presentación de Trabajos</h2>
-                                <div class="small-border wow fadeInUp" data-wow-delay=".2s"></div>
-                            </div>
-			
-			                <div class="col-md-12 text-center">
-                                <p class="lead wow fadeInUp">Invitamos cordialmente a las y los docentes de todos los niveles educativos, las y los investigadores, las y los estudiantes de posgrado, y las y los diseñadores de políticas educativas a presentar trabajos en formato de artículos, relato de experiencias, demostraciones de herramientas y talleres.</p>
-                                <p class="lead wow fadeInUp">Los trabajos presentados que fueran aceptados, se presentarán durante las JADICC.</p>
-                                <div class="spacer-single"></div>
-  
-
-	                            <div class="clearfix"></div>
-                                <a href="call.html" class="btn-custom scroll-to"><font style="color:#0c3c63">Presentá tu Trabajo</font></a>
-                                <div class="spacer-single"></div>
-                                <div class="clearfix"></div>
-                            </div> 
-
-
-                            <div class="col-md-3 text-center wow fadeInLeft">
-                                <div class="padding20 sm-mb30">
-                                   <i class=" icon-documents mb20 size70 orange"></i>
-                                   <h3>Artículos</h3>
-                                   <p>Se esperan trabajos de investigaciones que presenten resultados sobre alguna de las temáticas de interés de las jornadas.</p> 
-                                   <p>Los trabajos pueden ser originales o ya publicados en otras conferencias, lo que deberá ser indicado claramente en el resumen del texto (tanto en la presentación inicial como en la versión completa).</p>
-                                </div>
-                            </div>
-
-                        <div class="col-md-3 text-center wow fadeInUp">
-                            <div class="padding20 sm-mb30">
-                                <i class="icon-presentation mb20 size70 pink"></i>
-                                <h3>Experiencias Docentes</h3>
-                                <p>Se esperan trabajos que relaten experiencias de enseñanza y aprendizaje de las Ciencias de la Computación, en todos los niveles del sistema educativo.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-3 text-center wow fadeInUp">
-                            <div class="padding20 sm-mb30">
-                                <i class=" icon-laptop mb20 size70 yellow"></i>
-                                <h3>Demostración de Herramientas</h3>
-                                <p>Se esperan  demostraciones en vivo de herramientas, entornos u otras tecnologías desarrolladas para la enseñanza de alguno de los temas de las Ciencias de la Computación.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 text-center wow fadeInRight">
-                            <div class="padding20 sm-mb30">
-                                <i class=" icon-tools-2 mb20 size70 purple"></i>
-                                <h3>Talleres</h3>
-                                <p>Se esperan propuestas de talleres innovadores de formación docente relacionados con la enseñanza de alguno de los temas de las Ciencias de la Computación.</p>
-                            </div>
-                        </div>
-                    
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- section close -->
-
-            <!-- section begin -->
-            <section id="section-speakers">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h2 class="wow fadeInUp">Conferencias</h2>
-                            <div class="small-border wow fadeInUp" data-wow-delay=".2s"></div>
-                        </div>
-                        <div class="col-md-6 col-md-offset-3 text-center">
-                            <p class="lead wow fadeInUp">.</p>
-                            <div class="spacer-single"></div>
-                        </div>
-
-                        <div class="clearfix"></div>
-
-                       
-                        <div class="col-md-3 wow fadeIn">
-                            <div class="profile_pic text-center sm-mb30">
-                              
-                            </div>
-                        </div>
-                       
-                       
-                        <div class="col-md-3 wow fadeIn" data-wow-delay=".3s">
-                            <div class="profile_pic text-center sm-mb30">
-                                <figure class="picframe s2 mb30">
-                                    <a class="simple-ajax-popup" href="team-details-1.html">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/team/0.png" class="img-responsive" alt="foto disertante">
-                                </figure>
-
-                                <h3>TBA</h3>
-                                <span class="subtitle">Disertante  (Filiación)</span>
-                                <p>Conferencia Inagural</p>
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 wow fadeIn" data-wow-delay=".6s">
-                            <div class="profile_pic text-center sm-mb30">
-                                <figure class="picframe s2 mb30">
-                                    <a class="simple-ajax-popup" href="team-details-2.html">
-                                        <span class="filter"></span>
-                                    </a>
-                                        <img src="images/team/0.png" class="img-responsive" alt="foto disertante">
-                                </figure>
-
-                                <h3>TBA</h3>
-                                <span class="subtitle">Disertante (Filiación)</span>
-                                <p>Conferencia Cierre</p>
-                                
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 wow fadeIn">
-                            <div class="profile_pic text-center sm-mb30">
-                                
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-            <!-- section close -->
-
-            <!-- section begin -->
-         <!--   <section id="section-tickets">
-                    <div class="container">
-
-                        <div class="col-md-12 text-center">
-                            <h2 class="wow fadeInUp">Tickets</h2>
-                            <div class="small-border wow fadeInUp" data-wow-delay=".2s"></div>
-                        </div>
-                        <div class="col-md-6 col-md-offset-3 text-center">
-                            <p class="lead wow fadeInUp">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
-                            <div class="spacer-single"></div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="item pricing">
-                                <div class="row">
-                                    <div class="col-md-4 col-sm-12 wow fadeIn">
-                                        <div class="pricing-s1 bg-custom mb30" data-bgimage="url(images/background/p1.jpg)" data-stellar-background-ratio=".2">
-                                            <div class="inner">
-                                                <div class="top">
-                                                    <h2>Early Bird</h2>
-                                                    <p class="price"><span class="currency">$</span> <b>39</b></p>
-                                                </div>
-                                                <div class="bottom">
-                                                    <ul>
-                                                        <li><i class="icon_check"></i>1 Conference Day</li>
-                                                        <li><i class="icon_check"></i>1 Workshop Day</li>
-                                                        <li><i class="icon_check"></i>Regular Seat</li>
-                                                        <li><i class="icon_check"></i>Free Coffee/Lunch</li>
-                                                        <li><i class="icon_check"></i>One Certificate</li>
-                                                    </ul>
-                                                    <a href="index.html#section-registro" class="btn-border scroll-to">Register</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-12 wow fadeIn" data-wow-delay=".2s">
-                                        <div class="pricing-s1 bg-custom mb30" data-bgimage="url(images/background/p2.jpg)" data-stellar-background-ratio=".2">
-                                            <div class="inner">
-                                                <div class="ribbon">Recomendado</div>
-                                                <div class="top">
-                                                    <h2>Inscripción</h2>
-                                                    <p class="price"><span class="currency">$</span> <b>Gratuito</b></p>
-                                                </div>
-                                                <div class="bottom">
-                                                    <ul>
-                                                        <li><i class="icon_check"></i>Asistencia Conferencias</li>
-                                                        <li><i class="icon_check"></i>Asistencia Mesas de Discusión</li>
-                                                        <li><i class="icon_check"></i>Charlas</li>
-                                                        <li><i class="icon_check"></i>Talleres</li>
-                                                        <li><i class="icon_check"></i>Certificación</li>
-                                                    </ul>
-                                                    <a href="index.html#section-registro" class="btn-border scroll-to">Registrate</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-12 wow fadeIn" data-wow-delay=".4s">
-                                        <div class="pricing-s1 bg-custom mb30" data-bgimage="url(images/background/p3.jpg)" data-stellar-background-ratio=".2">
-                                            <div class="inner">
-                                                <div class="top">
-                                                    <h2>Exclusive</h2>
-                                                    <p class="price"><span class="currency">$</span> <b>199</b></p>
-                                                </div>
-                                                <div class="bottom">
-                                                    <ul>
-                                                        <li><i class="icon_check"></i>Full Conference Day</li>
-                                                        <li><i class="icon_check"></i>Full Workshop Day</li>
-                                                        <li><i class="icon_check"></i>VIP Seat</li>
-                                                        <li><i class="icon_check"></i>Free Coffee/Lunch</li>
-                                                        <li><i class="icon_check"></i>Three Certificate</li>
-                                                    </ul>
-                                                    <a href="index.html#section-registro" class="btn-border scroll-to">Register</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </section>
-            <!-- section close -->
-         
-            <!-- section begin -->
-            <section id="section-organizacion" class="no-top no-bottom text-light" data-stellar-background-ratio=".2">
-                <div class="overlay-gradient pt80 pb80">
-                    <div class="container relative">
-                        <div class="row">
-                                 <div class="col-md-12 text-center">
-                                    <h2 class="wow fadeInUp">Organizadores</h2>
-                                    <div class="small-border wow fadeInUp" data-wow-delay=".2s"></div>
-                                </div>
-                                <div class="col-md-6 col-md-offset-3 text-center">
-                                    <p class="lead wow fadeInUp">JADiCC 2025 es organizado por</p>
-                                </div>
-
-                                <div class="col-md-12 col-md-offset-3 text-center wow fadeInUp">
-                                    <div class="owl-carousel owl-sponsors ">
-                                        <a href="https://dirinfo.unsl.edu.ar/" target="_blank"><div class="item"><img src="images/logo/logo-di.png" alt="web DI"></div></a>
-                                        <a href="https://fmn.unsl.edu.ar/" target="_blank"><div class="item"><img src="images/logo/logo-fmn.png" alt="web Faculad"></div></a>
-                                        <a href="https://www.unsl.edu.ar/" target="_blank"><div class="item"><img src="images/logo/logo-unsl.png" alt="web UNSL"></div></a>
-                                    </div>
-                                </div>                               
-                               <div class="spacer-single"></div>
-
-                         </div>
-                            
-                         <div class="row">
-                                <div class="col-md-4 wow fadeInUp text-center">
-                                    <h3 class="wow fadeInUp">Comité Organizador</h3>
-                                    <div class="small-border wow fadeInUp"></div>
-                                    <strong>Fernandez, Jaqueline</strong> - UNSL <br />
-                                    <strong>	,		</strong> -	<br />                               
-                                </div>
-                                
-                                <div class="col-md-4 wow fadeInUp text-center">
-                                    <h3 class="wow fadeInUp">Chairs Comité de Programa</h3>
-                                    <div class="small-border wow fadeInUp"></div>
-                                    <div class="spacer-single"></div>
-                                    <strong>Presidente</strong><br />
-                                    <strong>Fernandez, Jaqueline</strong> - UNSL <br />
-                                    <div class="small-border wow fadeInUp"></div>
-                                    <strong>Track Artículos</strong><br />
-                                    <strong>	,		</strong> -	<br />
-                                    <div class="small-border wow fadeInUp"></div>
-                                    <strong>Track Experiencias Docentes</strong><br />
-                                    <strong>	,		</strong> -	<br />
-                                    <div class="small-border wow fadeInUp"></div>
-                                    <strong>Track Demo Herramientas</strong><br />
-                                    <strong>	,		</strong> -	<br />
-                                    <div class="small-border wow fadeInUp"></div>
-                                    <strong>Track Talleres</strong><br />
-                                    <strong>	,		</strong> -	<br />
-                                     </div> 
-                                 <div class="col-md-4 wow fadeInUp text-center">
-                                    <h3 class="wow fadeInUp">Miembros Comité de Programa</h3>
-                                    <div class="small-border wow fadeInUp"></div>
-                                    	<strong>	Aranda	,	Gabriela Noemí	</strong> -	UNCo	<br />
-                                    	<strong>	Arroyo	,	Marcelo	</strong> -	UNRC	<br />
-                                    	<strong>	Banchoff Tzancoff	,	Claudia Mariana	</strong> -	LINTI-FI-UNLP	<br />
-                                    	<strong>	Bavera	,	Francisco	</strong> -	UNRC // UNViMe	<br />
-                                    	<strong>	Bollati	,	Verónica Andrea	</strong> -	CONICET // UTN-FRRe	<br />
-                                    	<strong>	Bordignon	,	Fernando Raúl	</strong> -	UNIPe // FCEyN-UBA	<br />
-                                    	<strong>	Brassesco 	,	Maria Virginia	</strong> -	UNiPe // FCEyN-UBA	<br />
-                                    	<strong>	Carmona	,	Fernanda Beatriz	</strong> -	UNdeC	<br />                                    	
-                                    	<strong>	Casali	,	Ana	</strong> -	FCEIyA-UNR // CIFASIS	<br />
-                                    	<strong>	Casariego	,	Claudia	</strong> -	UNLa	<br />
-                                    	<strong>	Cecchi	,	Laura Andrea	</strong> -	UNCo	<br />
-                                    	<strong>	Colussi	,	Natalia	</strong> -	FCEIA-UNR	<br />
-                                    	<strong>	Daniele	,	Marcela	</strong> -	UNRC	<br />
-                                    	<strong>	Dapozo	,	Gladys Noemi	</strong> -	UNNE	<br />
-                                    	<strong>	Del Dago	,	Gustavo	</strong> -	Fundación Sadosky // UNPAZ	<br />
-                                    	<strong>	Dughera	,	Lucila	</strong> -	CONICET	<br />
-                                    	<strong>	Echeveste	,	Maria Emilia	</strong> -	UNC	<br />
-                                    	<strong>	Fernandez	,	Jacqueline	</strong> -	UNSL	<br />
-                                    	<strong>	Fernández	,	Gonzalo Pablo	</strong> -	UNQ // UBA	<br />
-                                    	<strong>	Frati	,	Fernando Emmanuel	</strong> -	UNdeC	<br />
-                                    	<strong>	Garbarini	,	Laura Virginia	</strong> -	UNLa	<br />
-                                    	<strong>	Golobisky	,	María Fernanda	</strong> -	UTN-FRSF	<br />
-                                    	<strong>	Gómez	,	Marcos J.	</strong> -	UNC	<br />
-                                    	<strong>	Guatelli	,	Renata Silvia	</strong> -	UNLaM // UNAJ	<br />
-                                    	<strong>	Lasso	,	Marta Graciela	</strong> -	UNPA // UACO	<br />                                    	
-                                    	<strong>	Leonardi	,	Maria Carmen	</strong> -	INTIA // FCE-UNICEN	<br />
-                                    	<strong>	López y Rosenfeld	,	Matías	</strong> -	UBA - CONICET	<br />
-                                    	<strong>	Martinez	,	Cecilia	</strong> -	UNC // CONICET	<br />
-                                    	<strong>	Martínez López	,	Pablo -Fidel-	</strong> -	UNQ//UNaHur//FS	<br />
-                                    	<strong>	Méndez	,	Analía	</strong> -	UNSE	<br />
-                                    	<strong>	Millán Tejada	,	Ilda Flavia	</strong> -	UNSJ	<br />
-                                    	<strong>	Monjelat	,	Natalia 	</strong> -	IRICE-CONICET // UNR	<br />
-                                    	<strong>	Pinto	,	Noelia Soledad	</strong> -	UTN-FRRe	<br />
-                                    	<strong>	Puricelli	,	Fernando	</strong> -	UNaHur	<br />
-                                    	<strong>	Queiruga	,	Claudia	</strong> -	LINTI-FI-UNLP	<br />
-                                    	<strong>	Quintero	,	Teresa	</strong> -	UNRC // CIAEC-UBA	<br />
-                                    	<strong>	Rambo	,	Alice Raquel	</strong> -	FCEQyN-UNaMisiones	<br />
-                                    	<strong>	Reyes	,	Nora Susana	</strong> -	UNSL	<br />
-                                    	<strong>	Rodríguez	,	Jorge	</strong> -	UNCo	<br />
-                                    	<strong>	Rosso	,	Fabiana 	</strong> -	ISFD Menendez Pidal	<br />
-                                    	<strong>	Sequeira	,	Gladis Marleni	</strong> -	UNaM	<br />
-                                    	<strong>	Torres	,	Vanesa	</strong> -	UNViMe	<br />                                    	
-                                    	<strong>	Turjanski	,	Pablo	</strong> -	FCEyN-UBA // ICC-UBA/CONICET	<br />
-                                    	<strong>	Werenítzky Curia 	,	María Cristina 	</strong> -	FACET-UNT	<br />
-                                    	<strong>	Zanarini	,	Dante	</strong> -	UNR	<br />
-                                </div>
-                        </div>
-                        
-                        <div class="row">
-                               <div class="col-md-6 col-md-offset-3 text-center">
-                                    <div class="small-border wow fadeInUp" data-wow-delay=".2s"></div>
-                                    <p class="lead wow fadeInUp">Avalan JADiCC 2025</p>
-
-                                </div>
-
-                                <div class="col-md-8 col-md-offset-3 text-center wow fadeInUp">
-                                    <div class="owl-carousel owl-sponsors ">
-                        <!--              <a href="https://www.info.unlp.edu.ar/" target="_blank"><div class="item"><img src="images/logo/logo-unlp.jpg" alt="web informática UNLP"></div></a>
-                                        <a href="https://www.fceqyn.unam.edu.ar/" target="_blank"><div class="item"><img src="images/logo/facmisiones.png" alt="web Exactas UNaM"></div></a>
-                                        <a href="https://www.unvime.edu.ar/" target="_blank"><div class="item"><img src="images/logo/logo-unvime.jpg" alt="web UNViMe"></div></a>
-                        -->            </div>
-                                </div>                               
-                        </div>
-                        
-                    </div>
-                </div>
-            </section>
-            <!-- section close -->
-            
-            <!-- section begin -->
-            <section id="section-gallery">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h2 class="wow fadeInUp">Ediciones Anteriores</h2>
-                            <div class="small-border wow fadeInUp" data-wow-delay=".2s"></div>
-                        </div>
-                        
-                        <div class="col-md-12 text-center wow fadeInUp">
-                                    <div class="owl-carousel owl-sponsors ">
-                                        <a href="https://jadicc2024.dc.exa.unrc.edu.ar/" target="_blank"><div class="item"><img src="images/logo/2024.png" alt="Jadicc 2024"></div></a>
-                                        <a href="https://jadicc2023.program.ar/" target="_blank"><div class="item"><img src="images/logo/2023.png" alt="Jadicc 2023"></div></a>
-                                        <a href="https://jadicc2022.unne.edu.ar/" target="_blank"><div class="item"><img src="images/logo/2022.png" alt="Jadicc 2022"></div></a>
-                                        <a href="https://jadicc2021.program.ar/" target="_blank"><div class="item"><img src="images/logo/2021.png" alt="Jadicc 2021"></div></a>
-                                        <a href="https://jadipro.unc.edu.ar/" target="_blank"><div class="item"><img src="images/logo/2019.png" alt="Jadipro 2019"></div></a>
-                                        <a href="https://jadipro.unq.edu.ar/" target="_blank"><div class="item"><img src="images/logo/2018.png" alt="Jadipro 2018"></div></a>                                        
-                                    </div>
-                        </div>
-
-                        <div class="clearfix"></div>
-
-                        <div class="col-md-6 col-md-offset-3 text-center">
-                            <h3 class="wow fadeInUp">JADiCC en números...</h3>
-                        </div>    
-
-                        <div class="clearfix"></div>
-
-                           <div class="col-md-3 col-xs-6 wow fadeIn">
-                                <div class="de_counta sm-mb30">
-                                    <h3 class="timer" data-to="6" data-speed="2500">0</h3>
-                                    <span>Ediciones</span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-xs-6 wow fadeIn" data-wow-delay=".2s">
-                                <div class="de_counta sm-mb30">
-                                    <h3 class="timer" data-to="300" data-speed="2500">0</h3>
-                                    <span>Expositores</span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-xs-6 wow fadeIn" data-wow-delay=".4s">
-                                <div class="de_counta sm-mb30">
-                                    <h3 class="timer" data-to="3000" data-speed="2500">0</h3>
-                                    <span>Asistentes</span>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-xs-6 wow fadeIn" data-wow-delay=".6s">
-                                <div class="de_counta sm-mb30">
-                                    <h3 class="timer" data-to="50" data-speed="2500">0</h3>
-                                    <span>Talleres</span>
-                                </div>
-                            </div>
-
-                        <div class="clearfix"></div>
-                        <div class="spacer-single"></div>
-
-
-                        <div class="col-md-6 col-md-offset-3 text-center">
-                            <h3 class="wow fadeInUp">Fotos de Ediciones Anteriores</h3>
-                        </div>       
-
-
-                        <div id="owl-gallery" class="owl-carousel wow fadeInUp">
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/1.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/1.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
-
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/2.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/2.jpg" class="img-responsive" alt="">
-                                </figure>
-                            </div>
-
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/3.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/3.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
-
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/4.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/4.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
-
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/5.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/5.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
-
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/6.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/6.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
-
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/7.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/7.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
-
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/8.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/8.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/9.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/9.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/10.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/10.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/11.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/11.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/12.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/12.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/13.jpg">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/13.jpg" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
-                                                       
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/14.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/14.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/15.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/15.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/16.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/16.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/17.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/17.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/18.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/18.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/19.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/19.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/20.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/20.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/21.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/21.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/22.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/22.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/23.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/23.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/24.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/24.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/25.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/25.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/26.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/26.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/27.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/27.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/28.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/28.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/29.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/29.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/30.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/30.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/31.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/31.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/32.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/32.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
- 
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/33.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/33.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
-                        
-                            <div class="gallery-item text-center">
-                                <figure class="picframe s2 mb30">
-                                    <a class="image-popup" href="images/gallery/34.png">
-                                        <span class="filter"></span>
-                                    </a>
-                                    <img src="images/gallery/34.png" class="img-responsive" alt="foto">
-                                </figure>
-                            </div>
-                            
-                            
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-            <!-- section close -->  
-            <!-- section begin -->
-            <section id="section-contact" class="no-top no-bottom text-light" data-stellar-background-ratio=".2">
-                <div class="overlay-gradient pt80 pb80">
-                    <div class="container">
-
-                       <div class="col-md-12 text-center">
-                                <h2 class="wow fadeInUp">Contacto</h2>
-                                <div class="small-border wow fadeInUp" data-wow-delay=".2s"></div>
-                            </div>
-
-                        <div class="row text-center">
-
-                            <div class="col-md-12">
-                                <div class="wm-1"></div>
-                                <i class="icon-envelope id-color size40 mb20"></i>
-                                <h4>Para contactarnos escribe a </h4>
-                                <h3>jadicc25@unsl.edu.ar</h3>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </section>
-            <!-- section close -->
-
         </div>
-        <!-- content close -->
+        <!-- About End -->
 
-        <!-- footer begin -->
-        <footer>
+
+        <!-- Service Start -->
+        <div class="service">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Qué hacemos?</p>
+                    <h3>Educación, ciencia y tecnología en diálogo</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="flaticon-education"></i>
+                            </div>
+                            <div class="service-text">
+                                <h3>Capacitaciones Docentes</h3>
+                                <p>Pensamiento Computacional, programación, robótica e inteligencia artificial para
+                                docentes de todos los niveles</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="bi bi-book"></i>
+                            </div>
+                            <div class="service-text">
+                                <h3>Propuestas Curriculares</h3>
+                                <p>Para integrar las Ciencias de la Computación en las aulas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-icon">
+                            <i class="bi bi-bank"></i>
+                            </div>
+                            <div class="service-text">
+                                <h3>Visitas a Escuelas</h3>
+                                <p>Talleres y actividades STEM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+                            <div class="service-text">
+                                <h3>Recursos Didácticos</h3>
+                                <p>Disponibles para usar en las aulas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-icon">
+                            <i class="bi bi-tools"></i> 
+                            </div>
+                            <div class="service-text">
+                                <h3>Herramientas</h3>
+                                <p>Para apoyar el proceso de enseñanza</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="flaticon-social-care"></i>
+                            </div>
+                            <div class="service-text">
+                                <h3>Eventos</h3>
+                                <p>Para difundir, colaborar y generar redes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service End -->
+        
+        
+        <!-- Facts Start -->
+        <div class="facts" data-parallax="scroll" data-image-src="img/fondo-3.webp">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 sm-text-center sm-mb10">
-                        <div class="mt10">JADiCC 2025 - Departamento de Informática - FCFMyN - UNLS  </div>
+					<div class="col-lg-3 col-md-6">
+                        <div class="facts-item">
+                            <i class="bi bi-tools"></i> 
+                            <div class="facts-text">
+                                <h3 class="facts-plus" data-toggle="counter-up">50</h3>
+                                <p>Recursos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="facts-item">
+                            <i class="flaticon-education"></i>
+                            <div class="facts-text">
+                                <h3 class="facts-plus" data-toggle="counter-up">50</h3>
+                                <p>Capacitaciones</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="facts-item">
+                            <i class="bi bi-bank"></i>
+                            <div class="facts-text">
+                                <h3 class="facts-plus" data-toggle="counter-up">250</h3>
+                                <p>Escuelas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="facts-item">
+                            <i class="bi bi-people"></i>
+                            <div class="facts-text">
+                                <h3 class="facts-plus" data-toggle="counter-up">2000</h3>
+                                <p>Docentes</p>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="col-md-6 sm-text-center sm-mb10">
-                        <div class="mt10">jadicc25@unsl.edu.ar</div>
-                    </div>
-
-                <!--<div class="col-md-6 text-right sm-text-center">
-                        <div class="social-icons">
-                            <a href="index.html#"><i class="fa fa-facebook fa-lg"></i></a>
-                            <a href="index.html#"><i class="fa fa-twitter fa-lg"></i></a>
-                            <a href="index.html#"><i class="fa fa-linkedin fa-lg"></i></a>
-                            <a href="index.html#"><i class="fa fa-google-plus fa-lg"></i></a>
-                            <a href="index.html#"><i class="fa fa-rss fa-lg"></i></a>
-                        </div>
-                    </div> -->
                 </div>
             </div>
-
-        </footer>
-        <!-- footer close -->
-
-        <a href="index.html#" id="back-to-top"></a>
-        <div id="preloader">
-            <div class="preloader1"></div>
         </div>
-		
-		<div id="floating-icon" class="sm-hide">
-			<a class="simple-ajax-popup scroll-to bg-purple" href="dates-details.html"> <i class="icon-calendar"></i> Fechas</a>
-			<a class="simple-ajax-popup scroll-to bg-orange" href="register-details.html"> <i class="icon-pencil"></i> <font style="color:#0c3c63"> Inscripción</font></a>
-		<!--	<a href="index.html#section-registro" class="scroll-to bg-orange"><i class="icon-pencil"></i> Inscripción</a> -->
-			<a href="index.html#section-contact"  class="scroll-to bg-pink"><i class="icon-envelope"></i> <font style="color:#0c3c63">Contacto</font></span>
-			
-		</div>
+        <!-- Facts End -->
+        
+        
+        <!-- Causes Start -->
+        <div class="causes">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Popular Causes</p>
+                    <h2>Let's know about charity causes around the world</h2>
+                </div>
+                <div class="owl-carousel causes-carousel">
+                    <div class="causes-item">
+                        <div class="causes-img">
+                            <img src="img/causes-1.jpg" alt="Image">
+                        </div>
+                        <div class="causes-progress">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                    <span>85%</span>
+                                </div>
+                            </div>
+                            <div class="progress-text">
+                                <p><strong>Raised:</strong> $100000</p>
+                                <p><strong>Goal:</strong> $50000</p>
+                            </div>
+                        </div>
+                        <div class="causes-text">
+                            <h3>Lorem ipsum dolor sit</h3>
+                            <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non vulputa</p>
+                        </div>
+                        <div class="causes-btn">
+                            <a class="btn btn-custom">Learn More</a>
+                            <a class="btn btn-custom">Donate Now</a>
+                        </div>
+                    </div>
+                    <div class="causes-item">
+                        <div class="causes-img">
+                            <img src="img/causes-2.jpg" alt="Image">
+                        </div>
+                        <div class="causes-progress">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                    <span>85%</span>
+                                </div>
+                            </div>
+                            <div class="progress-text">
+                                <p><strong>Raised:</strong> $100000</p>
+                                <p><strong>Goal:</strong> $50000</p>
+                            </div>
+                        </div>
+                        <div class="causes-text">
+                            <h3>Lorem ipsum dolor sit</h3>
+                            <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non vulputa</p>
+                        </div>
+                        <div class="causes-btn">
+                            <a class="btn btn-custom">Learn More</a>
+                            <a class="btn btn-custom">Donate Now</a>
+                        </div>
+                    </div>
+                    <div class="causes-item">
+                        <div class="causes-img">
+                            <img src="img/causes-3.jpg" alt="Image">
+                        </div>
+                        <div class="causes-progress">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                    <span>85%</span>
+                                </div>
+                            </div>
+                            <div class="progress-text">
+                                <p><strong>Raised:</strong> $100000</p>
+                                <p><strong>Goal:</strong> $50000</p>
+                            </div>
+                        </div>
+                        <div class="causes-text">
+                            <h3>Lorem ipsum dolor sit</h3>
+                            <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non vulputa</p>
+                        </div>
+                        <div class="causes-btn">
+                            <a class="btn btn-custom">Learn More</a>
+                            <a class="btn btn-custom">Donate Now</a>
+                        </div>
+                    </div>
+                    <div class="causes-item">
+                        <div class="causes-img">
+                            <img src="img/causes-4.jpg" alt="Image">
+                        </div>
+                        <div class="causes-progress">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                    <span>85%</span>
+                                </div>
+                            </div>
+                            <div class="progress-text">
+                                <p><strong>Raised:</strong> $100000</p>
+                                <p><strong>Goal:</strong> $50000</p>
+                            </div>
+                        </div>
+                        <div class="causes-text">
+                            <h3>Lorem ipsum dolor sit</h3>
+                            <p>Lorem ipsum dolor sit amet elit. Phasell nec pretium mi. Curabit facilis ornare velit non vulputa</p>
+                        </div>
+                        <div class="causes-btn">
+                            <a class="btn btn-custom">Learn More</a>
+                            <a class="btn btn-custom">Donate Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Causes End -->
+        
+        
+        <!-- Donate Start -->
+        <div class="donate" data-parallax="scroll" data-image-src="img/fondo-pizarron.jpg">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="donate-content">
+                            <div class="section-header">
+                                <p>Nuestras Redes</p>
+                                <h2>Colaboramos, interactuamos y trabajamos con una amplia red de equipos</h2>
+                            </div>
+                            <div class="donate-text">
+                                <p>
+                                    ...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="donate-form">
+                            <form>
+              
+                                <div class="btn-group" data-toggle="buttons">
+                                    
+                                    <label class="btn btn-custom">
+                                          <a href="https://www.unrc.edu.ar/"><img src="img/logo-unrc.png" alt="logo DC" target="_blank"></a>
+                                    </label>
+                                    <label class="btn btn-custom">
+                                        <a href="https://www.unrc.edu.ar/"><img src="img/logos/4.png" alt="logo DC" target="_blank"></a>
+                                    </label>
+                                </div>
+                                <div>
+                                    <button class="btn btn-custom"> <a href="https://www.unrc.edu.ar/"><img class="top-bar-img" src="img/logo-unrc.png" alt="logo DC"></a></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Donate End -->
+        
+        
+        <!-- Event Start -->
+        <div class="event">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Próximas Actividades</p>
+                    <h2>Participa de nuestras propuesas </h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="event-item">
+                            <img src="img/eventos/curso-ia.png" alt="Image">
+                            <div class="event-content">
+                                <div class="event-meta">
+                                    <p><i class="fa fa-calendar-alt"></i>Agosto-2025</p>
+                                    <p><i class="far fa-clock"></i>A confirmar</p>
+                                    <p><i class="fa fa-map-marker-alt"></i>Campus UNRC</p>
+                                </div>
+                                <div class="event-text">
+                                    <h3>Curso IA para Docentes</h3>
+                                    <p>
+                                        Como podes integrar herramientas de IA generativa en tus actividades docentes.
+                                    </p>
+                                    <a class="btn btn-custom" href="">Más info...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="event-item">
+                            <img src="img/eventos/ada.png" alt="Image">
+                            <div class="event-content">
+                                <div class="event-meta">
+                                    <p><i class="fa fa-calendar-alt"></i>4-Octubre-2025</p>
+                                    <p><i class="far fa-clock"></i>8:00 - 13:00</p>
+                                    <p><i class="fa fa-map-marker-alt"></i>Campus UNRC</p>
+                                </div>
+                                <div class="event-text">
+                                    <h3>Jornada Latinoamericana de Talleres STEM</h3>
+                                    <p>
+                                        Festejamos el Día de Ada Lovelace con talleres lúdicos para niñas y docentes, con el objetivo de 
+                                        promover las carreras STEM y alentar a las niñas a continuar sus estudios y a comprender la importancia del rol de la 
+                                        mujer en la Ciencia.
+                                    </p>
+                                    <a class="btn btn-custom" href="">Más info...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Event End -->
 
-    </div>
 
-    <!-- Javascript Files
-    ================================================== -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/easing.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/jquery.countTo.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/enquire.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/jquery.plugin.js"></script>
-    <script src="js/jquery.countdown.js"></script>
-    <script src="js/countdown-custom.js"></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc5d1RS_0yWJ1Hyw2hGWfbRZ9KKaxFAZo"></script>
-    <script src="js/map.js"></script>
---> <script src="js/designesia.js"></script>
-<!--<script src="js/validation.js"></script>
--->
-</body>
+        <!-- Team Start -->
+        <div class="team">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Meet Our Team</p>
+                    <h2>Awesome guys behind our charity activities</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="img/team-1.jpg" alt="Team Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>Donald John</h2>
+                                <p>Founder & CEO</p>
+                                <div class="team-social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="img/team-2.jpg" alt="Team Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>Adam Phillips</h2>
+                                <p>Chef Executive</p>
+                                <div class="team-social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="img/team-3.jpg" alt="Team Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>Thomas Olsen</h2>
+                                <p>Chef Advisor</p>
+                                <div class="team-social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="team-item">
+                            <div class="team-img">
+                                <img src="img/team-4.jpg" alt="Team Image">
+                            </div>
+                            <div class="team-text">
+                                <h2>James Alien</h2>
+                                <p>Advisor</p>
+                                <div class="team-social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+        
+        
+        <!-- Volunteer Start -->
+        <div class="volunteer" data-parallax="scroll" data-image-src="img/fondo.jpeg">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="volunteer-form">
+                            <form>
+                                <div class="control-group">
+                                    <input type="text" class="form-control" placeholder="Name" required="required" />
+                                </div>
+                                <div class="control-group">
+                                    <input type="email" class="form-control" placeholder="Email" required="required" />
+                                </div>
+                                <div class="control-group">
+                                    <textarea class="form-control" placeholder="Why you want to become a volunteer?" required="required"></textarea>
+                                </div>
+                                <div>
+                                    <button class="btn btn-custom" type="submit">Become a volunteer</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="volunteer-content">
+                            <div class="section-header">
+                                <p>Become A Volunteer</p>
+                                <h2>Let’s make a difference in the lives of others</h2>
+                            </div>
+                            <div class="volunteer-text">
+                                <p>
+                                    Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Volunteer End -->
+        
+        
+        <!-- Testimonial Start -->
+        <div class="testimonial">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Testimonial</p>
+                    <h2>What people are talking about our charity activities</h2>
+                </div>
+                <div class="owl-carousel testimonials-carousel">
+                    <div class="testimonial-item">
+                        <div class="testimonial-profile">
+                            <img src="img/testimonial-1.jpg" alt="Image">
+                            <div class="testimonial-name">
+                                <h3>Person Name</h3>
+                                <p>Profession</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-profile">
+                            <img src="img/testimonial-2.jpg" alt="Image">
+                            <div class="testimonial-name">
+                                <h3>Person Name</h3>
+                                <p>Profession</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-profile">
+                            <img src="img/testimonial-3.jpg" alt="Image">
+                            <div class="testimonial-name">
+                                <h3>Person Name</h3>
+                                <p>Profession</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-profile">
+                            <img src="img/testimonial-4.jpg" alt="Image">
+                            <div class="testimonial-name">
+                                <h3>Person Name</h3>
+                                <p>Profession</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor, auctor id gravid vivera quis
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+        
+        
+        <!-- Blog Start -->
+        <div class="blog">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Our Blog</p>
+                    <h2>Latest news & articles directly from our blog</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="img/blog-1.jpg" alt="Image">
+                            </div>
+                            <div class="blog-text">
+                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                                </p>
+                            </div>
+                            <div class="blog-meta">
+                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="img/blog-2.jpg" alt="Image">
+                            </div>
+                            <div class="blog-text">
+                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                                </p>
+                            </div>
+                            <div class="blog-meta">
+                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="img/blog-3.jpg" alt="Image">
+                            </div>
+                            <div class="blog-text">
+                                <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                                </p>
+                            </div>
+                            <div class="blog-meta">
+                                <p><i class="fa fa-user"></i><a href="">Admin</a></p>
+                                <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
 
+
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-contact">
+                            <h2>Contacto</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>Departamento de Computación</p>
+                            <p><i class="fa fa-map-marker-alt"></i>FCEFQN - UNRC</p>
+                            <p><i class="fa fa-envelope"></i>cursoprogramacion@dc.exa.unrc.edu.ar</p>
+                      <!--      <div class="footer-social">
+                                <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                      -->  </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-link">
+                            <h2>Links</h2>
+                            <a href="">Acerca de</a>
+                            <a href="">Contact Us</a>
+                            <a href="">Popular Causes</a>
+                            <a href="">Upcoming Events</a>
+                            <a href="">Latest Blog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a href="#">Your LABIIN-EduCs</a>, All Right Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        
+        <!-- Back to top button -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <!-- Pre Loader -->
+        <div id="loader" class="show">
+            <div class="loader"></div>
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/parallax/parallax.min.js"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="mail/jqBootstrapValidation.min.js"></script>
+        <script src="mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+    </body>
 </html>
