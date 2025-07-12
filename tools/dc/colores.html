@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dibuja en la Cuadrícula</title>
+	<link rel="icon" href="assets/p5play_logo.svg">
+	<link rel="stylesheet" href="style.css">
+	
+	<style>
+.page {
+	display: flex;
+}
+
+#learn-p5play {
+	display: flex;
+	height: 18.5vw;
+	gap: 20px;
+}
+
+#learn-p5play>div {
+	width: fit-content;
+}
+
+#learnBanner {
+	position: absolute;
+	min-width: 1000px;
+	width: 100vw;
+	z-index: -1;
+	top: 126px;
+	left: 0;
+}
+
+#refs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#learn-p5play_img {
+	display: flex;
+	justify-content: center;
+	width: fit-content;
+}
+
+#learn-p5play_img img {
+	width: 100%;
+	max-width: 464px;
+}
+
+body.light #learn-p5play_img img:first-child {
+	display: none;
+}
+
+body.dark #learn-p5play_img img:nth-child(2) {
+	display: none;
+}
+
+#getStarted {
+	font-size: 24px;
+	margin: 0;
+}
+
+#learnTitle {
+	font-family: 'Mont';
+	font-size: 56px;
+	color: var(--blue2);
+	-webkit-text-stroke: 2px var(--blue1);
+	text-shadow: 3px 3px var(--pink0);
+}
+
+#learnTitle:hover {
+	color: var(--blue3);
+}
+
+#refs>div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 4px;
+	align-content: start;
+}
+
+#refs div:first-child .btn {
+	font-size: 27px;
+}
+
+#refs div:not(:first-child) h2 a:hover {
+	color: var(--pink);
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 1030px) {
+
+	#refs>div:nth-child(1),
+	#refs>div:nth-child(2) {
+		width: 96%;
+	}
+
+	#learnBanner {
+		min-width: auto;
+		width: auto;
+		height: 400px;
+	}
+
+	#learn-p5play {
+		min-height: 400px;
+	}
+}
+
+@media screen and (max-width: 540px) {
+
+	#refs>div,
+	#refs>div:nth-child(7),
+	#refs>div:nth-child(8),
+	#refs>div:nth-child(9),
+	#refs>div:nth-child(10) {
+		width: 96%;
+	}
+}
+
+table.ws-table-all{margin:20px 0}
+
+body.dark .ws-table-all {border:1px solid #38444d}
+body.dark .ws-table-all tr {border-bottom:1px solid #38444d}
+body.dark .ws-table-all tr:nth-child(odd) {background-color:#1d2a35;color:#ddd}
+body.dark .ws-table-all tr:nth-child(even){background-color:#38444d;color:#ddd}
+
+.ws-table-all {border-collapse:collapse;border-spacing:0;width:100%;display:table;border:1px solid #ccc}
+.ws-table-all tr {border-bottom:1px solid #ddd}
+.ws-table-all tr:nth-child(odd) {background-color:#fff}.ws-table-all tr:nth-child(even){background-color:#E7E9EB}
+.ws-table-all td,.ws-table-all th {padding:8px 8px;display:table-cell;text-align:left;vertical-align:top}
+.ws-table-all th:first-child, .ws-table-all td:first-child{padding-left:16px}
+	</style>
+</head>
+
+<body class="dark">
+	<article style="display: none;">
+		<nav id="topNav">
+			<a href="index.html" class="logoLink active">
+				<img alt="p5play logo" src="assets/p5play_logo.svg" class="p5play_logo">
+				<span>Dibuja en la Cuadrícula</span>
+			</a>
+			<hr>
+			<a href="actividades.html">Actividades</a>
+            <a href="tutorial.html">Tutorial</a>
+			<a href="actividades.html?page=30">Dibuja</a>
+			<div id="navRight">
+				<hr>
+				<a id="darkMode" onclick="toggleDarkMode()" tabindex="0" role="button" title="dark mode toggle">
+					<div id="darkModeIcon"></div>
+				</a>
+			</div>
+		</nav>
+	
+	<div class="break"></div>
+
+	<div id="page-0" class="page">
+			
+	   <div class="minis horiz" style="width: 100%; padding: 0">
+		    <md id="md0-1" >
+				<h2>Grupos de Colores</h2>
+	        </md>
+	   </div>     	
+	   
+<div class="minis horiz" style="width: 33%; padding: 0">		
+<md id="md0-1">
+<div>
+<table class="ws-table-all">
+
+<tr>
+<td colspan="2"><h3>Pink Colors</h3></td>
+</tr>
+<tr>
+<th style="width:25%">Color Name</th>
+<th style="width:43%">Color</th>
+</tr>
+
+<tr>
+<td>Pink&nbsp;</td>
+<td bgcolor="#FFC0CB">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightPink&nbsp;</td>
+<td bgcolor="#FFB6C1">&nbsp;</td>
+</tr>
+
+<tr>
+<td>HotPink&nbsp;</td>
+<td bgcolor="#FF69B4">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DeepPink&nbsp;</td>
+<td bgcolor="#FF1493">&nbsp;</td>
+</tr>
+
+<tr>
+<td>PaleVioletRed&nbsp;</td>
+<td bgcolor="#DB7093">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MediumVioletRed&nbsp;</td>
+<td bgcolor="#C71585">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>Purple Colors</h3></td>
+</tr>
+<tr>
+<th style="width:25%">Color Name</th>
+<th style="width:43%">Color</th>
+</tr>
+
+<tr>
+<td>Lavender&nbsp;</td>
+<td bgcolor="#E6E6FA">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Thistle&nbsp;</td>
+<td bgcolor="#D8BFD8">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Plum&nbsp;</td>
+<td bgcolor="#DDA0DD">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Orchid&nbsp;</td>
+<td bgcolor="#DA70D6">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Violet&nbsp;</td>
+<td bgcolor="#EE82EE">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Fuchsia&nbsp;</td>
+<td bgcolor="#FF00FF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Magenta&nbsp;</td>
+<td bgcolor="#FF00FF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MediumOrchid&nbsp;</td>
+<td bgcolor="#BA55D3">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkOrchid&nbsp;</td>
+<td bgcolor="#9932CC">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkViolet&nbsp;</td>
+<td bgcolor="#9400D3">&nbsp;</td>
+</tr>
+
+<tr>
+<td>BlueViolet&nbsp;</td>
+<td bgcolor="#8A2BE2">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkMagenta&nbsp;</td>
+<td bgcolor="#8B008B">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Purple&nbsp;</td>
+<td bgcolor="#800080">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MediumPurple&nbsp;</td>
+<td bgcolor="#9370DB">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MediumSlateBlue&nbsp;</td>
+<td bgcolor="#7B68EE">&nbsp;</td>
+</tr>
+
+<tr>
+<td>SlateBlue&nbsp;</td>
+<td bgcolor="#6A5ACD">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkSlateBlue&nbsp;</td>
+<td bgcolor="#483D8B">&nbsp;</td>
+</tr>
+
+<tr>
+<td>RebeccaPurple&nbsp;</td>
+<td bgcolor="#663399">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Indigo  &nbsp;</td>
+<td bgcolor="#4B0082">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>Red Colors</h3></td>
+</tr>
+<tr>
+<th style="width:25%">Color Name</th>
+<th style="width:43%">Color</th>
+</tr>
+
+<tr>
+<td>LightSalmon&nbsp;</td>
+<td bgcolor="#FFA07A">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Salmon&nbsp;</td>
+<td bgcolor="#FA8072">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkSalmon&nbsp;</td>
+<td bgcolor="#E9967A">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightCoral&nbsp;</td>
+<td bgcolor="#F08080">&nbsp;</td>
+</tr>
+
+<tr>
+<td>IndianRed &nbsp;</td>
+<td bgcolor="#CD5C5C">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Crimson&nbsp;</td>
+<td bgcolor="#DC143C">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Red&nbsp;</td>
+<td bgcolor="#FF0000">&nbsp;</td>
+</tr>
+
+<tr>
+<td>FireBrick&nbsp;</td>
+<td bgcolor="#B22222">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkRed&nbsp;</td>
+<td bgcolor="#8B0000">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>Orange Colors</h3></td>
+</tr>
+<tr>
+<th style="width:25%">Color Name</th>
+<th style="width:43%">Color</th>
+</tr>
+
+<tr>
+<td>Orange&nbsp;</td>
+<td bgcolor="#FFA500">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkOrange&nbsp;</td>
+<td bgcolor="#FF8C00">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Coral&nbsp;</td>
+<td bgcolor="#FF7F50">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Tomato&nbsp;</td>
+<td bgcolor="#FF6347">&nbsp;</td>
+</tr>
+
+<tr>
+<td>OrangeRed&nbsp;</td>
+<td bgcolor="#FF4500">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>Yellow Colors</h3></td>
+</tr>
+<tr>
+<th style="width:25%">Color Name</th>
+<th style="width:43%">Color</th>
+</tr>
+
+<tr>
+<td>Gold&nbsp;</td>
+<td bgcolor="#FFD700">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Yellow&nbsp;</td>
+<td bgcolor="#FFFF00">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightYellow&nbsp;</td>
+<td bgcolor="#FFFFE0">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LemonChiffon&nbsp;</td>
+<td bgcolor="#FFFACD">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightGoldenRodYellow&nbsp;</td>
+<td bgcolor="#FAFAD2">&nbsp;</td>
+</tr>
+
+<tr>
+<td>PapayaWhip&nbsp;</td>
+<td bgcolor="#FFEFD5">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Moccasin&nbsp;</td>
+<td bgcolor="#FFE4B5">&nbsp;</td>
+</tr>
+
+<tr>
+<td>PeachPuff&nbsp;</td>
+<td bgcolor="#FFDAB9">&nbsp;</td>
+</tr>
+
+<tr>
+<td>PaleGoldenRod&nbsp;</td>
+<td bgcolor="#EEE8AA">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Khaki&nbsp;</td>
+<td bgcolor="#F0E68C">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkKhaki&nbsp;</td>
+<td bgcolor="#BDB76B">&nbsp;</td>
+</tr>
+
+</table>
+</div>		
+			</md>		
+			</div>
+					
+<div class="minis horiz" style="width: 33%; padding: 0">		
+<md id="md0-1">
+<div>
+<table class="ws-table-all">
+
+<tr>
+<td colspan="2"><h3>Green Colors</h3></td>
+</tr>
+<tr>
+<th style="width:25%">Color Name</th>
+<th style="width:43%">Color</th>
+</tr>
+
+<tr>
+<td>GreenYellow&nbsp;</td>
+<td bgcolor="#ADFF2F">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Chartreuse&nbsp;</td>
+<td bgcolor="#7FFF00">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LawnGreen&nbsp;</td>
+<td bgcolor="#7CFC00">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Lime&nbsp;</td>
+<td bgcolor="#00FF00">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LimeGreen&nbsp;</td>
+<td bgcolor="#32CD32">&nbsp;</td>
+</tr>
+
+<tr>
+<td>PaleGreen&nbsp;</td>
+<td bgcolor="#98FB98">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightGreen&nbsp;</td>
+<td bgcolor="#90EE90">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MediumSpringGreen&nbsp;</td>
+<td bgcolor="#00FA9A">&nbsp;</td>
+</tr>
+
+<tr>
+<td>SpringGreen&nbsp;</td>
+<td bgcolor="#00FF7F">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MediumSeaGreen&nbsp;</td>
+<td bgcolor="#3CB371">&nbsp;</td>
+</tr>
+
+<tr>
+<td>SeaGreen&nbsp;</td>
+<td bgcolor="#2E8B57">&nbsp;</td>
+</tr>
+
+<tr>
+<td>ForestGreen&nbsp;</td>
+<td bgcolor="#228B22">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Green&nbsp;</td>
+<td bgcolor="#008000">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkGreen&nbsp;</td>
+<td bgcolor="#006400">&nbsp;</td>
+</tr>
+
+<tr>
+<td>YellowGreen&nbsp;</td>
+<td bgcolor="#9ACD32">&nbsp;</td>
+</tr>
+
+<tr>
+<td>OliveDrab&nbsp;</td>
+<td bgcolor="#6B8E23">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkOliveGreen&nbsp;</td>
+<td bgcolor="#556B2F">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MediumAquaMarine&nbsp;</td>
+<td bgcolor="#66CDAA">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkSeaGreen&nbsp;</td>
+<td bgcolor="#8FBC8F">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightSeaGreen&nbsp;</td>
+<td bgcolor="#20B2AA">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkCyan&nbsp;</td>
+<td bgcolor="#008B8B">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Teal&nbsp;</td>
+<td bgcolor="#008080">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>&nbsp;</h3></td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>Cyan Colors</h3></td>
+</tr>
+<tr>
+<th style="width:25%">Color Name</th>
+<th style="width:43%">Color</th>
+</tr>
+
+<tr>
+<td>Aqua&nbsp;</td>
+<td bgcolor="#00FFFF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Cyan&nbsp;</td>
+<td bgcolor="#00FFFF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightCyan&nbsp;</td>
+<td bgcolor="#E0FFFF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>PaleTurquoise&nbsp;</td>
+<td bgcolor="#AFEEEE">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Aquamarine&nbsp;</td>
+<td bgcolor="#7FFFD4">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Turquoise&nbsp;</td>
+<td bgcolor="#40E0D0">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MediumTurquoise&nbsp;</td>
+<td bgcolor="#48D1CC">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkTurquoise&nbsp;</td>
+<td bgcolor="#00CED1">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>&nbsp;</h3></td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>Blue Colors</h3></td>
+</tr>
+<tr>
+<th style="width:25%">Color Name</th>
+<th style="width:43%">Color</th>
+</tr>
+
+<tr>
+<td>CadetBlue&nbsp;</td>
+<td bgcolor="#5F9EA0">&nbsp;</td>
+</tr>
+
+<tr>
+<td>SteelBlue&nbsp;</td>
+<td bgcolor="#4682B4">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightSteelBlue&nbsp;</td>
+<td bgcolor="#B0C4DE">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightBlue&nbsp;</td>
+<td bgcolor="#ADD8E6">&nbsp;</td>
+</tr>
+
+<tr>
+<td>PowderBlue&nbsp;</td>
+<td bgcolor="#B0E0E6">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightSkyBlue&nbsp;</td>
+<td bgcolor="#87CEFA">&nbsp;</td>
+</tr>
+
+<tr>
+<td>SkyBlue&nbsp;</td>
+<td bgcolor="#87CEEB">&nbsp;</td>
+</tr>
+
+<tr>
+<td>CornflowerBlue&nbsp;</td>
+<td bgcolor="#6495ED">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DeepSkyBlue&nbsp;</td>
+<td bgcolor="#00BFFF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DodgerBlue&nbsp;</td>
+<td bgcolor="#1E90FF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>RoyalBlue&nbsp;</td>
+<td bgcolor="#4169E1">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Blue&nbsp;</td>
+<td bgcolor="#0000FF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MediumBlue&nbsp;</td>
+<td bgcolor="#0000CD">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkBlue&nbsp;</td>
+<td bgcolor="#00008B">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Navy&nbsp;</td>
+<td bgcolor="#000080">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MidnightBlue&nbsp;</td>
+<td bgcolor="#191970">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+
+</table>
+</div>
+
+				
+			</md>
+			
+			</div>
+
+<div class="minis horiz" style="width: 33%; padding: 0">		
+<md id="md0-1">
+<div>
+<table class="ws-table-all">
+
+<tr>
+<td colspan="2"><h3>Brown Colors</h3></td>
+</tr>
+<tr>
+<th style="width:25%">Color Name</th>
+<th style="width:43%">Color</th>
+</tr>
+
+<tr>
+<td>Cornsilk&nbsp;</td>
+<td bgcolor="#FFF8DC">&nbsp;</td>
+</tr>
+
+<tr>
+<td>BlanchedAlmond&nbsp;</td>
+<td bgcolor="#FFEBCD">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Bisque&nbsp;</td>
+<td bgcolor="#FFE4C4">&nbsp;</td>
+</tr>
+
+<tr>
+<td>NavajoWhite&nbsp;</td>
+<td bgcolor="#FFDEAD">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Wheat&nbsp;</td>
+<td bgcolor="#F5DEB3">&nbsp;</td>
+</tr>
+
+<tr>
+<td>BurlyWood&nbsp;</td>
+<td bgcolor="#DEB887">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Tan&nbsp;</td>
+<td bgcolor="#D2B48C">&nbsp;</td>
+</tr>
+
+<tr>
+<td>RosyBrown&nbsp;</td>
+<td bgcolor="#BC8F8F">&nbsp;</td>
+</tr>
+
+<tr>
+<td>SandyBrown&nbsp;</td>
+<td bgcolor="#F4A460">&nbsp;</td>
+</tr>
+
+<tr>
+<td>GoldenRod&nbsp;</td>
+<td bgcolor="#DAA520">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkGoldenRod&nbsp;</td>
+<td bgcolor="#B8860B">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Peru&nbsp;</td>
+<td bgcolor="#CD853F">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Chocolate&nbsp;</td>
+<td bgcolor="#D2691E">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Olive&nbsp;</td>
+<td bgcolor="#808000">&nbsp;</td>
+</tr>
+
+<tr>
+<td>SaddleBrown&nbsp;</td>
+<td bgcolor="#8B4513">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Sienna&nbsp;</td>
+<td bgcolor="#A0522D">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Brown&nbsp;</td>
+<td bgcolor="#A52A2A">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Maroon&nbsp;</td>
+<td bgcolor="#800000">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>&nbsp;</h3></td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>White Colors</h3></td>
+</tr>
+<tr>
+<th style="width:25%">Color Name</th>
+<th style="width:43%">Color</th>
+</tr>
+
+<tr>
+<td>White&nbsp;</td>
+<td bgcolor="#FFFFFF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Snow&nbsp;</td>
+<td bgcolor="#FFFAFA">&nbsp;</td>
+</tr>
+
+<tr>
+<td>HoneyDew&nbsp;</td>
+<td bgcolor="#F0FFF0">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MintCream&nbsp;</td>
+<td bgcolor="#F5FFFA">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Azure&nbsp;</td>
+<td bgcolor="#F0FFFF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>AliceBlue&nbsp;</td>
+<td bgcolor="#F0F8FF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>GhostWhite&nbsp;</td>
+<td bgcolor="#F8F8FF">&nbsp;</td>
+</tr>
+
+<tr>
+<td>WhiteSmoke&nbsp;</td>
+<td bgcolor="#F5F5F5">&nbsp;</td>
+</tr>
+
+<tr>
+<td>SeaShell&nbsp;</td>
+<td bgcolor="#FFF5EE">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Beige&nbsp;</td>
+<td bgcolor="#F5F5DC">&nbsp;</td>
+</tr>
+
+<tr>
+<td>OldLace&nbsp;</td>
+<td bgcolor="#FDF5E6">&nbsp;</td>
+</tr>
+
+<tr>
+<td>FloralWhite&nbsp;</td>
+<td bgcolor="#FFFAF0">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Ivory&nbsp;</td>
+<td bgcolor="#FFFFF0">&nbsp;</td>
+</tr>
+
+<tr>
+<td>AntiqueWhite&nbsp;</td>
+<td bgcolor="#FAEBD7">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Linen&nbsp;</td>
+<td bgcolor="#FAF0E6">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LavenderBlush&nbsp;</td>
+<td bgcolor="#FFF0F5">&nbsp;</td>
+</tr>
+
+<tr>
+<td>MistyRose&nbsp;</td>
+<td bgcolor="#FFE4E1">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>&nbsp;</h3></td>
+</tr>
+
+<tr>
+<td colspan="2"><h3>Grey Colors</h3></td>
+</tr>
+<tr>
+<th style="width:25%">Color Name</th>
+<th style="width:43%">Color</th>
+</tr>
+
+<tr>
+<td>Gainsboro&nbsp;</td>
+<td bgcolor="#DCDCDC">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightGray&nbsp;</td>
+<td bgcolor="#D3D3D3">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Silver&nbsp;</td>
+<td bgcolor="#C0C0C0">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkGray&nbsp;</td>
+<td bgcolor="#A9A9A9">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DimGray&nbsp;</td>
+<td bgcolor="#696969">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Gray&nbsp;</td>
+<td bgcolor="#808080">&nbsp;</td>
+</tr>
+
+<tr>
+<td>LightSlateGray&nbsp;</td>
+<td bgcolor="#778899">&nbsp;</td>
+</tr>
+
+<tr>
+<td>SlateGray&nbsp;</td>
+<td bgcolor="#708090">&nbsp;</td>
+</tr>
+
+<tr>
+<td>DarkSlateGray&nbsp;</td>
+<td bgcolor="#2F4F4F">&nbsp;</td>
+</tr>
+
+<tr>
+<td>Black&nbsp;</td>
+<td bgcolor="#000000">&nbsp;</td>
+</tr>
+
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;</td>
+</tr>
+
+</table>
+</div>
+
+				
+			</md>
+			
+			</div>
+
+			
+		</div>		
+		
+				
+		<div class="break"></div>
+		<footer id="credits" class="text-small">Departamento de Computación - FCEFQN - UNRC </footer>
+	</article>
+
+	<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script> -->
+<script src="js/v3/q5.min.js"></script>
+<script src="js/v3/planck.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+<script>
+window.mie = { autoLoad: false };
+
+	</script>
+	<script src="./js/mie.js"></script>
+<script src="./js/learn1.js"></script>
+</body>
+
+</html>

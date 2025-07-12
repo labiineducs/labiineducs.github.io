@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dibuja en la Cuadrícula</title>
+	<link rel="icon" href="assets/p5play_logo.svg">
+	<link rel="stylesheet" href="style.css">
+	<style>
+.page {
+	display: flex;
+}
+
+#learn-p5play {
+	display: flex;
+	height: 18.5vw;
+	gap: 100px;
+	justify-content: center;
+    align-items: center;
+  
+}
+
+#learn-p5play>div {
+	width: fit-content;
+}
+
+#learnBanner {
+	position: absolute;
+	min-width: 1000px;
+	width: 100vw;
+	z-index: -1;
+	top: 126px;
+	left: 0;
+}
+
+#refs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#learn-p5play_img {
+	display: flex;
+	justify-content: center;
+	width: fit-content;
+}
+
+#learn-p5play_img img {
+	width: 100%;
+	max-width: 464px;
+}
+
+body.light #learn-p5play_img img:first-child {
+	display: none;
+}
+
+body.dark #learn-p5play_img img:nth-child(2) {
+	display: none;
+}
+
+#getStarted {
+	font-size: 24px;
+	margin: 0;
+}
+
+#learnTitle {
+	font-family: 'Mont1';
+	font-size: 40px;
+	color: var(--blue2);
+	-webkit-text-stroke: 2px var(--blue1);
+	text-shadow: 3px 3px var(--pink0);
+}
+
+#learnTitle:hover {
+	color: var(--blue3);
+}
+
+#refs>div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 4px;
+	align-content: start;
+}
+
+#refs div:first-child .btn {
+	font-size: 27px;
+}
+
+#refs div:not(:first-child) h2 a:hover {
+	color: var(--pink);
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 1030px) {
+
+	#refs>div:nth-child(1),
+	#refs>div:nth-child(2) {
+		width: 96%;
+	}
+
+	#learnBanner {
+		min-width: auto;
+		width: auto;
+		height: 400px;
+	}
+
+	#learn-p5play {
+		min-height: 400px;
+	}
+}
+
+@media screen and (max-width: 540px) {
+
+	#refs>div,
+	#refs>div:nth-child(7),
+	#refs>div:nth-child(8),
+	#refs>div:nth-child(9),
+	#refs>div:nth-child(10) {
+		width: 96%;
+	}
+}
+
+	</style>
+</head>
+
+<body class="dark">
+	<article style="display: none;">
+		<nav id="topNav">
+			<a href="index.html" class="logoLink active">
+				<img alt="p5play logo" src="assets/p5play_logo.svg" class="p5play_logo">
+				<span>Dibuja en la Cuadrícula</span>
+			</a>
+			<hr>
+			<a href="actividades.html">Actividades</a>
+			<a href="tutorial.html">Tutorial</a>
+			<a href="actividades.html?page=30">Dibuja</a>
+			<div id="navRight">
+				<hr>
+				<a id="darkMode" onclick="toggleDarkMode()" tabindex="0" role="button" title="dark mode toggle">
+					<div id="darkModeIcon"></div>
+				</a>
+			</div>
+		</nav>
+        <div class="break"></div> 
+		<img id="learnBanner" src="assets/learnBanner.png" alt="Learn p5play banner">
+
+		
+		
+
+	<div id="page-0" class="page">
+		<div class="minis horiz" style="width: 100%; padding: 0">
+		
+		<div id="learn-p5play">      	 
+			<div>
+				<a id="learnTitle" href="actividades.html">Actividades</a>
+			</div>
+	     	<div>
+				-
+			</div>
+			<div>
+			<a id="getStarted" class="heroBtns active" href="tutorial.html">Tutorial</a>
+		    </div>
+		</div>
+	    </div>	
+		
+				<!--	<div class="minis horiz" style="width: 100%; padding: 0">
+-->
+	    <div class="break"></div>
+        <div class="minis horiz">
+			<md id="md0-0">
+				<p><a href="index.html" target="_blank"><strong><em>Dibujar en la Cuadrícula</em></strong></a> permite dibujar en una grilla con javascript.</p>
+				<p>El <a href="tutorial.html" target="_blank"><strong><em>tutorial</em></strong></a> es una introducción a la programación con Javascript y
+				dibujos en la cuadrícula.
+				¡Está repleto de documentación de referencia fácil de usar para principiantes y ejemplos de código interactivos!</p>
+				<p>Hay una <a href="guia-actividades.html" target="_blank"><strong><em>Guía de Actividades</em></strong></a> de programación.</p>
+				
+				<p>Mirá la <a href="guia-rapida.html" target="_blank">guía rápida</a> de funciones disponibles.</p>
+			</md>
+		</div>	
+		<div class="minis">	
+			<script type="mie/p5" id="Ejemplo" data-inic-dc="inic-ejem-1" autoplay hide-editor="">
+seleccionarColor('blue');
+cuadrado(10)
+derecha();abajo();
+seleccionarColor('red');
+cuadrado(8)
+derecha();abajo();
+seleccionarColor('yellow');
+cuadrado(6)
+derecha();abajo();
+seleccionarColor('green');
+cuadrado(4)
+derecha();abajo();
+seleccionarColor('black');
+cuadrado(2)
+function cuadrado(n){
+  for(let i= 0;i<n-1;i++) {pintar();derecha();}
+  for(let i= 0;i<n-1;i++) {pintar();abajo();}
+  for(let i= 0;i<n-1;i++) {pintar();izquierda();}
+  for(let i= 0;i<n-1;i++) {pintar();arriba();}
+}
+
+
+
+				</script>
+				<script type="mie/p5" id="Ejemplo" data-inic-dc="inic-ejem-2" autoplay hide-editor="">
+cuadradoMulticolor();
+for(let i= 0;i<2;i++){derecha();arriba();derecha();}
+cuadradoMulticolor();
+for(let i= 0;i<2;i++){abajo();izquierda();abajo();}
+cuadradoMulticolor();
+for(let i= 0;i<8;i++){izquierda();}arriba();arriba();
+cuadradoMulticolor();
+for(let i= 0;i<5;i++){arriba();}derecha();
+cuadradoMulticolor();
+
+function cuadradoMulticolor(){
+  seleccionarColor('blue');
+  cuadrado(6)
+  derecha();abajo();
+  seleccionarColor('red');
+  cuadrado(4)
+  derecha();abajo();
+  seleccionarColor('yellow');
+  cuadrado(2)
+}
+function cuadrado(n){
+  for(let i= 0;i<n-1;i++) {pintar();derecha();}
+  for(let i= 0;i<n-1;i++) {pintar();abajo();}
+  for(let i= 0;i<n-1;i++) {pintar();izquierda();}
+  for(let i= 0;i<n-1;i++) {pintar();arriba();}
+}
+				</script>
+				<script type="dc/inic" id="inic-ejem-1">
+			   gridSize = 100;	 
+			   squareSize = 10;
+               posInicX = 0;
+               posInicY = 0;
+               colorInic = "black";
+               velocidadEjecucion = 100;
+
+               //inicializa la cuadricula en blanco
+               inicializarCuadriculaDefecto();
+			</script>
+			<script type="dc/inic" id="inic-ejem-2">
+			   gridSize = 120;	 
+			   squareSize = 10;
+               posInicX = 0;
+               posInicY = 0;
+               colorInic = "black";
+               velocidadEjecucion = 200;
+
+               //inicializa la cuadricula en blanco
+               inicializarCuadriculaDefecto();
+			</script>
+		</div>	
+		<div class="minis horiz">
+				<script type="mie/p5" id="Ejemplo" horiz="" min-lines="12" lines="15" autoplay data-inic-dc="inic-ejem-3">
+pintar();
+derecha();
+seleccionarColor('blue');
+pintar();
+abajo();
+seleccionarColor('red');
+pintar();
+derecha();
+seleccionarColor('green');
+pintar();
+				</script>
+				<script type="dc/inic" id="inic-ejem-3">
+			   gridSize = 160;	 
+			   squareSize = 20;
+               posInicX = 1;
+               posInicY = 1;
+               colorInic = "black";
+               velocidadEjecucion = 25;
+
+               //inicializa la cuadricula en blanco
+               inicializarCuadriculaDefecto();
+			</script>
+		</div>	
+		<div class="minis horiz">
+			<md id="md0-1">
+				
+				 <p>Dibujar en la cuadrícula es una 
+				   <a href="https://studio.code.org/unplugged/unplug3-es-ES.pdf" target="_blank"><strong><em> actividad desenchufada </em></strong></a>
+				   que podemos encontrar en <a href="https://code.org/" target="_blank"><strong><em>code.org</em></strong></a>.
+				   Este es un ejemplo de <a href="assets/intro-prog-dibujar-cuadricula.pdf" target="_blank"><strong><em>presentación</em></strong></a> para una clase. 
+				   Y <a href="https://www.csunplugged.org/en/topics/kidbots/" target="_blank"><strong><em>actividades similares</em></strong></a>
+				   de <a href="https://www.csunplugged.org/" target="_blank"><strong><em>CS Unplugged</em></strong></a>.
+				</p>	 
+				
+				<p>Para realizar actividades enchufadas podes usar el <a href="tutorial.html" target="_blank"><strong><em>tutorial</em></strong></a>,
+				 la <a href="guia-actividades.html" target="_blank"><strong><em>guía de actividades</em></strong></a> o 
+				 podes <a href="dibuja.html" target="_blank"><strong><em>dibujar</em></strong></a> libremente.
+				</p>
+			</md>
+	    </div>
+	</div>
+		<div class="break"></div>
+		<footer id="credits" class="text-small">Departamento de Computación - FCEFQN - UNRC <br> 
+		       Esta página esta basada <a href="https://p5play.org/learn/">Learn p5play</a> creada por Quinton Ashley (@quinton-ashley).
+		</footer>
+
+	</article>
+
+	<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script> -->
+<script src="js/v3/q5.min.js"></script>
+<script src="js/v3/planck.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+<script>
+window.mie = { autoLoad: false };
+
+	</script>
+	<script src="./js/mie.js"></script>
+<script src="./js/learn1.js"></script>
+</body>
+
+</html>
+
+</body>
+
+</html>

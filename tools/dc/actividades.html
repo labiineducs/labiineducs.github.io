@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dibuja en la Cuadrícula</title>
+	<link rel="icon" href="assets/p5play_logo.svg">
+	<link rel="stylesheet" href="style.css">
+	<style>
+.page {
+	display: flex;
+}
+
+#learn-p5play {
+	display: flex;
+	height: 18.5vw;
+	gap: 20px;
+}
+
+#learn-p5play>div {
+	width: fit-content;
+}
+
+#learnBanner {
+	position: absolute;
+	min-width: 1000px;
+	width: 100vw;
+	z-index: -1;
+	top: 126px;
+	left: 0;
+}
+
+#refs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#learn-p5play_img {
+	display: flex;
+	justify-content: center;
+	width: fit-content;
+}
+
+#learn-p5play_img img {
+	width: 100%;
+	max-width: 464px;
+}
+
+body.light #learn-p5play_img img:first-child {
+	display: none;
+}
+
+body.dark #learn-p5play_img img:nth-child(2) {
+	display: none;
+}
+
+#getStarted {
+	font-size: 24px;
+	margin: 0;
+}
+
+#learnTitle {
+	font-family: 'Mont';
+	font-size: 56px;
+	color: var(--blue2);
+	-webkit-text-stroke: 2px var(--blue1);
+	text-shadow: 3px 3px var(--pink0);
+}
+
+#learnTitle:hover {
+	color: var(--blue3);
+}
+
+#refs>div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 4px;
+	align-content: start;
+}
+
+#refs div:first-child .btn {
+	font-size: 27px;
+}
+
+#refs div:not(:first-child) h2 a:hover {
+	color: var(--pink);
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 1030px) {
+
+	#refs>div:nth-child(1),
+	#refs>div:nth-child(2) {
+		width: 96%;
+	}
+
+	#learnBanner {
+		min-width: auto;
+		width: auto;
+		height: 400px;
+	}
+
+	#learn-p5play {
+		min-height: 400px;
+	}
+}
+
+@media screen and (max-width: 540px) {
+
+	#refs>div,
+	#refs>div:nth-child(7),
+	#refs>div:nth-child(8),
+	#refs>div:nth-child(9),
+	#refs>div:nth-child(10) {
+		width: 96%;
+	}
+}
+
+.apps {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin-top: 32px;
+}
+
+.app {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.app p {
+	margin-top: 8px;
+	text-align: center;
+	font-size: 12px;
+	padding-left: 4px;
+	padding-right: 4px;
+	background-color: var(--secondary);
+	border-radius: 8px;
+}
+
+.apps img {
+	width: 64px;
+	height: 64px;
+	border-radius: 8px;
+}
+
+.apps {
+		margin-top: 0;
+	}
+
+.app p {
+		font-size: 10px;
+	}
+
+	</style>
+</head>
+
+<body class="dark">
+	<article style="display: none;">
+		<nav id="topNav">
+			<a href="index.html" class="logoLink active">
+				<img alt="p5play logo" src="assets/p5play_logo.svg" class="p5play_logo">
+				<span>Dibuja en la Cuadrícula</span>
+			</a>
+			<hr>
+			<a href="actividades.html">Actividades</a>
+            <a href="tutorial.html">Tutorial</a>
+			<a href="actividades.html?page=30">Dibuja</a>
+			<div id="navRight">
+				<hr>
+				<a id="darkMode" onclick="toggleDarkMode()" tabindex="0" role="button" title="dark mode toggle">
+					<div id="darkModeIcon"></div>
+				</a>
+			</div>
+		</nav>
+	
+	<div class="break"></div>
+
+	<div id="page-0" class="page">
+		<div class="minis horiz" style="width: 100%; padding: 0">
+			<md id="md0-1">
+				<h3>📝 Instrucciones básicas</h3>
+			</md>
+			<div class="apps">
+						<div class="app">
+							<a href="actividades.html?page=1" >
+							  <img src="./assets/actividades_icons/actividad_1.png" alt="Actividad 1">
+							</a>
+							<p>1️⃣-Línea</p>
+						</div>
+						<div class="app">
+							<a href="actividades.html?page=2" >
+							  <img src="./assets/actividades_icons/actividad_2.png" alt="Actividad 2">
+							</a>
+							<p>2️⃣-Cuadrado</p>
+						</div>
+						<div class="app">
+							<a href="actividades.html?page=3" >
+							  <img src="./assets/actividades_icons/actividad_3.png" alt="Actividad 3">
+							</a>
+							<p>3️⃣-Limbo</p>
+						</div>
+			  </div>  
+		</div>	
+		
+		<div class="minis horiz" style="width: 100%; padding: 0">
+			<md id="md0-1">
+				<h3>📝 Funciones</h3>
+			</md>
+			<div class="apps">
+						<div class="app">
+							<a href="actividades.html?page=1" >
+							  <img src="./assets/actividades_icons/actividad_1.png" alt="Actividad 1">
+							</a>
+							<p>1️⃣-Línea</p>
+						</div>
+						<div class="app">
+							<a href="actividades.html?page=2" >
+							  <img src="./assets/actividades_icons/actividad_2.png" alt="Actividad 2">
+							</a>
+							<p>2️⃣-Cuadrado</p>
+						</div>
+						<div class="app">
+							<a href="actividades.html?page=3" >
+							  <img src="./assets/actividades_icons/actividad_3.png" alt="Actividad 3">
+							</a>
+							<p>3️⃣-Limbo</p>
+						</div>
+			  </div>
+		</div>	
+		
+		<div class="minis horiz" style="width: 100%; padding: 0">
+			<md id="md0-1">
+				<h3>📝 Repetición</h3>
+			</md>
+			<div class="apps">
+						<div class="app">
+							<a href="actividades.html?page=1" >
+							  <img src="./assets/actividades_icons/actividad_1.png" alt="Actividad 1">
+							</a>
+							<p>1️⃣-Línea</p>
+						</div>
+						<div class="app">
+							<a href="actividades.html?page=2" >
+							  <img src="./assets/actividades_icons/actividad_2.png" alt="Actividad 2">
+							</a>
+							<p>2️⃣-Cuadrado</p>
+						</div>
+						<div class="app">
+							<a href="actividades.html?page=3" >
+							  <img src="./assets/actividades_icons/actividad_3.png" alt="Actividad 3">
+							</a>
+							<p>3️⃣-Limbo</p>
+						</div>
+			  </div>
+		</div>	
+		
+		<div class="minis horiz" style="width: 100%; padding: 0">
+			<md id="md0-1">
+				<h3>📝 Alternativa condicional</h3>
+			</md>
+			<div class="apps">
+						<div class="app">
+							<a href="actividades.html?page=1" >
+							  <img src="./assets/actividades_icons/actividad_1.png" alt="Actividad 1">
+							</a>
+							<p>1️⃣-Línea</p>
+						</div>
+						<div class="app">
+							<a href="actividades.html?page=2" >
+							  <img src="./assets/actividades_icons/actividad_2.png" alt="Actividad 2">
+							</a>
+							<p>2️⃣-Cuadrado</p>
+						</div>
+						<div class="app">
+							<a href="actividades.html?page=3" >
+							  <img src="./assets/actividades_icons/actividad_3.png" alt="Actividad 3">
+							</a>
+							<p>3️⃣-Limbo</p>
+						</div>
+			  </div>
+		</div>
+		
+		<div class="minis horiz" style="width: 100%; padding: 0">
+			<md id="md0-1">
+				<h3>📝 Dibujo Libre</h3>
+			</md>
+			<div class="apps">
+						<div class="app">
+							<a href="actividades.html?page=30" >
+							  <img src="./assets/actividades_icons/actividad_100.png" alt="Actividad 100">
+							</a>
+							<p>3️⃣0️⃣-Dibujo Libre</p>
+						</div>
+			  </div>
+		</div>
+	</div>	
+			
+<!-- pagina	1 -->
+	<div id="page-1" class="page">
+		<iframe src="./actividades/actividad-01.html" frameborder="0" style="width: 100vw; height: 100vh;"></iframe>			
+	</div>
+			
+<!-- pagina	2 -->
+	<div id="page-2" class="page">
+		<iframe src="./actividades/actividad-02.html" frameborder="0" style="width: 100vw; height: 100vh;"></iframe>				
+	</div> 
+		
+<!-- pagina	3 -->
+	<div id="page-3" class="page">
+		<iframe src="./actividades/actividad-03.html" frameborder="0" style="width: 100vw; height: 100vh;"></iframe>	
+	</div> 		
+	
+<!-- pagina	4 -->
+	<div id="page-30" class="page">
+		<iframe src="./actividades/dibuja.html" frameborder="0" style="width: 100vw; height: 100vh;"></iframe>	
+	</div> 		
+	
+	
+		
+				<div class="break"></div>
+		<div id="toc">
+			<a id="prevPage" class="navLink">⬅️</a>
+			<div id="pageNav" class="menu">
+				<a data-page="0" href="actividades.html?page=0">📝</a>
+				<a data-page="1" href="actividades.html?page=1">1️⃣</a>
+				<a data-page="2" href="actividades.html?page=2">2️⃣</a>
+				<a data-page="3" href="actividades.html?page=3">3️⃣</a>
+				<a data-page="30" href="actividades.html?page=30">3️⃣0️⃣</a>
+			</div>
+			<a id="nextPage" class="navLink">➡️</a>
+		</div>
+
+		<div class="break"></div>
+		<footer id="credits" class="text-small">Departamento de Computación - FCEFQN - UNRC </footer>
+	</article>
+
+	<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script> -->
+<script src="js/v3/q5.min.js"></script>
+<script src="js/v3/planck.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+<script>
+window.mie = { autoLoad: false };
+
+	</script>
+	<script src="./js/mie.js"></script>
+<script src="./js/learn.js"></script>
+</body>
+
+</html>

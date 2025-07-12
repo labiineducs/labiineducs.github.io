@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dibuja en la Cuadrícula</title>
+	<link rel="icon" href="../assets/p5play_logo.svg">
+	<link rel="stylesheet" href="../style.css">
+	<style>
+.page {
+	display: flex;
+}
+
+#learn-p5play {
+	display: flex;
+	height: 18.5vw;
+	gap: 20px;
+}
+
+#learn-p5play>div {
+	width: fit-content;
+}
+
+#learnBanner {
+	position: absolute;
+	min-width: 1000px;
+	width: 100vw;
+	z-index: -1;
+	top: 126px;
+	left: 0;
+}
+
+#refs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#learn-p5play_img {
+	display: flex;
+	justify-content: center;
+	width: fit-content;
+}
+
+#learn-p5play_img img {
+	width: 100%;
+	max-width: 464px;
+}
+
+body.light #learn-p5play_img img:first-child {
+	display: none;
+}
+
+body.dark #learn-p5play_img img:nth-child(2) {
+	display: none;
+}
+
+#getStarted {
+	font-size: 24px;
+	margin: 0;
+}
+
+#learnTitle {
+	font-family: 'Mont';
+	font-size: 56px;
+	color: var(--blue2);
+	-webkit-text-stroke: 2px var(--blue1);
+	text-shadow: 3px 3px var(--pink0);
+}
+
+#learnTitle:hover {
+	color: var(--blue3);
+}
+
+#refs>div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 4px;
+	align-content: start;
+}
+
+#refs div:first-child .btn {
+	font-size: 27px;
+}
+
+#refs div:not(:first-child) h2 a:hover {
+	color: var(--pink);
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 1030px) {
+
+	#refs>div:nth-child(1),
+	#refs>div:nth-child(2) {
+		width: 96%;
+	}
+
+	#learnBanner {
+		min-width: auto;
+		width: auto;
+		height: 400px;
+	}
+
+	#learn-p5play {
+		min-height: 400px;
+	}
+}
+
+@media screen and (max-width: 540px) {
+
+	#refs>div,
+	#refs>div:nth-child(7),
+	#refs>div:nth-child(8),
+	#refs>div:nth-child(9),
+	#refs>div:nth-child(10) {
+		width: 96%;
+	}
+}
+
+.apps {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin-top: 32px;
+}
+
+.app {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.app p {
+	margin-top: 8px;
+	text-align: center;
+	font-size: 12px;
+	padding-left: 4px;
+	padding-right: 4px;
+	background-color: var(--secondary);
+	border-radius: 8px;
+}
+
+.apps img {
+	width: 64px;
+	height: 64px;
+	border-radius: 8px;
+}
+
+.apps {
+		margin-top: 0;
+	}
+
+.app p {
+		font-size: 10px;
+	}
+
+	</style>
+</head>
+
+<body class="dark">
+	<article style="display: none;">	
+		
+	<div id="page-0" class="page">
+	
+		<div class="minis horiz" style="width: 100%; padding: 0">
+	            <md id="md0-3">
+					<h2 id="Desafío-Nivel-1">Dibuja un cuadrado</h2>					
+					<p>Dibuja un cuadrado de 3 cuadraditos por lado, como el que vemos abajo.</p>
+				</md>
+		
+	     	<script type="mie/p5" id="Completa-el-Desafío-Nivel-1" min-lines="10" lines="22" horiz="" data-inic-dc="inic-act-2" data-verif-dc="verif-act-2">
+//Escribe tus instrucciones acá
+			</script>
+			<script type="dc/inic" id="inic-act-2">
+			   gridSize = 125;	 
+			   squareSize = 25;
+               posInicX = 1;
+               posInicY = 1;
+               colorInic = "black";
+               velocidadEjecucion = 25;
+
+               //inicializa la cuadricula en blanco
+               inicializarCuadriculaDefecto();
+			</script>
+			<script type="dc/verif" id="verif-act-2">
+			    if ((cuadricula[1][1]=="black") && (cuadricula[2][1]=="black") && (cuadricula[3][1]=="black") && 
+		         (cuadricula[3][2]=="black") && (cuadricula[3][3]=="black") && 
+		         (cuadricula[1][3]=="black") && (cuadricula[2][3]=="black") && 
+		         (cuadricula[1][2]=="black") ){
+			        return true;
+			    }else{
+                     return false;
+                }
+			</script>			
+		</div>	
+		
+</div> 		
+	
+</article>
+
+	<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script> -->
+<script src="../js/v3/q5.min.js"></script>
+<script src="../js/v3/planck.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+<script>
+window.mie = { autoLoad: false };
+
+	</script>
+	<script src="../js/mie.js"></script>
+<script src="../js/learn1.js"></script>
+</body>
+
+</html>
+
+

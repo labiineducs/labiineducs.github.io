@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dibujar en la Cuadrícula </title>
+	<link rel="icon" href="assets/p5play_logo.svg">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark">
+	<article style="display: none;">
+		<nav id="topNav">
+			<a href="index.html" class="logoLink active">
+				<img alt="p5play logo" src="assets/p5play_logo.svg" class="p5play_logo">
+				<span>Dibuja en la Cuadrícula</span>
+			</a>
+			<hr>
+			<a href="actividades.html">Actividades</a>
+			<a href="tutorial.html">Tutorial</a>
+			<a href="actividades.html?page=30">Dibuja</a>
+			<div id="navRight">
+				<hr>
+				<a id="darkMode" onclick="toggleDarkMode()" tabindex="0" role="button" title="dark mode toggle">
+					<div id="darkModeIcon"></div>
+				</a>
+			</div>
+		</nav>
+
+			<div class="break"></div>
+			
+
+		<div id="page-0" class="page">
+			
+			<md id="md0-1">
+				<h2 id="que-es-dibujar-cuadricula">¿Que es Dibujar en la Cuadrícula?</h2>
+				<p>¡Pintar cuadraditos en una grilla con javascript!</p>
+				<p>La función <code>pintar()</code> nos permite colorear el cuadrado donde se encuentra el cursor.</p>
+				<p>El cursor esta representado por ✏️.</p>
+			</md>
+			<div class="minis horiz">
+				<script type="mie/p5" id="pintar()" horiz="" lines="3" data-inic-dc="inic-que-es">
+pintar();
+				</script>
+				<script type="dc/inic" id="inic-que-es">
+			   gridSize = 100;	 
+			   squareSize = 20;
+               posInicX = 2;
+               posInicY = 2;
+               colorInic = "black";
+               velocidadEjecucion = 25;
+
+               //inicializa la cuadricula en blanco
+               inicializarCuadriculaDefecto();
+			</script>
+			
+			<md id="md0-1">
+				<p>Ejecuta el programa con &#x1F5D8; para visualizar la acción que realiza <code>pintar()</code>.
+				 Puedes reiniciar la cuadrícula a su estado inicial con &#x2B6E; </p>
+			</md>
+			
+			</div>
+			
+		<div class="break"></div>
+		    <div class="minis horiz" style="width: 100%; padding: 0">
+			<md id="md0-1">
+				<h2 id="mover-cursor">Podemos mover el cursor...</h2>
+				<p>Las funciones <code>izquierda()</code>, <code>derecha()</code>, <code>abajo()</code> y <code>arriba()</code>
+				   nos permite mover el cursor al cuadradito vecino (en la dirección indicada).</p>
+			</md>	
+			</div>
+		    <div class="minis">
+				<script type="mie/p5" id="izquierda()" lines="3" data-inic-dc="inic-que-es">
+pintar();
+izquierda();
+				</script>
+				<script type="mie/p5" id="derecha()" lines="3" base="1" data-inic-dc="inic-que-es">
+pintar();
+derecha();
+				</script>
+				
+			</div>
+
+			<div class="minis">
+				<script type="mie/p5" id="abajo()" lines="3" base="1" data-inic-dc="inic-que-es">
+pintar();
+abajo();
+				</script>
+				<script type="mie/p5" id="arriba()" lines="3" data-inic-dc="inic-que-es">
+pintar();
+arriba();
+				</script>
+			</div>	
+		
+			
+	<div class="break"></div>
+			<div class="minis horiz">
+				<md id="md0-2">
+					<h2 id="probalo">¡Probalo!</h2>
+					
+					<p>Puedes usar secuencias de estas instrucciones para hacer dibujos en la cuadrícula.</p>
+					<p>Intenta dibujar una línea de 3 cuadraditos como la que vemos abajo.</p>
+				</md>
+				<script type="mie/p5" id="Solución-Desafío-Nivel-0" data-inic-dc="inic-nivel-0" autoplay hide-editor="">
+pintar();
+derecha();
+pintar();
+derecha();
+pintar();
+				</script>
+			</div>
+			
+		<div class="minis horiz">
+			<script type="mie/p5" id="Completa-el-Desafío-Nivel-0" min-lines="6" lines="6" horiz="" data-inic-dc="inic-nivel-0" data-verif-dc="verif-nivel-0">
+//Escribe tus instrucciones acá
+
+			</script>
+			<script type="dc/inic" id="inic-nivel-0">
+			   gridSize = 125;	 
+			   squareSize = 25;
+               posInicX = 1;
+               posInicY = 1;
+               colorInic = "black";
+               velocidadEjecucion = 25;
+
+               //inicializa la cuadricula en blanco
+               inicializarCuadriculaDefecto();
+			</script>
+			<script type="dc/verif" id="verif-nivel-0">
+	          if ((cuadricula[1][1]=="black") && (cuadricula[2][1]=="black") && (cuadricula[3][1]=="black") ){
+		     	    return true;
+			    }else{
+                    return false;
+                }
+			</script>
+			
+			<md id="md0-1">
+				<p>Ejecuta tu programa con &#x1F5D8; si tu solución es correcta verás ✅. Pero 
+				si aparece ❌ entonces inténtalo de nuevo.</p>
+				
+				<p>Recuerda que puedes reiniciar la cuadrícula a su estado inicial con &#x2B6E; </p>
+			</md>
+		</div>					
+			
+	<div class="break"></div>
+			<div class="minis horiz">
+				<md id="md0-3">
+					<h2 id="Desafío-Nivel-1">Dibuja un cuadrado</h2>					
+					<p>Dibuja un cuadrado de 3 cuadraditos por lado, como el que vemos abajo.</p>
+				</md>
+				
+				<script type="mie/p5" id="Solución-Desafío-Nivel-1" data-inic-dc="inic-nivel-0" autoplay hide-editor="">
+pintar(); derecha(); pintar(); derecha(); 
+pintar(); abajo(); pintar(); abajo(); 
+pintar(); izquierda(); pintar(); izquierda(); 
+pintar(); arriba(); pintar();  
+				</script>
+			</div>
+			
+		<div class="minis horiz">
+			<script type="mie/p5" id="Completa-el-Desafío-Nivel-1" min-lines="10" lines="22" horiz="" data-inic-dc="inic-nivel-0" data-verif-dc="verif-nivel-1">
+//Escribe tus instrucciones acá
+
+			</script>
+			<script type="dc/verif" id="verif-nivel-1">
+			    if ((cuadricula[1][1]=="black") && (cuadricula[2][1]=="black") && (cuadricula[3][1]=="black") && 
+		         (cuadricula[3][2]=="black") && (cuadricula[3][3]=="black") && 
+		         (cuadricula[1][3]=="black") && (cuadricula[2][3]=="black") && 
+		         (cuadricula[1][2]=="black") ){
+			        return true;
+			    }else{
+                     return false;
+                }
+			</script>
+			
+		</div>		
+	</div>		
+			
+			<div id="page-1" class="page">
+			<div class="break"></div>
+			<md id="md0-1">
+				<h2 id="que-es-dibujar-cuadricula">¿Qué es Dibujar en la Cuadrícula?</h2>
+				<p>¡Pintar cuadraditos en una grilla!</p>
+				<p>La instrucción <code>pintar()</code> nos permite colorear el cuadrado donde se encuentra el cursor.</p>
+				<p>El cursor esta representado por un cuadradito amarillo.</p>
+			</md>
+	</div>					
+		
+		<div id="page-2" class="page">
+			
+	</div>	
+
+		<div class="break"></div>
+		<div id="toc">
+			<a id="prevPage" class="navLink">⬅️</a>
+			<div id="pageNav" class="menu">
+				<a data-page="0" href="instrucciones.html?page=0">Instrucciones Básicas</a>
+				<a data-page="1" href="instrucciones.html?page=1">Ciclos</a>
+				<a data-page="2" href="repeticion-simple.html">Repetición simple</a>
+			</div>
+			<a id="nextPage" class="navLink">➡️</a>
+		</div>
+		<div class="break"></div>
+		<footer id="credits" class="text-small">Departamento de Computación - FCEFQN - UNRC </footer>
+	</article>
+
+	<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script> -->
+<script src="js/v3/q5.min.js"></script>
+<script src="js/v3/planck.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+
+<script>
+window.mie = { autoLoad: false };
+
+	</script>
+	<script src="./js/mie.js"></script>
+<script src="./js/learn.js"></script>
+</body>
+
+</html>
