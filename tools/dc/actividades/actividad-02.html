@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Dibuja en la Cuadrícula</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Dibuja en la Cuadrícula" name="keywords">
+        <meta content="Dibuja en la Cuadrícula" name="description">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Dibuja en la Cuadrícula</title>
-	<link rel="icon" href="../assets/p5play_logo.svg">
-	<link rel="stylesheet" href="../style.css">
-	<style>
+        <!-- Favicon -->
+        <link href="../assets/p5play_logo.svg" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="../lib/flaticon/font/flaticon.css" rel="stylesheet">
+        <link href="../lib/animate/animate.min.css" rel="stylesheet">
+      
+
+        <!-- Template Stylesheet -->
+        <link href="../css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="../style.css">
+        
+<style>
 .page {
 	display: flex;
-}
-
-#learn-p5play {
-	display: flex;
-	height: 18.5vw;
-	gap: 20px;
-}
-
-#learn-p5play>div {
-	width: fit-content;
-}
-
-#learnBanner {
-	position: absolute;
-	min-width: 1000px;
-	width: 100vw;
-	z-index: -1;
-	top: 126px;
-	left: 0;
 }
 
 #refs {
@@ -36,42 +34,6 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: flex-start;
-}
-
-#learn-p5play_img {
-	display: flex;
-	justify-content: center;
-	width: fit-content;
-}
-
-#learn-p5play_img img {
-	width: 100%;
-	max-width: 464px;
-}
-
-body.light #learn-p5play_img img:first-child {
-	display: none;
-}
-
-body.dark #learn-p5play_img img:nth-child(2) {
-	display: none;
-}
-
-#getStarted {
-	font-size: 24px;
-	margin: 0;
-}
-
-#learnTitle {
-	font-family: 'Mont';
-	font-size: 56px;
-	color: var(--blue2);
-	-webkit-text-stroke: 2px var(--blue1);
-	text-shadow: 3px 3px var(--pink0);
-}
-
-#learnTitle:hover {
-	color: var(--blue3);
 }
 
 #refs>div {
@@ -97,16 +59,6 @@ body.dark #learn-p5play_img img:nth-child(2) {
 	#refs>div:nth-child(2) {
 		width: 96%;
 	}
-
-	#learnBanner {
-		min-width: auto;
-		width: auto;
-		height: 400px;
-	}
-
-	#learn-p5play {
-		min-height: 400px;
-	}
 }
 
 @media screen and (max-width: 540px) {
@@ -120,51 +72,28 @@ body.dark #learn-p5play_img img:nth-child(2) {
 	}
 }
 
-.apps {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	margin-top: 32px;
-}
+	</style>        
+        
+    </head>
 
-.app {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.app p {
-	margin-top: 8px;
-	text-align: center;
-	font-size: 12px;
-	padding-left: 4px;
-	padding-right: 4px;
-	background-color: var(--secondary);
-	border-radius: 8px;
-}
-
-.apps img {
-	width: 64px;
-	height: 64px;
-	border-radius: 8px;
-}
-
-.apps {
-		margin-top: 0;
-	}
-
-.app p {
-		font-size: 10px;
-	}
-
-	</style>
-</head>
-
-<body class="dark">
-	<article style="display: none;">	
-		
-	<div id="page-0" class="page">
+    <body >
+        
+        
+        <!-- Donate Start -->
+        
+ <div></div>
+ <div></div>
+ <div></div>      
+        
+       
+ <div class="service">
+  <div class="container">
+   <div class="row">
+      <div class="col-lg-12">
+						
+	 <article style="display: none;">
+  	    <div class="break"></div>
+	    <div id="page-0" class="page">
 	
 		<div class="minis horiz" style="width: 100%; padding: 0">
 	            <md id="md0-3">
@@ -197,12 +126,46 @@ body.dark #learn-p5play_img img:nth-child(2) {
                 }
 			</script>			
 		</div>	
-		
-</div> 		
-	
-</article>
+    
+ 
+    
+	   
+	    </div> <!--Page-->
+        <div class="break"></div>
 
-	<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script> -->
+
+	 </article>				
+							
+    </div>
+   </div>     
+  </div>
+ </div>
+        <!-- Donate End -->
+
+
+      
+        <!-- Back to top button -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <!-- Pre Loader -->
+        <div id="loader" class="show">
+            <div class="loader"></div>
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="../lib/easing/easing.min.js"></script>
+             <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="../lib/waypoints/waypoints.min.js"></script>
+        <script src="../lib/counterup/counterup.min.js"></script>
+        <script src="../lib/parallax/parallax.min.js"></script>
+        
+        <!-- Template Javascript -->
+        <script src="../js/mainlab.js"></script>
+        
+        
+        	<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script> -->
 <script src="../js/v3/q5.min.js"></script>
 <script src="../js/v3/planck.min.js"></script>
 
@@ -213,9 +176,7 @@ window.mie = { autoLoad: false };
 
 	</script>
 	<script src="../js/mie.js"></script>
-<script src="../js/learn1.js"></script>
-</body>
+<script src="../js/learn1.js"></script> 
 
+    </body>
 </html>
-
-
