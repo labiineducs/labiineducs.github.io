@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dibuja en la Cuadrícula</title>
+	<link rel="icon" href="assets/p5play_logo.svg">
+	<link rel="stylesheet" href="style.css">
+	<style>
+.page {
+	display: flex;
+}
+
+#learn-p5play {
+	display: flex;
+	height: 18.5vw;
+	gap: 20px;
+}
+
+#learn-p5play>div {
+	width: fit-content;
+}
+
+#learnBanner {
+	position: absolute;
+	min-width: 1000px;
+	width: 100vw;
+	z-index: -1;
+	top: 126px;
+	left: 0;
+}
+
+#refs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#learn-p5play_img {
+	display: flex;
+	justify-content: center;
+	width: fit-content;
+}
+
+#learn-p5play_img img {
+	width: 100%;
+	max-width: 464px;
+}
+
+body.light #learn-p5play_img img:first-child {
+	display: none;
+}
+
+body.dark #learn-p5play_img img:nth-child(2) {
+	display: none;
+}
+
+#getStarted {
+	font-size: 24px;
+	margin: 0;
+}
+
+#learnTitle {
+	font-family: 'Mont';
+	font-size: 56px;
+	color: var(--blue2);
+	-webkit-text-stroke: 2px var(--blue1);
+	text-shadow: 3px 3px var(--pink0);
+}
+
+#learnTitle:hover {
+	color: var(--blue3);
+}
+
+#refs>div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 4px;
+	align-content: start;
+}
+
+#refs div:first-child .btn {
+	font-size: 27px;
+}
+
+#refs div:not(:first-child) h2 a:hover {
+	color: var(--pink);
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 1030px) {
+
+	#refs>div:nth-child(1),
+	#refs>div:nth-child(2) {
+		width: 96%;
+	}
+
+	#learnBanner {
+		min-width: auto;
+		width: auto;
+		height: 400px;
+	}
+
+	#learn-p5play {
+		min-height: 400px;
+	}
+}
+
+@media screen and (max-width: 540px) {
+
+	#refs>div,
+	#refs>div:nth-child(7),
+	#refs>div:nth-child(8),
+	#refs>div:nth-child(9),
+	#refs>div:nth-child(10) {
+		width: 96%;
+	}
+}
+
+	</style>
+</head>
+
+<body class="dark">
+	<article style="display: none;">
+		<nav id="topNav">
+			<a href="index.html" class="logoLink active">
+				<img alt="p5play logo" src="assets/p5play_logo.svg" class="p5play_logo">
+				<span>Dibuja en la Cuadrícula</span>
+			</a>
+			<hr>
+			<a href="actividades.html">Actividades</a>
+             <a href="tutorial.html">Tutorial</a>
+			<a href="dibuja.html">Dibuja</a>
+			<div id="navRight">
+				<hr>
+				<a id="darkMode" onclick="toggleDarkMode()" tabindex="0" role="button" title="dark mode toggle">
+					<div id="darkModeIcon"></div>
+				</a>
+			</div>
+		</nav>
+
+	
+		
+		<div class="break"></div>
+
+		
+
+		<div id="refs" class="page">
+			<md id="md1-3" class="full">
+				<h2 id="title-guia-rapida">Guía Rápida</h2>
+			</md>
+			
+			<div class="full search-container">
+				<input type="text" id="searchInput" placeholder="Buscar...">
+				<div class="search-results" id="searchResults"></div>
+			</div>
+
+			<md id="md1-0" class="full">
+				<p>Puedes <a href="dibuja.html" target="_blank"> dibujar en la cuadrícula</a>. 
+			    </p>
+			</md>
+
+			<md id="md1-1" class="full">
+				<p>Un <a href="tutorial.html" target="_blank">tutorial</a> para aprender a programar dibujando en la cuadrícula.</p>
+			</md>
+		</div>
+
+		<div class="break"></div>
+		<footer id="credits" class="text-small">Departamento de Computación - FCEFQN - UNRC </footer>
+	</article>
+
+	<script>
+
+	</script>
+
+	<script src="main.js"></script>
+<script src="js/learn.js"></script>
+<script src="js/reference.js"></script>
+</body>
+
+</html>

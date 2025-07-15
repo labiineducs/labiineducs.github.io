@@ -1,23 +1,4 @@
-/* main.js */
 
-function toggleDarkMode() {
-	if (document.body.className == 'dark') {
-		document.body.className = 'light';
-	} else {
-		document.body.className = 'dark';
-	}
-	if (typeof setEditorThemes != 'undefined') setEditorThemes();
-
-	// Save the preference
-	localStorage.setItem('darkMode', document.body.className);
-}
-
-{
-	let pref = localStorage.getItem('darkMode');
-	pref ??= window.matchMedia('prefers-color-scheme: dark').matches ? 'dark' : 'light';
-
-	document.body.className = pref;
-}
 
 if (typeof Q5 != 'undefined') Q5.canvasOptions.alpha = true;
 
@@ -42,7 +23,7 @@ let currentPage = 0;
 let article;
 
 async function start() {
-	article = document.body.children[0];
+	article = document.body.children[3].children[0].children[0].children[0].children[0];
 
 	function loadScript(src) {
 		return new Promise(function (resolve) {
@@ -94,7 +75,7 @@ function loadPage(pageNum) {
 	let page = document.getElementById('page-' + pageNum);
 	page.style.display = 'flex';
 	mie.loadMinis(page);
-	setEditorThemes();
+	mie.theme = 'light';
 	document.body.scrollTop = 0; // for Safari
 	document.documentElement.scrollTop = 0; // Chrome, Firefox, and Opera
 	currentPage = parseInt(pageNum);
@@ -102,14 +83,6 @@ function loadPage(pageNum) {
 	article.style.display = 'flex';
 }
 
-function setEditorThemes() {
-	if (typeof mie == 'undefined') return;
-	if (document.body.className == 'dark') {
-		mie.theme = 'dark';
-	} else {
-		mie.theme = 'light';
-	}
-}
 
 
 

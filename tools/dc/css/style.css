@@ -154,7 +154,9 @@ a:focus {
     top: 0;
     left: 0;
     z-index: 3;
-    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    border-bottom: 1px solid rgba(55, 55, 55, .3);
+    background: #FFFFFF;
+    opacity: 0.75;
 }
 
 .top-bar .top-bar-left {
@@ -539,10 +541,10 @@ a:focus {
 /*******************************/
 .page-header {
     position: relative;
-    margin-bottom: 45px;
-    padding: 210px 0 90px 0;
+    margin-bottom: 65px;
+    padding: 500px 0 90px 0;
     text-align: center;
-    background: linear-gradient(rgba(55, 55, 255, .5), rgba(0, 0, 0, .5)), url(../img/fondo-azul-dib.png);
+    background: linear-gradient(rgba(55, 55, 255, .5), rgba(0, 0, 0, .5)), url(../assets/cuadricBanner.png);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -618,6 +620,94 @@ a:focus {
     }
     
     .page-header a {
+        font-size: 18px;
+    }
+}
+
+/*******************************/
+/******* Page Header Aux CSS *******/
+/*******************************/
+.page-header-aux {
+    position: relative;
+    margin-bottom: 25px;
+    padding: 75px 0 75px 0;
+    text-align: center;
+    background: linear-gradient(rgba(55, 55, 255, .5), rgba(0, 0, 0, .5)), url(../assets/cuadricBannerBase.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page-header-aux h2 {
+    position: relative;
+    color: #FDBE33;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+.page-header-aux h2::after {
+    position: absolute;
+    content: "";
+    width: 100px;
+    height: 2px;
+    left: calc(50% - 50px);
+    bottom: 0;
+    background: #FDBE33;
+}
+
+.page-header-aux a {
+    position: relative;
+    padding: 0 12px;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.page-header-aux a:hover {
+    color: #FDBE33;
+}
+
+.page-header-aux a::after {
+    position: absolute;
+    content: "/";
+    width: 8px;
+    height: 8px;
+    top: -2px;
+    right: -7px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.page-header-aux a:last-child::after {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .page-header-aux {
+        padding: 60px 0;
+    }
+    
+    .page-header-aux h2 {
+        font-size: 45px;
+    }
+    
+    .page-header-aux a {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .page-header-aux {
+        padding: 45px 0;
+    }
+    
+    .page-header-aux h2 {
+        font-size: 35px;
+    }
+    
+    .page-header-aux a {
         font-size: 18px;
     }
 }
@@ -1012,8 +1102,8 @@ a:focus {
     margin: 45px 0;
     display: flex;
     align-items: center;
- /*   background: rgba(0, 0, 0, .5);
-*/}
+    background: rgba(0, 0, 0, .5);
+}
 
 .facts .facts-item {
     display: flex;
@@ -1035,16 +1125,16 @@ a:focus {
 .facts .facts-text h3 {
     position: relative;
     display: inline-block;
-  /*  color: #ffffff;
-  */  font-size: 45px;
+    color: #ffffff;
+    font-size: 45px;
     font-weight: 700;
 }
 
 .facts .facts-text h3::after {
     position: absolute;
     top: 0px;
-  /*  color: #ffffff;
- */   font-size: 25px;
+    color: #ffffff;
+    font-size: 25px;
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
 }
@@ -1060,8 +1150,8 @@ a:focus {
 }
 
 .facts .facts-text p {
-  /*  color: #ffffff;
-  */  font-size: 22px;
+    color: #ffffff;
+    font-size: 22px;
     font-weight: 600;
     margin: 0;
 }

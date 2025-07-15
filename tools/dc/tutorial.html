@@ -1,39 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Dibuja en la Cuadrícula</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Dibuja en la Cuadrícula" name="keywords">
+        <meta content="Dibuja en la Cuadrícula" name="description">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Dibujar en la Cuadrícula </title>
-	<link rel="icon" href="assets/p5play_logo.svg">
-	<link rel="stylesheet" href="style.css">
-</head>
+        <!-- Favicon -->
+        <link href="assets/p5play_logo.svg" rel="icon">
 
-<body class="dark">
-	<article style="display: none;">
-		<nav id="topNav">
-			<a href="index.html" class="logoLink active">
-				<img alt="p5play logo" src="assets/p5play_logo.svg" class="p5play_logo">
-				<span>Dibuja en la Cuadrícula</span>
-			</a>
-			<hr>
-			<a href="actividades.html">Actividades</a>
-			<a href="tutorial.html">Tutorial</a>
-			<a href="actividades.html?page=30">Dibuja</a>
-			<div id="navRight">
-				<hr>
-				<a id="darkMode" onclick="toggleDarkMode()" tabindex="0" role="button" title="dark mode toggle">
-					<div id="darkModeIcon"></div>
-				</a>
-			</div>
-		</nav>
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+      
 
-			<div class="break"></div>
-			
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        
+<style>
+.page {
+	display: flex;
+}
 
-		<div id="page-0" class="page">
-			
-			<md id="md0-1">
+#refs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#refs>div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 4px;
+	align-content: start;
+}
+
+#refs div:first-child .btn {
+	font-size: 27px;
+}
+
+#refs div:not(:first-child) h2 a:hover {
+	color: var(--pink);
+	text-decoration: underline;
+}
+
+@media screen and (max-width: 1030px) {
+
+	#refs>div:nth-child(1),
+	#refs>div:nth-child(2) {
+		width: 96%;
+	}
+}
+
+@media screen and (max-width: 540px) {
+
+	#refs>div,
+	#refs>div:nth-child(7),
+	#refs>div:nth-child(8),
+	#refs>div:nth-child(9),
+	#refs>div:nth-child(10) {
+		width: 96%;
+	}
+}
+
+	</style>        
+        
+    </head>
+
+    <body >
+        <!-- Top Bar Start -->
+        <div class="top-bar d-none d-md-block">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="top-bar-left">
+                            <div class="text">
+                                <i class="fa fa-link"></i>
+                                <p><a href="../../index.html">LABIIN.EduCs</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="top-bar-right">
+                            <div class="social">
+                                <a href="https://dc.exa.unrc.edu.ar/" target="_blank"><img class="top-bar-img" src="assets/img/logos/logo-dc.png" alt="logo DC"></a>
+                                <a href="https://www.exa.unrc.edu.ar/" target="_blank"><img class="top-bar-img" src="assets/img/logos/logo-exa.png" alt="logo DC"></a>
+                                <a href="https://www.unrc.edu.ar/" target="_blank"><img class="top-bar-img" src="assets/img/logos/logo-unrc.png" alt="logo DC"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Bar End -->
+
+        <!-- Nav Bar Start -->
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">  <img src="./assets/icon_sm.png" alt="Logo DC"> Tutorial</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+						<a href="index.html" class="nav-item nav-link active">Home</a>
+						<a href="actividades.html" class="nav-item nav-link">Actividades</a>
+			            <a href="tutorial.html" class="nav-item nav-link">Tutorial</a>
+			            <a href="actividades.html?page=30" class="nav-item nav-link">Dibuja</a>
+                       </div>
+                </div>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+        
+        
+        <!-- Page Header Start -->
+        <div class="page-header-aux">
+            <div class="container">
+                <div class="row">
+                    
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+        
+        
+        <!-- Donate Start -->
+        
+ 
+       
+        
+       
+ <div class="facts" data-parallax="scroll" data-image-src="assets/img/fondo-3.webp">
+  <div class="container">
+   <div class="row">
+      <div class="col-lg-12">
+						
+	 <article style="display: none;">
+  	    <div class="break"></div>
+	    <div id="page-0" class="page">
+	
+    <md id="md0-1">
 				<h2 id="que-es-dibujar-cuadricula">¿Que es Dibujar en la Cuadrícula?</h2>
 				<p>¡Pintar cuadraditos en una grilla con javascript!</p>
 				<p>La función <code>pintar()</code> nos permite colorear el cuadrado donde se encuentra el cursor.</p>
@@ -175,7 +293,7 @@ pintar(); arriba(); pintar();
 			</script>
 			
 		</div>		
-	</div>		
+	</div>	<!--Page-->	
 			
 			<div id="page-1" class="page">
 			<div class="break"></div>
@@ -185,27 +303,103 @@ pintar(); arriba(); pintar();
 				<p>La instrucción <code>pintar()</code> nos permite colorear el cuadrado donde se encuentra el cursor.</p>
 				<p>El cursor esta representado por un cuadradito amarillo.</p>
 			</md>
-	</div>					
+	</div>	<!--Page-->				
 		
 		<div id="page-2" class="page">
 			
-	</div>	
+	</div>	<!--Page-->
 
 		<div class="break"></div>
 		<div id="toc">
 			<a id="prevPage" class="navLink">⬅️</a>
 			<div id="pageNav" class="menu">
-				<a data-page="0" href="instrucciones.html?page=0">Instrucciones Básicas</a>
-				<a data-page="1" href="instrucciones.html?page=1">Ciclos</a>
-				<a data-page="2" href="repeticion-simple.html">Repetición simple</a>
+				<a data-page="0" href="tutorial.html?page=0">Instrucciones Básicas</a>
+				<a data-page="1" href="tutorial.html?page=1">Ciclos</a>
+				<a data-page="2" href="tutorial.html?page=2">Repetición simple</a>
 			</div>
 			<a id="nextPage" class="navLink">➡️</a>
 		</div>
-		<div class="break"></div>
-		<footer id="credits" class="text-small">Departamento de Computación - FCEFQN - UNRC </footer>
-	</article>
+    
+    
+	   
+        <div class="break"></div>
 
-	<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script> -->
+
+	 </article>				
+							
+    </div>
+   </div>     
+  </div>
+ </div>
+        <!-- Donate End -->
+
+
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-contact">
+                            <h2>Contacto</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>Departamento de Computación</p>
+                            <p><i class="fa fa-map-marker-alt"></i>Facultad de Ciencias Exactas Físico-Químicas y Naturales</p>
+                            <p><i class="fa fa-map-marker-alt"></i>Universidad Nacional de Río Cuarto</p>
+                            <p><i class="fa fa-envelope"></i>cursoprogramacion@dc.exa.unrc.edu.ar</p>
+                      <!--      <div class="footer-social">
+                                <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                      -->  </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-link">
+                            <h2>Links</h2>
+                            <a href="index.html">Home</a>
+                            <a href="actividades.html">Actividades</a>
+                            <a href="tutorial.html">Tutorial</a>
+                            <a href="actividades.html?page=30">Dibuja</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a href="#">Your LABIIN-EduCs</a>, All Right Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Back to top button -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <!-- Pre Loader -->
+        <div id="loader" class="show">
+            <div class="loader"></div>
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+             <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/parallax/parallax.min.js"></script>
+        
+        <!-- Template Javascript -->
+        <script src="js/mainlab.js"></script>
+        
+        
+        	<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1/lib/p5.min.js"></script> -->
 <script src="js/v3/q5.min.js"></script>
 <script src="js/v3/planck.min.js"></script>
 
@@ -216,7 +410,7 @@ window.mie = { autoLoad: false };
 
 	</script>
 	<script src="./js/mie.js"></script>
-<script src="./js/learn.js"></script>
-</body>
+<script src="./js/learn.js"></script> 
 
+    </body>
 </html>

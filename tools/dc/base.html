@@ -106,7 +106,7 @@
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="index.html" class="navbar-brand">  <img src="./assets/icon_sm.png" alt="Logo DC"></a>
+                <a href="index.html" class="navbar-brand">  <img src="./assets/icon_sm.png" alt="Logo DC"> title</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -125,16 +125,11 @@
         
         
         <!-- Page Header Start -->
-        <div class="page-header">
+        <div class="page-header-aux">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <h2>Dibuja en la Cuadrícula</h2>
-                    </div>
-                    <div class="col-12">
-                        <a href="actividades.html">Actividades</a>
-                        <a href="tutorial.html">Tutorial</a>
-                    </div>
+                    
+                    
                 </div>
             </div>
         </div>
@@ -148,159 +143,28 @@
         
        
  <div class="facts" data-parallax="scroll" data-image-src="assets/img/fondo-3.webp">
-            <div class="container">
-				 <div class="row">
-                    <div class="col-lg-12">
+  <div class="container">
+   <div class="row">
+      <div class="col-lg-12">
 						
-	<article style="display: none;">
-		
-			<div class="break"></div>
-
-	<div id="page-0" class="page">
+	 <article style="display: none;">
+  	    <div class="break"></div>
+	    <div id="page-0" class="page">
 	
-        <div class="minis horiz">
-			<md id="md0-0">
-				<p><a href="index.html" target="_blank"><strong><em>Dibujar en la Cuadrícula</em></strong></a> permite dibujar en una grilla con javascript.</p>
-				<p>El <a href="tutorial.html" target="_blank"><strong><em>tutorial</em></strong></a> es una introducción a la programación con Javascript y
-				dibujos en la cuadrícula.
-				¡Está repleto de documentación de referencia fácil de usar para principiantes y ejemplos de código interactivos!</p>
-				<p>Hay una <a href="actividades.html" target="_blank"><strong><em>Guía de Actividades</em></strong></a> de programación.</p>
-				
-				<p>Mirá la <a href="guia-rapida.html" target="_blank">guía rápida</a> de funciones disponibles.</p>
-			</md>
-		</div>	
-		<div class="minis">	
-			<script type="mie/p5" id="Ejemplo" data-inic-dc="inic-ejem-1" autoplay hide-editor="">
-seleccionarColor('blue');
-cuadrado(10)
-derecha();abajo();
-seleccionarColor('red');
-cuadrado(8)
-derecha();abajo();
-seleccionarColor('yellow');
-cuadrado(6)
-derecha();abajo();
-seleccionarColor('green');
-cuadrado(4)
-derecha();abajo();
-seleccionarColor('black');
-cuadrado(2)
-function cuadrado(n){
-  for(let i= 0;i<n-1;i++) {pintar();derecha();}
-  for(let i= 0;i<n-1;i++) {pintar();abajo();}
-  for(let i= 0;i<n-1;i++) {pintar();izquierda();}
-  for(let i= 0;i<n-1;i++) {pintar();arriba();}
-}
+    
+    
+    
+	   
+	    </div> <!--Page-->
+        <div class="break"></div>
 
 
-
-				</script>
-				<script type="mie/p5" id="Ejemplo" data-inic-dc="inic-ejem-2" autoplay hide-editor="">
-cuadradoMulticolor();
-for(let i= 0;i<2;i++){derecha();arriba();derecha();}
-cuadradoMulticolor();
-for(let i= 0;i<2;i++){abajo();izquierda();abajo();}
-cuadradoMulticolor();
-for(let i= 0;i<8;i++){izquierda();}arriba();arriba();
-cuadradoMulticolor();
-for(let i= 0;i<5;i++){arriba();}derecha();
-cuadradoMulticolor();
-
-function cuadradoMulticolor(){
-  seleccionarColor('blue');
-  cuadrado(6)
-  derecha();abajo();
-  seleccionarColor('red');
-  cuadrado(4)
-  derecha();abajo();
-  seleccionarColor('yellow');
-  cuadrado(2)
-}
-function cuadrado(n){
-  for(let i= 0;i<n-1;i++) {pintar();derecha();}
-  for(let i= 0;i<n-1;i++) {pintar();abajo();}
-  for(let i= 0;i<n-1;i++) {pintar();izquierda();}
-  for(let i= 0;i<n-1;i++) {pintar();arriba();}
-}
-				</script>
-				<script type="dc/inic" id="inic-ejem-1">
-			   gridSize = 100;	 
-			   squareSize = 10;
-               posInicX = 0;
-               posInicY = 0;
-               colorInic = "black";
-               velocidadEjecucion = 100;
-
-               //inicializa la cuadricula en blanco
-               inicializarCuadriculaDefecto();
-			</script>
-			<script type="dc/inic" id="inic-ejem-2">
-			   gridSize = 120;	 
-			   squareSize = 10;
-               posInicX = 0;
-               posInicY = 0;
-               colorInic = "black";
-               velocidadEjecucion = 200;
-
-               //inicializa la cuadricula en blanco
-               inicializarCuadriculaDefecto();
-			</script>
-		</div>	
-		<div class="minis horiz">
-				<script type="mie/p5" id="Ejemplo" horiz="" min-lines="12" lines="15" autoplay data-inic-dc="inic-ejem-3">
-pintar();
-derecha();
-seleccionarColor('blue');
-pintar();
-abajo();
-seleccionarColor('red');
-pintar();
-derecha();
-seleccionarColor('green');
-pintar();
-				</script>
-				<script type="dc/inic" id="inic-ejem-3">
-			   gridSize = 160;	 
-			   squareSize = 20;
-               posInicX = 1;
-               posInicY = 1;
-               colorInic = "black";
-               velocidadEjecucion = 25;
-
-               //inicializa la cuadricula en blanco
-               inicializarCuadriculaDefecto();
-			</script>
-		</div>	
-		<div class="minis horiz">
-			<md id="md0-1">
-				
-				 <p>Dibujar en la cuadrícula es una 
-				   <a href="https://studio.code.org/unplugged/unplug3-es-ES.pdf" target="_blank"><strong><em> actividad desenchufada </em></strong></a>
-				   que podemos encontrar en <a href="https://code.org/" target="_blank"><strong><em>code.org</em></strong></a>.
-				   Este es un ejemplo de <a href="assets/intro-prog-dibujar-cuadricula.pdf" target="_blank"><strong><em>presentación</em></strong></a> para una clase. 
-				   Y <a href="https://www.csunplugged.org/en/topics/kidbots/" target="_blank"><strong><em>actividades similares</em></strong></a>
-				   de <a href="https://www.csunplugged.org/" target="_blank"><strong><em>CS Unplugged</em></strong></a>.
-				</p>	 
-				
-				<p>Para realizar actividades enchufadas podes usar el <a href="tutorial.html" target="_blank"><strong><em>tutorial</em></strong></a>,
-				 la <a href="actividades.html" target="_blank"><strong><em>guía de actividades</em></strong></a> o 
-				 podes <a href="dibuja.html" target="_blank"><strong><em>dibujar</em></strong></a> libremente.
-				</p>
-			</md>
-	    </div>
-	</div>
-
-			<div class="break"></div>
-
-
-	</article>				
-				
-				
-				
-            </div>
-        </div>      
-            </div>
-        </div>
+	 </article>				
+							
+    </div>
+   </div>     
+  </div>
+ </div>
         <!-- Donate End -->
 
 
