@@ -1103,7 +1103,7 @@ a:focus {
     margin: 45px 0;
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, .5);
+    background: linear-gradient(rgba(60, 43, 194, .25), rgba(0, 0, 50, .6));
 }
 
 .facts .facts-item {
@@ -2131,7 +2131,7 @@ a:focus {
     position: relative;
     margin-top: 45px;
     padding-top: 90px;
-    background: #2c2c63;
+    background: linear-gradient(rgba(55, 55, 255, .5), rgba(0, 0, 0, .5)), url(../assets/fondo-azul.png);
 }
 
 .footer .footer-contact,
