@@ -121,7 +121,7 @@ class MiniEditor {
 				minLines: minLines,
 				maxLines: lines,
 				fontSize: '14px',
-				showFoldWidgets: false,
+				showFoldWidgets: true,
 				showLineNumbers: true,
 				tabSize: 2,
 				highlightGutterLine: true,
@@ -295,7 +295,7 @@ mie.lang.p5.functionNames = [
 ];
 
 mie.lang.p5.play = function (codeScript) {   
-	
+
 	if (!codeScript.includes('function dibujar')) {
 		codeScript = 'function dibujar(){' + codeScript + "\n" + '}';
 	}
@@ -321,6 +321,8 @@ mie.lang.p5.play = function (codeScript) {
 		p5Obj = new p5(s, this.previewElem);
 	  }catch (e){
 	    this.previewElem.innerHTML = ''; 
+	    alertify.error('Hay un error en el programa');
+	    console.log("Error en el programa. No se pudo ejecutar correctamente!");
 	    p5Obj = new p5(s1, this.previewElem);
 	  } finally {
         return p5Obj;
@@ -463,7 +465,7 @@ if (mie.autoLoad !== false) mie.load();
 .ace_gutter,
 .ace_gutter-layer,
 .ace_gutter-cell {
-	width: 4px !important;
+	width: 45px !important;
 }
 
 .ace_gutter-cell.ace_error {
@@ -471,7 +473,7 @@ if (mie.autoLoad !== false) mie.load();
 }
 
 .ace_scroller {
-	left: 4px !important;
+	left: 45px !important;
 }
 
 .ace_active-line {
@@ -580,9 +582,8 @@ p.setup = function() {
   try {
     dibujar();
   } catch (e) {
-    console.log(
-      "Error: " + e.name + " " + e.message + " (line " + e.lineNumber + ")"
-    );
+      alertify.error("Error: " + e.name + " " + e.message + " (line " + e.lineNumber + ")");
+      console.log("Error: " + e.name + " " + e.message + " (line " + e.lineNumber + ")");
   }
 
   inicializar();
@@ -610,13 +611,17 @@ function ejecutarHistorial() {
         print("✅ Dibujaste correctamente!!!");
         textSize(25);
         textAlign(CENTER, CENTER);
-        text("✅", canvasSize / 2, canvasSize / 2);
+        text("✅", canvasSize / 2, canvasSize / 2);  
+        alertify.success("✅ Dibujaste correctamente!!!"); 
+        console.log("✅ Dibujaste correctamente!!!");
+
       } else {
         fill("red");
-        print("❌ Error!!!");
         textSize(25);
         textAlign(CENTER, CENTER);
         text("❌", canvasSize / 2, canvasSize / 2);
+        alertify.error("❌ Error!!! No dibujaste lo esperado!!!");         
+        console.log("❌ Error!!! No dibujaste lo esperado!!!");
       }
     }
     noLoop();
@@ -654,6 +659,10 @@ function posicionarCursor() {
     textAlign(CENTER, CENTER);
     text("❌", canvasSize / 2, canvasSize / 2);
     indice = historial.length + 2;
+    alertify.error("❌ Te saliste de la cuadricula!!!");  
+    console.log("❌ Te saliste de la cuadricula!!!");
+
+    
   } else {
     fill("yellow");
   }
