@@ -12,6 +12,7 @@ class MiniEditor {
 	inicCode;
     verifCode;
     firstCode;
+    nameFile;
 	
 	constructor(script, inicCode, verifCode) {             
 		this.id = mie.length;
@@ -70,6 +71,7 @@ class MiniEditor {
 		if (props.id) name = props.id.replace(/-/g, ' ');
 		else name = props.name || props.title || 'sketch';
 		span.innerHTML += name;
+		this.nameFile = name;
 		title.append(span);
 		mini.append(title);
 
@@ -83,6 +85,20 @@ class MiniEditor {
 			title.append(editBtn);
 		}
 
+        if (!props['hide-editor']){
+           let saveBtn = document.createElement('button');
+		   saveBtn.className = 'mie-save';
+		   saveBtn.title = 'Guardar';
+		   saveBtn.onclick = () => this.save();
+		   title.append(saveBtn);
+		
+		   let openBtn = document.createElement('button');
+		   openBtn.className = 'mie-open';
+		   openBtn.title = 'Abrir';
+		   openBtn.onclick = () => this.open();
+		   title.append(openBtn);
+        }
+        
 		let resetBtn = document.createElement('button');
 		resetBtn.className = 'mie-reset';
 		resetBtn.title = 'Reiniciar';
@@ -195,6 +211,56 @@ class MiniEditor {
 		mie.lang[this.lang].remove.call(this);
 		let code = 'function dibujar(){ }';
 		this.player = mie.lang[this.lang].play.call(this, code);   
+	}
+	
+	open() {
+		const inputfile = document.createElement('input');
+        inputfile.type = "file";
+        inputfile.name= "inputfile";
+        inputfile.id = "inputfile";
+        inputfile.style.display = 'none';
+	    let editor = this.editor;
+	    
+	    document.body.appendChild(inputfile);
+	    try{
+	     document.getElementById('inputfile')
+			.addEventListener('change', function () {
+
+				let fr = new FileReader();
+				fr.onload = function () {
+					editor.setValue(fr.result);
+				}
+				fr.readAsText(this.files[0]);
+			})
+		 inputfile.click();
+		}catch (e)	{
+		 alertify.error('Error. No se pudo abrir correctamente el archivo');
+		}	
+		document.body.removeChild(inputfile);  
+	}
+	
+	save() {	
+	  const texto = this.code || this.editor.getValue().trim();
+      const nombreArchivo = this.nameFile+".js";  
+      const tipoMIME = 'text/plain;charset=utf-8';
+      
+      const blob = new Blob([texto], {type: tipoMIME});
+      const url = URL.createObjectURL(blob);
+
+      const enlace = document.createElement('a');
+      enlace.href = url;
+      enlace.download = nombreArchivo;
+      enlace.style.display = 'none';
+
+      document.body.appendChild(enlace);
+      try{
+        enlace.click();
+      }catch (e){
+		alertify.error('Error. No se pudo guardar correctamente el archivo');
+	  }
+      document.body.removeChild(enlace);
+      URL.revokeObjectURL(url);
+       
 	}
 
 	toggleEditor() {
@@ -423,7 +489,9 @@ if (mie.autoLoad !== false) mie.load();
 
 .mie-edit,
 .mie-play,
-.mie-reset {
+.mie-reset,
+.mie-open,
+.mie-save {
 	float: right;
 	border: 0;
 	background: transparent;
@@ -449,6 +517,14 @@ if (mie.autoLoad !== false) mie.load();
 }
 
 .mie-reset:hover {
+	border-color: transparent transparent transparent #404040;
+}
+
+.mie-open:hover {
+	border-color: transparent transparent transparent #404040;
+}
+
+.mie-save:hover {
 	border-color: transparent transparent transparent #404040;
 }
 
@@ -522,6 +598,24 @@ if (mie.autoLoad !== false) mie.load();
     background-size: contain;
 	background-repeat: no-repeat;
 	background-image: url(data:image/png;base64,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);
+}
+
+.mie-open {
+	margin-top: 1px;
+	width: 16px;
+    height: 16px;
+    background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABSklEQVR4nO2ZsU7DMBRFDwgViY/pxAJdERsDH1UKA4KFCSGxI36GqR/Q0Jl2ALE8ZOkNkWqKnZjabt+Rrpo2juwj+6VuA4ZhhDIAboB3QALi2l1SINeBAu18A8cURqODOwlsf6ftp8ARBSGaUA6BN73mgYpFHEPgq8OS7JsGmGhdJxFxXLSW5aZzlVIkB6etmalaZO14t05knmm9x2QeIlJbVpDIL8QSil12okZ2VkQi8goc9HfIL+LykkhG/kskpM2Hvj4D+x36KkbE3REXevzUU0ZyijhGwFLfPwJ7HfosQsRxBnzqZ/cd+ixGxHHekrmtTURithp/YCK/0XdHUNWMrMNEsBnxY0tLsRrBasSP1YhiNYLVSJrf7MXvfqV2kVzI1os0esL9r1o6Ix3rzHdyknC9bypjn8hAZXI9D4zJTCW8D0MNw2CFHxjiOln6mkAHAAAAAElFTkSuQmCC);
+}
+
+.mie-save {
+	margin-top: 1px;
+	width: 16px;
+    height: 16px;
+    background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABOklEQVR4nO2YTQ6CMBBGvxUeB9fK9fDnKLpz4wEk3kTc6BkcQ1ISbMACnQ5F5yVNICXTvsxQyACKogwlAbAHcAdAE42D2YcXuwkFqDFOvjKlCbTqmK8XCgGZ8eSQcW1UQiQF8DDXZwALn2Bj511crRIqOmIvfTMTWqTtfeiKnfpkRkqkLRa1xB4tE5vIaJkYRex35ogZi9Qy1fwLMxcZtH5Mp1bUIoUlcZmryDdIUqT+F1uDl8zEvXnur/eD24465xq5lEhiZOrMcI0qE3mPfyo2kakhFYkM0oxEBnGeWqG6LKU5ERMJEYkuy0ZCxNVl8WHdyMzY/fV+MPR3hrjWVxEmSDNioaXFBGlpWWhpMUFaWv9SWuS454a41v9ZkdmWVulowE0pkvVs4ok04CSaeEEbcJJNPEVR8MkbwHgv+NHRPiUAAAAASUVORK5CYII=);
 }
 `;
 	document.head.appendChild(style);
