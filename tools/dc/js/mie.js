@@ -111,6 +111,91 @@ class MiniEditor {
 		playBtn.onclick = () => this.play();
 		title.append(playBtn);
 
+        this.configSel = false; 
+        if (props['config-sel']) {
+			this.configSel = true;
+            let velocidadSel = document.createElement('select');
+		    velocidadSel.className = 'mie-sel';
+		    velocidadSel.name = 'velocidadSel';
+		    velocidadSel.id = 'velocidadSel';
+		    velocidadSel.onchange = () => this.play();
+		    let option = document.createElement("option");
+            option.value = "50";
+            option.text = "Velocidad";
+            velocidadSel.appendChild(option);
+		    option = document.createElement("option");
+            option.value = "200";
+            option.text = "Extra Rápido";
+            velocidadSel.appendChild(option);
+		    option = document.createElement("option");
+            option.value = "100";
+            option.text = "Rápido";
+            velocidadSel.appendChild(option);
+            option = document.createElement("option");
+            option.value = "50";
+            option.text = "Normal";
+            velocidadSel.appendChild(option);
+		    option = document.createElement("option");
+            option.value = "25";
+            option.text = "Lento";
+            velocidadSel.appendChild(option);
+            option = document.createElement("option");
+            option.value = "10";
+            option.text = "Extra Lento";
+            velocidadSel.appendChild(option);
+		    title.append(velocidadSel);
+		
+		    let celdaSel = document.createElement('select');
+		    celdaSel.className = 'mie-sel';
+		    celdaSel.name = 'celdaSel';
+		    celdaSel.id = 'celdaSel';
+		    celdaSel.onchange = () => this.play();
+		    option = document.createElement("option");
+            option.value = "10";
+            option.text = "Celda";
+            celdaSel.appendChild(option);
+		    option = document.createElement("option");
+            option.value = "25";
+            option.text = "Grande";
+            celdaSel.appendChild(option);
+            option = document.createElement("option");
+            option.value = "20";
+            option.text = "Mediana";
+            celdaSel.appendChild(option);
+		    option = document.createElement("option");
+            option.value = "10";
+            option.text = "Chica";
+            celdaSel.appendChild(option);
+            option = document.createElement("option");
+            option.value = "5";
+            option.text = "Mini";
+            celdaSel.appendChild(option);
+		    title.append(celdaSel);
+
+            let grillaSel = document.createElement('select');
+		    grillaSel.className = 'mie-sel';
+		    grillaSel.name = 'grillaSel';
+		    grillaSel.id = 'grillaSel';
+		    grillaSel.onchange = () => this.play();
+		    option = document.createElement("option");
+            option.value = "400";
+            option.text = "Cuadrícula";
+            grillaSel.appendChild(option);
+		    option = document.createElement("option");
+            option.value = "400";
+            option.text = "Grande";
+            grillaSel.appendChild(option);
+            option = document.createElement("option");
+            option.value = "200";
+            option.text = "Mediana";
+            grillaSel.appendChild(option);
+		    option = document.createElement("option");
+            option.value = "100";
+            option.text = "Chica";
+            grillaSel.appendChild(option);	
+		    title.append(grillaSel)  
+        }
+
 		let main = document.createElement('div');
 		main.className = 'mie-main';
 		mini.append(main);
@@ -305,7 +390,6 @@ mie.loadMinis = (elem) => {
 	let inicCode = 'function inicializar(){return false;}';
     let verifCode = 'function verificar(){}';
 	
-	
 	for (let script of scripts) {
 		if (script.type.includes('mie')) {
 		
@@ -371,6 +455,15 @@ mie.lang.p5.play = function (codeScript) {
 	if (!this.firstCode.includes('function dibujar')) {
 		this.firstCode = 'function dibujar(){' + this.firstCode + "\n" + '}';
 	}
+	
+	if (this.configSel){
+       let griValue = document.getElementById(`grillaSel`).value;
+       let celValue = document.getElementById(`celdaSel`).value;
+       let velValue = document.getElementById(`velocidadSel`).value;
+	   this.inicCode = 'function inicializar(){posInicX = 0; posInicY = 0; colorInic = "black"; gridSize ='+griValue+
+	                                        '; squareSize = '+celValue+'; velocidadEjecucion ='+velValue+'; inicializarCuadriculaDefecto();}';
+    }
+	
 	let code = "";
     let code1 = '"use strict";'+codeMaqDib + this.inicCode + 'function verificar(){}' + 'function dibujar(){ }';	    
     
@@ -499,6 +592,14 @@ if (mie.autoLoad !== false) mie.load();
 	border: 0;
 	background: transparent;
 	cursor: pointer;
+	padding-left: 15px;
+}
+
+.mie-sel{
+    float: right;
+    cursor: pointer;
+    font-size: 10px;
+    margin-right: 1%;
 }
 
 .mie-play:active {
