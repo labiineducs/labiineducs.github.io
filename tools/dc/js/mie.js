@@ -227,13 +227,14 @@ class MiniEditor {
 				tabSize: 2,
 				highlightGutterLine: true,
 				showGutter: true,
+				enableSnippets: true,
 				enableBasicAutocompletion: [
 					{
 						getCompletions: (editor, session, pos, prefix, callback) => {
 							callback(null, mie.lang[this.lang].completions || []);
 						}
 					}
-				],
+				] , 
 				enableLiveAutocompletion: true
 			});
 			editor.session.on('changeMode', function (e, session) {
@@ -289,6 +290,9 @@ class MiniEditor {
 		mie.lang[this.lang].remove.call(this);
 		let code = this.code || this.editor.getValue().trim();
 		this.code = null; 
+		
+	    code = addInfiniteLoopProtection(code,100);
+    	
 		this.player = mie.lang[this.lang].play.call(this, code);   
 	}
 
@@ -425,6 +429,20 @@ mie.load = () => {
 };
 
 mie.lang.p5 = {};
+
+mie.lang.p5.completions = [
+	{
+                    name: 'test',
+                    value: 'test()',
+                    caption: 'test',
+                    meta: 'local asaa',
+                    score: 1000,
+                     r_symbol:     '<str: symbol name of completion item>',
+       r_envir_name: '<str: name of the environment from which the symbol is referenced>',
+       r_help_type:  '<str: a datatype for dispatching help documentation function>',
+       completer:    '<str: used for dispatching default insertMatch functions>',
+                }
+];
 
 mie.lang.p5.functionNames = [
 	'preload',
@@ -795,7 +813,7 @@ p.draw = function() {
 }
 
 function ejecutarHistorial() {
-  f = historial[indice];
+  let f = historial[indice];
 
   if (indice < historial.length) {
     if (typeof f == "function") f();
@@ -1157,3 +1175,67 @@ function times(n) {
   return range(0, n);
 }
 `;
+
+function addInfiniteLoopProtection(code, timeout ) {
+  var loopId = 1;
+  var patches = [];
+  var varPrefix = "_wmloopvar";
+  var varStr = "var %d = Date.now();\n";
+  var checkStr = '\nif (Date.now() - %d > ' + timeout+') { alertify.error(\'Error Loop se ejecuto demasiadas veces\'); break; }\n';
+  esprima.parseScript(
+    code,
+    {
+      tolerant: true,
+      range: true,
+      jsx: false
+    },
+    function(node) {
+      switch (node.type) {
+        case "DoWhileStatement":
+        case "ForStatement":
+        case "ForInStatement":
+        case "ForOfStatement":
+        case "WhileStatement":
+          var start = 1 + node.body.range[0];
+          var end = node.body.range[1];
+          var prolog = checkStr.replace("%d", varPrefix + loopId);
+          var epilog = "";
+
+          if (node.body.type !== "BlockStatement") {
+            // `while(1) doThat()` becomes `while(1) {doThat()}`
+            prolog = "{" + prolog;
+            epilog = "}";
+            --start;
+          }
+
+          patches.push({
+            pos: start,
+            str: prolog
+          });
+          patches.push({
+            pos: end,
+            str: epilog
+          });
+          patches.push({
+            pos: node.range[0],
+            str: varStr.replace("%d", varPrefix + loopId)
+          });
+          ++loopId;
+          break;
+
+        default:
+          break;
+      }
+    }
+  );
+  patches
+    .sort(function(a, b) {
+      return b.pos - a.pos;
+    })
+    .forEach(function(patch) {
+      code = code.slice(0, patch.pos) + patch.str + code.slice(patch.pos);
+    });
+
+  return code;
+} // end of addInfiniteLoopProtection
+
