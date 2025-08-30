@@ -228,15 +228,18 @@ class MiniEditor {
 				highlightGutterLine: true,
 				showGutter: true,
 				enableSnippets: true,
-				enableBasicAutocompletion: [
+				enableBasicAutocompletion: true
+				
+		/*		[
 					{
 						getCompletions: (editor, session, pos, prefix, callback) => {
 							callback(null, mie.lang[this.lang].completions || []);
 						}
 					}
-				] , 
+				]*/ , 
 				enableLiveAutocompletion: true
 			});
+			
 			editor.session.on('changeMode', function (e, session) {
 				if ('ace/mode/javascript' === session.getMode().$id) {
 					if (!!session.$worker) {
@@ -254,6 +257,15 @@ class MiniEditor {
 			editor.setTheme('ace/theme/xcode');
 			editor.session.setUseWrapMode(false);
 			editor.renderer.setShowPrintMargin(false);
+
+            /* add custom completer*/
+            let mdCompleter = {
+						        getCompletions: (editor, session, pos, prefix, callback) => {
+							      callback(null, completionsMD || []);
+						        }
+					          };
+            let langTools = ace.require("ace/ext/language_tools");
+            langTools.addCompleter(mdCompleter); 
 
 			this.editor = editor;
 			this.sketch = null;
@@ -430,18 +442,20 @@ mie.load = () => {
 
 mie.lang.p5 = {};
 
-mie.lang.p5.completions = [
-	{
-                    name: 'test',
-                    value: 'test()',
-                    caption: 'test',
-                    meta: 'local asaa',
-                    score: 1000,
-                     r_symbol:     '<str: symbol name of completion item>',
-       r_envir_name: '<str: name of the environment from which the symbol is referenced>',
-       r_help_type:  '<str: a datatype for dispatching help documentation function>',
-       completer:    '<str: used for dispatching default insertMatch functions>',
-                }
+// custom completions
+let completionsMD = [
+	{ name: 'pintar', caption: 'pintar()', value: 'pintar();', meta: 'function', type: "funcion DC", score: 1000},
+	{ name: 'derecha', caption: 'derecha()', value: 'derecha();', meta: 'function', type: "funcion DC", score: 1000},
+	{ name: 'izquierda', caption: 'izquierda()', value: 'izquierda();', meta: 'function', type: "funcion DC", score: 1000},
+	{ name: 'abajo', caption: 'abajo()', value: 'abajo();', meta: 'function', type: "funcion DC", score: 1000},
+	{ name: 'arriba', caption: 'arriba()', value: 'arriba();', meta: 'function', type: "funcion DC", score: 1000},
+	{ caption: "seleccionarColor(color)", snippet: "seleccionarColor('$1')", meta: "function", type: "funcion DC", score: 1000},
+	{ name: 'siguienteColor', caption: 'siguienteColor()', value: 'siguienteColor();', meta: 'function', type: "funcion DC", score: 1000},
+	{ name: 'estaPintado', caption: 'estaPintado()', value: 'estaPintado()', meta: 'function', type: "sensor DC", score: 1000},
+	{ name: 'colorCelda', caption: 'colorCelda()', value: 'colorCelda()', meta: 'function', type: "sensor DC", score: 1000},
+	{ name: 'colorActivo', caption: 'colorActivo()', value: 'colorActivo()', meta: 'function', type: "sensor DC", score: 1000},
+	{ name: 'posicionX', caption: 'posicionX()', value: 'posicionX()', meta: 'function', type: "sensor DC", score: 1000},
+	{ name: 'posicionY', caption: 'posicionY()', value: 'posicionY', meta: 'function', type: "sensor DC", score: 1000}
 ];
 
 mie.lang.p5.functionNames = [
