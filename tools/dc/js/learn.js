@@ -44,6 +44,7 @@ async function start() {
 			'./js/ace/ext-beautify.js'
 		]);
 
+
 /*	if (navigator.onLine) {
 		await loadScripts([
 			'https://cdn.jsdelivr.net/npm/ace-builds@1.42.0/src-min-noconflict/ace.min.js',

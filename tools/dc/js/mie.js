@@ -458,7 +458,6 @@ let completionsMD = [
 	{ name: 'posicionY', caption: 'posicionY()', value: 'posicionY()', meta: 'function', type: "sensor DC", score: 1000}
 ];
 
-
 mie.lang.p5.functionNames = [
 	'preload',
 	'setup',
