@@ -38,12 +38,18 @@ async function start() {
 		for (let src of sources) await loadScript(src);
 	}
 
-	if (navigator.onLine) {
+	await loadScripts([
+			'./js/ace/ace.js',
+			'./js/ace/ext-language_tools.js',
+			'./js/ace/ext-beautify.js'
+		]);
+
+/*	if (navigator.onLine) {
 		await loadScripts([
 			'https://cdn.jsdelivr.net/npm/ace-builds@1.42.0/src-min-noconflict/ace.min.js',
 			'https://cdn.jsdelivr.net/npm/ace-builds@1.42.0/src-min-noconflict/ext-language_tools.js',
 			'https://cdn.jsdelivr.net/npm/ace-builds@1.42.0/src-min-noconflict/ext-beautify.js'
-		]);
+		]); 
 	} else {
 		await loadScripts([
 			'/learn/ace/ace.min.js',
@@ -53,7 +59,7 @@ async function start() {
 			'/learn/ace/theme-xcode.js',
 			'ace/ext-beautify.js'
 		]);
-	}
+	} */
 
 		loadPage();
 	

@@ -257,8 +257,8 @@ class MiniEditor {
 			editor.setTheme('ace/theme/xcode');
 			editor.session.setUseWrapMode(false);
 			editor.renderer.setShowPrintMargin(false);
-
-            /* add custom completer*/
+			
+	        /* add custom completer*/
             let mdCompleter = {
 						        getCompletions: (editor, session, pos, prefix, callback) => {
 							      callback(null, completionsMD || []);
@@ -442,20 +442,20 @@ mie.load = () => {
 
 mie.lang.p5 = {};
 
-// custom completions
+// custom completions - resaltado de sintaxis agregar en mode-javascipt.js
 let completionsMD = [
 	{ name: 'pintar', caption: 'pintar()', value: 'pintar();', meta: 'function', type: "funcion DC", score: 1000},
 	{ name: 'derecha', caption: 'derecha()', value: 'derecha();', meta: 'function', type: "funcion DC", score: 1000},
 	{ name: 'izquierda', caption: 'izquierda()', value: 'izquierda();', meta: 'function', type: "funcion DC", score: 1000},
 	{ name: 'abajo', caption: 'abajo()', value: 'abajo();', meta: 'function', type: "funcion DC", score: 1000},
 	{ name: 'arriba', caption: 'arriba()', value: 'arriba();', meta: 'function', type: "funcion DC", score: 1000},
-	{ caption: "seleccionarColor(color)", snippet: "seleccionarColor('$1')", meta: "function", type: "funcion DC", score: 1000},
+	{ caption: "seleccionarColor(color)", snippet: "seleccionarColor('$1');", meta: "function", type: "funcion DC", score: 1000},
 	{ name: 'siguienteColor', caption: 'siguienteColor()', value: 'siguienteColor();', meta: 'function', type: "funcion DC", score: 1000},
 	{ name: 'estaPintado', caption: 'estaPintado()', value: 'estaPintado()', meta: 'function', type: "sensor DC", score: 1000},
 	{ name: 'colorCelda', caption: 'colorCelda()', value: 'colorCelda()', meta: 'function', type: "sensor DC", score: 1000},
 	{ name: 'colorActivo', caption: 'colorActivo()', value: 'colorActivo()', meta: 'function', type: "sensor DC", score: 1000},
 	{ name: 'posicionX', caption: 'posicionX()', value: 'posicionX()', meta: 'function', type: "sensor DC", score: 1000},
-	{ name: 'posicionY', caption: 'posicionY()', value: 'posicionY', meta: 'function', type: "sensor DC", score: 1000}
+	{ name: 'posicionY', caption: 'posicionY()', value: 'posicionY()', meta: 'function', type: "sensor DC", score: 1000}
 ];
 
 mie.lang.p5.functionNames = [
