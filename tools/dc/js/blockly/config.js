@@ -1,0 +1,119 @@
+// --- CONFIGURACIÓN DEL MENÚ LATERAL CON CATEGORÍAS ---
+const miToolbox = {
+    "kind": "categoryToolbox",
+    "contents": [
+        {
+            "kind": "category",
+            "name": "Funciones Básicas",
+            "colour": "130", 
+            "contents": [
+                { "kind": "block", "type": "bloque_pintar" },
+                { "kind": "block", "type": "bloque_subir" },
+                { "kind": "block", "type": "bloque_bajar" },
+                {"kind": "block", "type": "bloque_derecha"},
+                {"kind": "block", "type": "bloque_izquierda"}
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Color",
+            "colour": "40",
+            "contents": [
+                { "kind": "block", "type": "bloque_seleccionarColor" },
+                { "kind": "block", "type": "bloque_siguienteColor" },
+                {"kind": "block", "type": "bloque_colorRandom" },
+                { "kind": "block", "type": "bloque_colores" }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Sensores",
+            "colour": "0",
+            "contents": [
+                { "kind": "block", "type": "bloque_estaPintado" },
+                { "kind": "block", "type": "bloque_colorCelda" },
+                { "kind": "block", "type": "bloque_colorActivo" },
+                {"kind": "block", "type": "bloque_posicionX"},
+                {"kind": "block", "type": "bloque_posicionY"}
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Lógica y Control",
+            "colour": "%{BKY_LOGIC_HUE}",
+            "contents": [
+                // Bloques Condicionales
+                { "kind": "block", "type": "controls_if" },
+                { "kind": "block", "type": "logic_compare" },
+                { "kind": "block", "type": "logic_operation" },
+                { "kind": "block", "type": "logic_negate" },
+                // Bloques de Bucles
+                { "kind": "block", "type": "controls_whileUntil" },
+                { "kind": "block", "type": "controls_repeat_ext" },
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Matemáticas",
+            "colour": "%{BKY_MATH_HUE}",
+            "contents": [
+                { "kind": "block", "type": "math_number" },
+                { "kind": "block", "type": "math_arithmetic" },
+                { "kind": "block", "type": "math_random_int" }, // Random
+                { "kind": "block", "type": "math_on_list" }     // Min, Max, etc.
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Texto",
+            "colour": "%{BKY_TEXTS_HUE}",
+            "contents": [
+                { "kind": "block", "type": "text" }, // String
+                { "kind": "block", "type": "text_print" }
+            ]
+        },
+        {
+            "kind": "category",
+            "name": "Listas",
+            "colour": "%{BKY_LISTS_HUE}",
+            "contents": [
+                { "kind": "block", "type": "lists_create_with" }, // Arrays
+                { "kind": "block", "type": "lists_getIndex" }
+            ]
+        },
+        //CATEGORÍAS DINÁMICAS NATIVAS
+        {
+            "kind": "category",
+            "name": "Variables",
+            "colour": "%{BKY_VARIABLES_HUE}",
+            "custom": "VARIABLE" 
+        },
+        {
+            "kind": "category",
+            "name": "Funciones",
+            "colour": "%{BKY_PROCEDURES_HUE}",
+            "custom": "PROCEDURE" 
+        }
+    ]
+};
+
+// --- INYECCIÓN EN EL HTML ---
+const workspace = Blockly.inject('blocklyDiv', {
+    toolbox: miToolbox,
+    scrollbars: true,
+    trashcan: true
+});
+
+// Forzamos el redibujado (por el artículo oculto de Bootstrap)
+setTimeout(function() {
+    Blockly.svgResize(workspace);
+}, 800);
+
+// --- SINCRONIZACIÓN AUTOMÁTICA CON LA CUADRÍCULA ---
+workspace.addChangeListener(function(event) {
+    const codigoJS = javascript.javascriptGenerator.workspaceToCode(workspace);
+    
+    if (window.mie && window.mie.length > 0 && window.mie[0].editor) {
+        window.mie[0].editor.setValue(codigoJS);
+    }
+});

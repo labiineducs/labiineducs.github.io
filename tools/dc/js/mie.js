@@ -995,15 +995,14 @@ function siguienteColor() {
 }
 
 function siguienteColor_() {
-  let c = colours[colorActual][1];
-  if (c < 140) {
-    c++;
-  } else {
-    c = 0;
-  }
-  for (let col in colours) {
-    if (colours[col][1] == c) colorActual = col;
-  }
+    let c = colours[colorActual][1];
+    c = (c + 1) % 141; 
+    for (let col in colours) {
+        if (colours[col][1] === c) {
+            colorActual = col;
+            break;
+          }    
+    }        
 }
 
 function retornarColor(c) {

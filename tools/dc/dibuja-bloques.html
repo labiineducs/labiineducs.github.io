@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Dibuja con Bloques en la Cuadrícula</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Dibuja en la Cuadrícula" name="keywords">
+        <meta content="Dibuja en la Cuadrícula" name="description">
+
+        <link href="assets/p5play_logo.svg" rel="icon">
+
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+      
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        
+        <style>
+            .page { display: flex; }
+            #refs { display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start; }
+            #refs>div { display: flex; flex-direction: row; flex-wrap: wrap; gap: 4px; align-content: start; }
+            #refs div:first-child .btn { font-size: 27px; }
+            #refs div:not(:first-child) h2 a:hover { color: var(--pink); text-decoration: underline; }
+
+            @media screen and (max-width: 1030px) {
+                #refs>div:nth-child(1), #refs>div:nth-child(2) { width: 96%; }
+            }
+            @media screen and (max-width: 540px) {
+                #refs>div, #refs>div:nth-child(7), #refs>div:nth-child(8), #refs>div:nth-child(9), #refs>div:nth-child(10) { width: 96%; }
+            }
+        </style>        
+    </head>
+
+    <body>
+        <div class="top-bar d-none d-md-block">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="top-bar-left">
+                            <div class="text">
+                                <i class="fa fa-link"></i>
+                                <p><a href="../../index.html">LABIIN.EduCs</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="top-bar-right">
+                            <div class="social">
+                                <a href="https://dc.exa.unrc.edu.ar/" target="_blank"><img class="top-bar-img" src="assets/img/logos/logo-dc.png" alt="logo DC"></a>
+                                <a href="https://www.exa.unrc.edu.ar/" target="_blank"><img class="top-bar-img" src="assets/img/logos/logo-exa.png" alt="logo DC"></a>
+                                <a href="https://www.unrc.edu.ar/" target="_blank"><img class="top-bar-img" src="assets/img/logos/logo-unrc.png" alt="logo DC"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">  <img src="./assets/icon_sm.png" alt="Logo DC"> </a>
+                <a href="dibuja.html" class="navbar-brand">&nbsp;Dibuja con Bloques</a> 
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="actividades.html" class="nav-item nav-link">Actividades</a>
+                        <a href="tutorial.html" class="nav-item nav-link">Tutorial</a>
+                        <a href="dibuja.html" class="nav-item nav-link active">Dibuja</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-header-aux">
+            <div class="container">
+                <div class="row"></div>
+            </div>
+        </div>
+        <div class="facts" data-parallax="scroll" data-image-src="assets/fondo-azul-g.png">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <article style="display: none;">
+                            <div class="break"></div>
+                            <div id="page-0" class="page" style="flex-direction: column; width: 100%;">
+                                
+                                <div style="display: flex; flex-wrap: nowrap; gap: 20px; width: 100%; align-items: flex-start; margin-bottom: 20px;">
+                                    
+                                    <div style="flex: 1 1 50%; min-width: 0; position: relative; z-index: 1;">
+                                        <div id="blocklyDiv" style="height: 520px; width: 100%; border: 1px solid #ccc; border-radius: 5px; background-color: #fff;"></div>
+                                    </div>
+
+                                    <div style="flex: 1 1 50%; min-width: 0; overflow-x: auto;">
+                                        <script type="mie/p5" id="dibujar" hide-editor min-lines="20" lines="20" data-inic-dc="inic-dibujar" config-sel>
+                        // escribe tu programa
+                                        </script>
+                                        
+                                        <script type="dc/inic" id="inic-dibujar">
+                                            gridSize = 400;   
+                                            squareSize = 25;
+                                            posInicX = 0;
+                                            posInicY = 0;
+                                            colorInic = "black";
+                                            velocidadEjecucion = 25;
+
+                                            //inicializa la cuadricula en blanco
+                                            inicializarCuadriculaDefecto();
+                                        </script>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div style="width: 100%; background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 2px 2px 5px #0002;">
+                                    <md id="md0-1">
+                                        <p>Ejecuta el programa con <code>&#x1F5D8;</code>. Puedes reiniciar la cuadrícula a su estado inicial con <code>&#x2B6E;</code>.</p>
+                                        <p>Una <a href="./guia-rapida.html" target="_blank">guía rápida</a> de funciones disponibles.</p>
+                                        <p>Un <a href="./tutorial.html" target="_blank">tutorial</a> para aprender a programar dibujando en la cuadrícula.</p>
+                                    </md>
+                                </div>
+
+                            </div> 
+                            <div class="break"></div>
+                        </article>
+                    </div>
+                </div>     
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-contact">
+                            <h2>Contacto</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>Departamento de Computación</p>
+                            <p><i class="fa fa-map-marker-alt"></i>Facultad de Ciencias Exactas Físico-Químicas y Naturales</p>
+                            <p><i class="fa fa-map-marker-alt"></i>Universidad Nacional de Río Cuarto</p>
+                            <p><i class="fa fa-envelope"></i>cursoprogramacion@dc.exa.unrc.edu.ar</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-link">
+                            <h2>Links</h2>
+                            <a href="index.html">Home</a>
+                            <a href="actividades.html">Actividades</a>
+                            <a href="tutorial.html">Tutorial</a>
+                            <a href="dibuja.html">Dibuja</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a href="#">LABIIN-EduCs</a>, All Right Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <div id="loader" class="show">
+            <div class="loader"></div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="lib/parallax/parallax.min.js"></script>
+        
+        <script src="js/mainlab.js"></script>
+        
+        <script src="js/v3/q5.min.js"></script>
+        <script src="js/v3/planck.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+        <script> window.mie = { autoLoad: false }; </script>
+        <script src="./js/esprima/esprima.js"></script>
+        <script src="./js/mie.js"></script>
+        <script src="./js/learn1.js"></script> 
+        <script src="./js/alertifyjs/alertify.js"></script> 
+        
+        <link rel="stylesheet" href="./js/alertifyjs/css/alertify.min.css"/>
+        <link rel="stylesheet" href="./js/alertifyjs/css/themes/default.min.css"/>
+
+        <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+        <script src="https://unpkg.com/blockly/blocks_compressed.js"></script>
+        <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
+        <script src="https://unpkg.com/blockly/msg/es.js"></script>
+        <script src="js/blockly/definitions.js"></script>
+        <script src="js/blockly/generator.js"></script>
+        <script src="js/blockly/config.js"></script>
+    </body>
+</html>
