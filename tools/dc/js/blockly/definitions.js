@@ -1,50 +1,61 @@
 //DEFINICIÓN VISUAL DE LOS BLOQUES 
         Blockly.defineBlocksWithJsonArray([
+            //Bloque de Función Principal 
+            {
+                "type": "bloque_dibujar",
+                "message0": "🏁 dibujar %1 %2",
+                "args0": [
+                    { "type": "input_dummy" },
+                    { "type": "input_statement", "name": "CUERPO" } 
+                ],
+                "colour": 120, 
+                "tooltip": "Función principal. Todo los bloques deben ir adentro."
+            },
             //Bloques de Funciones Básicas
             {
                 "type": "bloque_pintar",
-                "message0": "pintar 🖌️",
+                "message0": "🖌️ pintar",
                 "previousStatement": null,
                 "nextStatement": null,
-                "colour": 130,
+                "colour": 330,
                 "tooltip": "Pinta la casilla actual."
             },
             {
                 "type": "bloque_subir",
-                "message0": "subir ⬆️",
+                "message0": "⬆️ subir",
                 "previousStatement": null,
                 "nextStatement": null,
-                "colour": 130,
+                "colour": 330,
                 "tooltip": "Mueve el pincel hacia arriba."
             },
             {
                 "type": "bloque_bajar",
-                "message0": "bajar ⬇️",
+                "message0": "⬇️ bajar",
                 "previousStatement": null,
                 "nextStatement": null,
-                "colour": 130,
+                "colour": 330,
                 "tooltip": "Mueve el pincel hacia abajo."
             },
             {
                 "type": "bloque_derecha",
-                "message0": "derecha ➡️",
+                "message0": "➡️ derecha",
                 "previousStatement": null,
                 "nextStatement" : null,
-                "colour" : 130,
+                "colour" : 330,
                 "tooltip" : "Mueve el pincel hacia la derecha."
             },
             {
                 "type": "bloque_izquierda",
-                "message0": "izquierda ⬅️",
+                "message0": "⬅️ izquierda",
                 "previousStatement": null,
                 "nextStatement" : null,
-                "colour" : 130,
+                "colour" : 330,
                 "tooltip" : "Mueve el pincel hacia la izquierda."
             },
             //Bloques de Color
             {
                 "type": "bloque_seleccionarColor",
-                "message0": "seleccionarColor 🎨 %1",
+                "message0": "🎨 seleccionarColor %1",
                 args0: [
                     {
                         "type": "field_colour",
@@ -72,7 +83,7 @@
             },
             {
                 "type": "bloque_siguienteColor",
-                "message0": "siguienteColor ⏭️",
+                "message0": "⏭️ siguienteColor",
                 "previousStatement": null,
                 "nextStatement" : null,
                 "colour" : 40,
@@ -80,7 +91,7 @@
             },
             {
                 "type": "bloque_colorRandom",
-                "message0": "colorRandom 🎲",
+                "message0": "🎲 colorRandom",
                 "previousStatement": null,
                 "nextStatement" : null,
                 "colour" : 40,
@@ -88,7 +99,7 @@
             },
             {
                 "type": "bloque_colores",
-                "message0": "colores 🏳️‍🌈 %1",
+                "message0": "🏳️‍🌈 colores %1",
                 args0: [
                     {
                         "type": "field_colour",
@@ -116,35 +127,35 @@
             //Bloques de Sensores
             {
                 "type": "bloque_estaPintado",
-                "message0": "estaPintado 🔍",
+                "message0": "🔍 estaPintado",
                 "output": null,
                 "colour" : 0,
                 "tooltip" : "Verifica que el bloque esté pintado"
             },
             {
                 "type": "bloque_colorCelda",
-                "message0": "colorCelda 💧",
+                "message0": "💧 colorCelda",
                 "output": null,
                 "colour" : 0,
                 "tooltip" : "Retorna el color de la celda"
             },
             {
                 "type": "bloque_colorActivo",
-                "message0": "colorActivo 🪣",
+                "message0": "🪣 colorActivo", 
                 "output": null,
                 "colour" : 0,
                 "tooltip" : "Retorna el color que está utilizando el pincel"
             },
             {
                 "type": "bloque_posicionX",
-                "message0": "posicionX ↔️",
+                "message0": "↔️ posicionX",
                 "output": null,
                 "colour" : 0,
                 "tooltip" : "Retorna la posición X del pincel"
             },
             {
                 "type": "bloque_posicionY",
-                "message0": "posicionY ↕️",
+                "message0": "↕️ posicionY",
                 "output": null,
                 "colour" : 0,
                 "tooltip" : "Retorna la posición Y del pincel"

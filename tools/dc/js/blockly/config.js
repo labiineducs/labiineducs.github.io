@@ -5,7 +5,7 @@ const miToolbox = {
         {
             "kind": "category",
             "name": "Funciones Básicas",
-            "colour": "130", 
+            "colour": "330", 
             "contents": [
                 { "kind": "block", "type": "bloque_pintar" },
                 { "kind": "block", "type": "bloque_subir" },
@@ -97,22 +97,35 @@ const miToolbox = {
     ]
 };
 
-// --- INYECCIÓN EN EL HTML ---
+// Inyección en el HTML
 const workspace = Blockly.inject('blocklyDiv', {
     toolbox: miToolbox,
     scrollbars: true,
     trashcan: true
 });
 
+// Crear el bloque principal dibujar en el espacio de trabajo
+        const bloqueMain = workspace.newBlock('bloque_dibujar');
+        bloqueMain.initSvg();
+        bloqueMain.render();
+        // Lo hacemos imborrable e inamovible 
+        bloqueMain.setDeletable(false); 
+        bloqueMain.moveBy(50, 50);
+
 // Forzamos el redibujado (por el artículo oculto de Bootstrap)
 setTimeout(function() {
     Blockly.svgResize(workspace);
 }, 800);
 
-// --- SINCRONIZACIÓN AUTOMÁTICA CON LA CUADRÍCULA ---
+// Sincronización Automática con la Cuadrícula
 workspace.addChangeListener(function(event) {
-    const codigoJS = javascript.javascriptGenerator.workspaceToCode(workspace);
-    
+    const bloqueMain = workspace.getBlocksByType('bloque_dibujar')[0];
+    let codigoJS = "";
+    if (bloqueMain) {
+        codigoJS = javascript.javascriptGenerator.blockToCode(bloqueMain);
+    } else {
+        codigoJS = "// Esperando al bloque principal dibujar()...";
+    }
     if (window.mie && window.mie.length > 0 && window.mie[0].editor) {
         window.mie[0].editor.setValue(codigoJS);
     }

@@ -1,5 +1,9 @@
 // REGLAS DE TRADUCCIÓN A JAVASCRIPT
-
+        //Bloque de Función Principal dibujar
+        javascript.javascriptGenerator.forBlock['bloque_dibujar'] = function(block) {
+            const cuerpo = javascript.javascriptGenerator.statementToCode(block, 'CUERPO');
+            return cuerpo;
+        };
         //Bloques de Funciones Basicas
         javascript.javascriptGenerator.forBlock['bloque_pintar'] = function(block) {
             return 'pintar();\n';
@@ -16,8 +20,6 @@
         javascript.javascriptGenerator.forBlock['bloque_izquierda'] = function(block) {
             return 'izquierda();\n';  
         };
-
-
         //Bloques de Color
         javascript.javascriptGenerator.forBlock['bloque_seleccionarColor'] = function(block) {
             const hexElegido = block.getFieldValue('COLOR');
@@ -57,7 +59,6 @@
             const colorNombre = hexANombre[hexElegido] || hexElegido; 
             return ['"' + colorNombre + '"', javascript.javascriptGenerator.ORDER_ATOMIC];
         };
-
         //Bloques de Sensor (Devuelven un valor, no usan salto de línea \n)
         javascript.javascriptGenerator.forBlock['bloque_estaPintado'] = function(block) {
             // ORDER_FUNCTION_CALL le dice a Blockly que esto es la ejecución de una función
