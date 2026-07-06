@@ -101,16 +101,15 @@ const miToolbox = {
 const workspace = Blockly.inject('blocklyDiv', {
     toolbox: miToolbox,
     scrollbars: true,
-    trashcan: true
+    trashcan: false
 });
 
 // Crear el bloque principal dibujar en el espacio de trabajo
-        const bloqueMain = workspace.newBlock('bloque_dibujar');
-        bloqueMain.initSvg();
-        bloqueMain.render();
-        // Lo hacemos imborrable e inamovible 
-        bloqueMain.setDeletable(false); 
-        bloqueMain.moveBy(50, 50);
+const bloqueMain = workspace.newBlock('bloque_dibujar');
+bloqueMain.initSvg();
+bloqueMain.render();
+bloqueMain.setDeletable(false); 
+bloqueMain.moveBy(50, 50);
 
 // Forzamos el redibujado (por el artículo oculto de Bootstrap)
 setTimeout(function() {
@@ -130,3 +129,86 @@ workspace.addChangeListener(function(event) {
         window.mie[0].editor.setValue(codigoJS);
     }
 });
+
+function guardarBloques() {
+    const estado = Blockly.serialization.workspaces.save(workspace);
+    const textoJSON = JSON.stringify(estado);
+    const blob = new Blob([textoJSON], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'mi_dibujo_bloques.json'; 
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+function cargarBloques(event) {
+    const archivo = event.target.files[0];
+    if (!archivo) return;
+
+    const lector = new FileReader();
+
+    lector.onload = function(e) {
+        try {
+            const contenido = e.target.result;
+            const estado = JSON.parse(contenido);
+            workspace.clear();
+            Blockly.serialization.workspaces.load(estado, workspace);
+            document.getElementById('inputCargarBloques').value = "";
+            
+        } catch (error) {
+            alert("Error al cargar el archivo. Asegúrate de que sea un archivo .json válido de Blockly.");
+            console.error(error);
+        }
+    };
+    lector.readAsText(archivo);
+}
+
+//Inyecta el input oculto para el menú de abrir archivo
+document.addEventListener("DOMContentLoaded", () => {
+    if (!document.getElementById('inputCargarBloques')) {
+        const inputDinamico = document.createElement('input');
+        inputDinamico.type = 'file';
+        inputDinamico.id = 'inputCargarBloques';
+        inputDinamico.accept = '.json';
+        inputDinamico.style.display = 'none';
+        inputDinamico.addEventListener('change', cargarBloques); 
+        document.body.appendChild(inputDinamico);
+    }
+});
+
+function redefinirBotones() {
+    // Busca los botones en el HTML
+    const btnSave = document.querySelector('.mie-save');
+    const btnOpen = document.querySelector('.mie-open');
+
+    if (btnSave && btnOpen && !btnSave.classList.contains('bloques-ready')) {
+        
+        // Clona los botones para borrar cualquier evento que mie.js le haya puesto
+        const newSave = btnSave.cloneNode(true);
+        const newOpen = btnOpen.cloneNode(true);
+
+        newSave.classList.add('bloques-ready');
+        newOpen.classList.add('bloques-ready');
+
+        // Reemplaza los botones viejos
+        btnSave.parentNode.replaceChild(newSave, btnSave);
+        btnOpen.parentNode.replaceChild(newOpen, btnOpen);
+
+        // Inyecta las funciones de Blockly
+        newSave.addEventListener('click', (e) => {
+            e.preventDefault();
+            guardarBloques();
+        });
+        newOpen.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('inputCargarBloques').click();
+        });
+        newSave.title = "Guardar Bloques";
+        newOpen.title = "Abrir Bloques";
+    }
+    setTimeout(redefinirBotones, 500);
+}
+redefinirBotones();

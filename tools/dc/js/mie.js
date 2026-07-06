@@ -85,8 +85,8 @@ class MiniEditor {
 			title.append(editBtn);
 		}
 
-        if (!props['hide-editor']){
-           let saveBtn = document.createElement('button');
+        {
+       let saveBtn = document.createElement('button');
 		   saveBtn.className = 'mie-save';
 		   saveBtn.title = 'Guardar';
 		   saveBtn.onclick = () => this.save();
@@ -1251,4 +1251,3 @@ function addInfiniteLoopProtection(code, timeout ) {
 
   return code;
 } // end of addInfiniteLoopProtection
-
