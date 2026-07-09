@@ -85,19 +85,19 @@ class MiniEditor {
 			title.append(editBtn);
 		}
 
-        {
-       let saveBtn = document.createElement('button');
-		   saveBtn.className = 'mie-save';
-		   saveBtn.title = 'Guardar';
-		   saveBtn.onclick = () => this.save();
-		   title.append(saveBtn);
-		
-		   let openBtn = document.createElement('button');
-		   openBtn.className = 'mie-open';
-		   openBtn.title = 'Abrir';
-		   openBtn.onclick = () => this.open();
-		   title.append(openBtn);
-        }
+      if (!props['hide-editor']){
+        let saveBtn = document.createElement('button');
+        saveBtn.className = 'mie-save';
+        saveBtn.title = 'Guardar';
+        saveBtn.onclick = () => this.save();
+        title.append(saveBtn);
+
+        let openBtn = document.createElement('button');
+        openBtn.className = 'mie-open';
+        openBtn.title = 'Abrir';
+        openBtn.onclick = () => this.open();
+        title.append(openBtn);
+      }
         
 		let resetBtn = document.createElement('button');
 		resetBtn.className = 'mie-reset';

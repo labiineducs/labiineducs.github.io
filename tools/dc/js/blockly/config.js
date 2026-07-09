@@ -166,49 +166,50 @@ function cargarBloques(event) {
     lector.readAsText(archivo);
 }
 
-//Inyecta el input oculto para el menú de abrir archivo
-document.addEventListener("DOMContentLoaded", () => {
-    if (!document.getElementById('inputCargarBloques')) {
-        const inputDinamico = document.createElement('input');
-        inputDinamico.type = 'file';
-        inputDinamico.id = 'inputCargarBloques';
-        inputDinamico.accept = '.json';
-        inputDinamico.style.display = 'none';
-        inputDinamico.addEventListener('change', cargarBloques); 
-        document.body.appendChild(inputDinamico);
+// Verificamos si existe el contenedor de Blockly la esta página 
+if (document.getElementById('blocklyDiv')) {
+
+    // Inyecta  el input oculto 
+    document.addEventListener("DOMContentLoaded", () => {
+        if (!document.getElementById('inputCargarBloques')) {
+            const inputDinamico = document.createElement('input');
+            inputDinamico.type = 'file';
+            inputDinamico.id = 'inputCargarBloques';
+            inputDinamico.accept = '.json';
+            inputDinamico.style.display = 'none';
+            inputDinamico.addEventListener('change', cargarBloques); 
+            document.body.appendChild(inputDinamico);
+        }
+    });
+
+
+    function redefinirBotones() {
+        const btnSave = document.querySelector('.mie-save');
+        const btnOpen = document.querySelector('.mie-open');
+        if (btnSave && btnOpen && !btnSave.classList.contains('bloques-ready')) {
+            
+            const newSave = btnSave.cloneNode(true);
+            const newOpen = btnOpen.cloneNode(true);
+
+            newSave.classList.add('bloques-ready');
+            newOpen.classList.add('bloques-ready');
+
+            btnSave.parentNode.replaceChild(newSave, btnSave);
+            btnOpen.parentNode.replaceChild(newOpen, btnOpen);
+
+            newSave.addEventListener('click', (e) => {
+                e.preventDefault();
+                guardarBloques();
+            });
+            newOpen.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('inputCargarBloques').click();
+            });
+            newSave.title = "Guardar Bloques";
+            newOpen.title = "Abrir Bloques";
+        }
+        // Ciclo infinito cada 500ms
+        setTimeout(redefinirBotones, 500);
     }
-});
-
-function redefinirBotones() {
-    // Busca los botones en el HTML
-    const btnSave = document.querySelector('.mie-save');
-    const btnOpen = document.querySelector('.mie-open');
-
-    if (btnSave && btnOpen && !btnSave.classList.contains('bloques-ready')) {
-        
-        // Clona los botones para borrar cualquier evento que mie.js le haya puesto
-        const newSave = btnSave.cloneNode(true);
-        const newOpen = btnOpen.cloneNode(true);
-
-        newSave.classList.add('bloques-ready');
-        newOpen.classList.add('bloques-ready');
-
-        // Reemplaza los botones viejos
-        btnSave.parentNode.replaceChild(newSave, btnSave);
-        btnOpen.parentNode.replaceChild(newOpen, btnOpen);
-
-        // Inyecta las funciones de Blockly
-        newSave.addEventListener('click', (e) => {
-            e.preventDefault();
-            guardarBloques();
-        });
-        newOpen.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('inputCargarBloques').click();
-        });
-        newSave.title = "Guardar Bloques";
-        newOpen.title = "Abrir Bloques";
-    }
-    setTimeout(redefinirBotones, 500);
-}
-redefinirBotones();
+    redefinirBotones();
+} 

@@ -38,6 +38,23 @@
             #page-0 .minis.horiz .mie-main {
                 height: 100%;
             }
+
+            /* Oculta el editor de texto nativo de mie.js solo en esta página */
+            .mie-editor {
+                display: none !important;
+            }
+
+            .mie {
+                display: flex !important;
+                flex-direction: column !important; 
+                align-items: center !important;
+            }
+
+            .mie-title {
+                width: 100% !important;
+                align-self: flex-start !important;
+            }
+
         </style>        
     </head>
 
@@ -100,7 +117,7 @@
                                     </div>
 
                                     <div class="minis horiz" style="flex: 1 1 50%; min-width: 0; padding: 0; overflow-x: auto;">
-                                        <script type="mie/p5" id="dibujar" horiz hide-editor min-lines="20" lines="20" data-inic-dc="inic-dibujar" config-sel>
+                                        <script type="mie/p5" id="dibujar" horiz min-lines="20" lines="20" data-inic-dc="inic-dibujar" config-sel>
                         // escribe tu programa
                                         </script>
                                         
