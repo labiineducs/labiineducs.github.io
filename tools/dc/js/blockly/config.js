@@ -97,38 +97,42 @@ const miToolbox = {
     ]
 };
 
-// Inyección en el HTML
-const workspace = Blockly.inject('blocklyDiv', {
-    toolbox: miToolbox,
-    scrollbars: true,
-    trashcan: false
-});
+let workspace;
 
-// Crear el bloque principal dibujar en el espacio de trabajo
-const bloqueMain = workspace.newBlock('bloque_dibujar');
-bloqueMain.initSvg();
-bloqueMain.render();
-bloqueMain.setDeletable(false); 
-bloqueMain.moveBy(50, 50);
+function inicializarWorkspaceBlockly(){
+    // Inyección en el HTML
+        workspace = Blockly.inject('blocklyDiv', {
+            toolbox: miToolbox,
+            scrollbars: true,
+            trashcan: false
+    });
 
-// Forzamos el redibujado (por el artículo oculto de Bootstrap)
-setTimeout(function() {
-    Blockly.svgResize(workspace);
-}, 800);
+    // Crear el bloque principal dibujar en el espacio de trabajo
+    const bloqueMain = workspace.newBlock('bloque_dibujar');
+    bloqueMain.initSvg();
+    bloqueMain.render();
+    bloqueMain.setDeletable(false); 
+    bloqueMain.moveBy(50, 50);
 
-// Sincronización Automática con la Cuadrícula
-workspace.addChangeListener(function(event) {
-    const bloqueMain = workspace.getBlocksByType('bloque_dibujar')[0];
-    let codigoJS = "";
-    if (bloqueMain) {
-        codigoJS = javascript.javascriptGenerator.blockToCode(bloqueMain);
-    } else {
-        codigoJS = "// Esperando al bloque principal dibujar()...";
-    }
-    if (window.mie && window.mie.length > 0 && window.mie[0].editor) {
-        window.mie[0].editor.setValue(codigoJS);
-    }
-});
+    // Forzamos el redibujado (por el artículo oculto de Bootstrap)
+    setTimeout(function() {
+        Blockly.svgResize(workspace);
+    }, 800);
+
+    // Sincronización Automática con la Cuadrícula
+    workspace.addChangeListener(function(event) {
+        const bloqueMain = workspace.getBlocksByType('bloque_dibujar')[0];
+        let codigoJS = "";
+        if (bloqueMain) {
+            codigoJS = javascript.javascriptGenerator.blockToCode(bloqueMain);
+        } else {
+            codigoJS = "// Esperando al bloque principal dibujar()...";
+        }
+        if (window.mie && window.mie.length > 0 && window.mie[0].editor) {
+            window.mie[0].editor.setValue(codigoJS);
+        }
+    });
+}
 
 function guardarBloques() {
     const estado = Blockly.serialization.workspaces.save(workspace);
@@ -166,50 +170,3 @@ function cargarBloques(event) {
     lector.readAsText(archivo);
 }
 
-// Verificamos si existe el contenedor de Blockly la esta página 
-if (document.getElementById('blocklyDiv')) {
-
-    // Inyecta  el input oculto 
-    document.addEventListener("DOMContentLoaded", () => {
-        if (!document.getElementById('inputCargarBloques')) {
-            const inputDinamico = document.createElement('input');
-            inputDinamico.type = 'file';
-            inputDinamico.id = 'inputCargarBloques';
-            inputDinamico.accept = '.json';
-            inputDinamico.style.display = 'none';
-            inputDinamico.addEventListener('change', cargarBloques); 
-            document.body.appendChild(inputDinamico);
-        }
-    });
-
-
-    function redefinirBotones() {
-        const btnSave = document.querySelector('.mie-save');
-        const btnOpen = document.querySelector('.mie-open');
-        if (btnSave && btnOpen && !btnSave.classList.contains('bloques-ready')) {
-            
-            const newSave = btnSave.cloneNode(true);
-            const newOpen = btnOpen.cloneNode(true);
-
-            newSave.classList.add('bloques-ready');
-            newOpen.classList.add('bloques-ready');
-
-            btnSave.parentNode.replaceChild(newSave, btnSave);
-            btnOpen.parentNode.replaceChild(newOpen, btnOpen);
-
-            newSave.addEventListener('click', (e) => {
-                e.preventDefault();
-                guardarBloques();
-            });
-            newOpen.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.getElementById('inputCargarBloques').click();
-            });
-            newSave.title = "Guardar Bloques";
-            newOpen.title = "Abrir Bloques";
-        }
-        // Ciclo infinito cada 500ms
-        setTimeout(redefinirBotones, 500);
-    }
-    redefinirBotones();
-} 

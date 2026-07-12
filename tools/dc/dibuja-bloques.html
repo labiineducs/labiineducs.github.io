@@ -19,6 +19,9 @@
         <link href="css/style.css" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         
+        <!-- MÓDULO BLOCKLY: Estilos del entorno -->
+        <link rel="stylesheet" href="css/blockly.css">
+        
         <style>
             .page { display: flex; }
             #refs { display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start; }
@@ -38,23 +41,6 @@
             #page-0 .minis.horiz .mie-main {
                 height: 100%;
             }
-
-            /* Oculta el editor de texto nativo de mie.js solo en esta página */
-            .mie-editor {
-                display: none !important;
-            }
-
-            .mie {
-                display: flex !important;
-                flex-direction: column !important; 
-                align-items: center !important;
-            }
-
-            .mie-title {
-                width: 100% !important;
-                align-self: flex-start !important;
-            }
-
         </style>        
     </head>
 
@@ -112,39 +98,29 @@
                         <article style="display: none;">
                             <div class="break"></div>
                             <div id="page-0" class="page" style="width: 100%;">
-                                    <div style="flex: 1 1 50%; min-width: 0; position: relative; z-index: 1;">
-                                        <div id="blocklyDiv" style="height: 520px; width: 100%; border: 1px solid #ccc; border-radius: 5px; background-color: #fff;"></div>
-                                    </div>
-
-                                    <div class="minis horiz" style="flex: 1 1 50%; min-width: 0; padding: 0; overflow-x: auto;">
-                                        <script type="mie/p5" id="dibujar" horiz min-lines="20" lines="20" data-inic-dc="inic-dibujar" config-sel>
-                        // escribe tu programa
-                                        </script>
-                                        
-                                        <script type="dc/inic" id="inic-dibujar">
-                                            gridSize = 400;   
-                                            squareSize = 25;
-                                            posInicX = 0;
-                                            posInicY = 0;
-                                            colorInic = "black";
-                                            velocidadEjecucion = 25;
-
-                                            //inicializa la cuadricula en blanco
-                                            inicializarCuadriculaDefecto();
-                                        </script>
-                                    </div>
-                                    
+                                <div id="blockly-mie-component" style="width: 100%;">
+                                    <script type="mie/p5" id="dibujar" min-lines="20" lines="20" data-inic-dc="inic-dibujar" config-sel>
+                                        // escribe tu programa
+                                    </script>
+                                    <script type="dc/inic" id="inic-dibujar">
+                                        gridSize = 400;   
+                                        squareSize = 25;
+                                        posInicX = 0;
+                                        posInicY = 0;
+                                        colorInic = "black";
+                                        velocidadEjecucion = 25;
+                                        inicializarCuadriculaDefecto();
+                                    </script>
                                 </div>
-                                
-                                <div style="width: 100%; background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 2px 2px 5px #0002; margin-top: 20px;">
-                                    <md id="md0-1">
-                                        <p>Ejecuta el programa con <code>&#x1F5D8;</code>. Puedes reiniciar la cuadrícula a su estado inicial con <code>&#x2B6E;</code>.</p>
-                                        <p>Una <a href="./guia-rapida.html" target="_blank">guía rápida</a> de funciones disponibles.</p>
-                                        <p>Un <a href="./tutorial.html" target="_blank">tutorial</a> para aprender a programar dibujando en la cuadrícula.</p>
-                                    </md>
-                                </div>
-
                             </div> 
+                            <div style="width: 100%; background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); margin-top: 20px;">
+                                <md id="md0-1">
+                                    <p>Ejecuta el programa con <code>&#x1F5D8;</code>. Puedes reiniciar la cuadrícula a su estado inicial con <code>&#x2B6E;</code>.</p>
+                                    <p>Una <a href="./guia-rapida.html" target="_blank">guía rápida</a> de funciones disponibles.</p>
+                                    <p>Un <a href="./tutorial.html" target="_blank">tutorial</a> para aprender a programar dibujando en la cuadrícula.</p>
+                                </md>
+                            </div>
+
                             <div class="break"></div>
                         </article>
                     </div>
@@ -215,13 +191,14 @@
         <link rel="stylesheet" href="./js/alertifyjs/css/alertify.min.css"/>
         <link rel="stylesheet" href="./js/alertifyjs/css/themes/default.min.css"/>
 
-        <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
-        <script src="https://unpkg.com/blockly/blocks_compressed.js"></script>
         <script src="https://unpkg.com/blockly@10.4.3/blockly.min.js"></script>
         <script src="https://unpkg.com/blockly@10.4.3/javascript_compressed.js"></script>
         <script src="https://unpkg.com/blockly@10.4.3/msg/es.js"></script>
+        
         <script src="js/blockly/definitions.js"></script>
         <script src="js/blockly/generator.js"></script>
         <script src="js/blockly/config.js"></script>
+        
+        <script src="js/blockly/blockly.js"></script>
     </body>
 </html>
