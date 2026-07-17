@@ -108,8 +108,8 @@ const miToolbox = {
                     { "kind": "block", "type": "bloque_pintar" },
                     { "kind": "block", "type": "bloque_subir" },
                     { "kind": "block", "type": "bloque_bajar" },
-                    {"kind": "block", "type": "bloque_derecha"},
-                    {"kind": "block", "type": "bloque_izquierda"}
+                    { "kind": "block", "type": "bloque_derecha"},
+                    { "kind": "block", "type": "bloque_izquierda"}
                 ]
             }
         ]    
@@ -191,4 +191,21 @@ function cargarBloques(event) {
     };
     lector.readAsText(archivo);
 }
+
+// BASE DE DATOS DE ACTIVIDADES 
+window.actividades = {
+    "1": {
+        toolbox: "act1",
+        archivoBloques: "act1.json", 
+        configCuadricula: `
+            gridSize = 400;   
+            squareSize = 25;
+            posInicX = 0;
+            posInicY = 0;
+            colorInic = "black";
+            velocidadEjecucion = 25;
+            inicializarCuadriculaDefecto();
+        `
+    },
+};
 

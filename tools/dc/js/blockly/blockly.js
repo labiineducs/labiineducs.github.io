@@ -4,12 +4,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (contenedorComponente) {
         console.log("[Componente] Iniciando armado dinámico...");
         
-        const toolboxRequerido = contenedorComponente.getAttribute('data-toolbox') || "completo";
-        const bloquesIniciales = contenedorComponente.getAttribute('data-bloques-iniciales');
+        const parametrosUrl = new URLSearchParams(window.location.search);
+        const idActividad = parametrosUrl.get('id');
+
+        let toolboxRequerido = contenedorComponente.getAttribute('data-toolbox') || "completo";
+        let bloquesIniciales = contenedorComponente.getAttribute('data-bloques-iniciales');
         
         const scriptsConfiguracion = Array.from(contenedorComponente.children);
     
-        contenedorComponente.innerHTML = `
+        // Si la URL tiene un ID y existe, se inyecta la configuración
+        if (idActividad && window.actividades && window.actividades[idActividad]) {
+            const act = window.actividades[idActividad];
+            toolboxRequerido = act.toolbox || "completo";
+            bloquesIniciales = act.archivoBloques;
+        }
+            contenedorComponente.innerHTML = `
             <div class="blockly-mie-wrapper minis horiz" style="width: 100%;">
                 <div class="blockly-panel">
                     <div id="blocklyDiv" style="height: 520px; width: 100%;"></div>
