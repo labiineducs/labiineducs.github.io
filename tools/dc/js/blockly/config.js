@@ -146,6 +146,7 @@ function inicializarWorkspaceBlockly(toolBox){
         const bloqueMain = workspace.getBlocksByType('bloque_dibujar')[0];
         let codigoJS = "";
         if (bloqueMain) {
+            javascript.javascriptGenerator.init(workspace);
             codigoJS = javascript.javascriptGenerator.blockToCode(bloqueMain);
         } else {
             codigoJS = "// Esperando al bloque principal dibujar()...";
