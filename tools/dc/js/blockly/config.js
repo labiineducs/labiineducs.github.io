@@ -148,9 +148,11 @@ function inicializarWorkspaceBlockly(toolBox){
         if (bloqueMain) {
             javascript.javascriptGenerator.init(workspace);
             codigoJS = javascript.javascriptGenerator.blockToCode(bloqueMain);
+            codigoJS = javascript.javascriptGenerator.finish(codigoJS);
         } else {
             codigoJS = "// Esperando al bloque principal dibujar()...";
         }
+        window.codigoBlocklyActual = codigoJS;
         if (window.mie && window.mie.length > 0 && window.mie[0].editor) {
             window.mie[0].editor.setValue(codigoJS);
         }
@@ -194,19 +196,29 @@ function cargarBloques(event) {
 }
 
 // BASE DE DATOS DE ACTIVIDADES 
-window.actividades = {
+window.dbActividades = {
     "1": {
         toolbox: "act1",
-        archivoBloques: "act1.json", 
+        archivoBloques: null,
+        titulo: "Dibuja una línea",
+        descripcion: "Intenta dibujar una línea de 3 cuadraditos como la que vemos abajo.",
+        imagen: "./assets/actividades_icons/actividad_1.png",
         configCuadricula: `
-            gridSize = 400;   
+            gridSize = 125;   
             squareSize = 25;
-            posInicX = 0;
-            posInicY = 0;
+            posInicX = 1;
+            posInicY = 1;
             colorInic = "black";
             velocidadEjecucion = 25;
             inicializarCuadriculaDefecto();
+        `,
+        verificacion: `
+            if ((cuadricula[1][1] == "black") && (cuadricula[2][1] == "black") && (cuadricula[3][1] == "black")) {
+                return true;
+            } else {
+                return false;
+            }
         `
-    },
+    }
 };
 

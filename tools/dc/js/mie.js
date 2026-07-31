@@ -300,12 +300,23 @@ class MiniEditor {
 
 	play() {
 		mie.lang[this.lang].remove.call(this);
-		let code = this.code || this.editor.getValue().trim();
-		this.code = null; 
-		
-	    code = addInfiniteLoopProtection(code,100);
-    	
-		this.player = mie.lang[this.lang].play.call(this, code);   
+		let code = "";
+    
+    if (this.code) {
+        code = this.code;
+    } 
+    else if (this.editor && typeof this.editor.getValue === 'function') {
+        code = this.editor.getValue().trim();
+    } 
+    else if (window.codigoBlocklyActual) {
+        code = window.codigoBlocklyActual;
+    }
+    else {
+        code = "";
+    }
+    this.code = null; 
+    code = addInfiniteLoopProtection(code, 100);
+    this.player = mie.lang[this.lang].play.call(this, code); 
 	}
 
 	reset() {

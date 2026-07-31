@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba de Componente Aislado</title>
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./js/alertifyjs/css/alertify.min.css"/>
+    <link rel="stylesheet" href="./js/alertifyjs/css/themes/default.min.css"/>
+    
+    <!-- NUESTRO CSS MODULAR -->
+    <link rel="stylesheet" href="css/blockly.css">
+    
+    <style>
+        body { background-color: #f0f2f5; }
+        .page { display: flex; width: 100%; }
+        .minis { height: 520px; }
+        
+        /* Ocultamos los divs 0 y 1 para que no molesten en la prueba */
+        .mock-header { display: none !important; }
+        /* Usamos el div 2 para alojar nuestro título sin romper la matemática */
+        .page-header-aux { padding-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <!-- EL ENGAÑO DEFINITIVO: La estructura EXACTA que exige learn1.js -->
+    <div class="top-bar mock-header"></div>       <!-- children[0] -->
+    <div class="navbar mock-header"></div>        <!-- children[1] -->
+    
+    <!-- children[2]: Acá ponemos el título a salvo del contador del script -->
+    <div class="page-header-aux">
+        <h2 class="text-center mb-4" style="color: #333; font-family: 'Quicksand', sans-serif;">
+            Test de Integración: Blockly + mie.js
+        </h2>
+    </div>
+    
+    <!-- children[3] (Acá adentro learn1.js cuenta exactamente los hijos) -->
+    <div class="facts">
+        
+        <!-- children[3].children[0] -->
+        <div class="container"> 
+            
+            <!-- children[3].children[0].children[0] -->
+            <div class="row">
+                
+                <!-- children[3].children[0].children[0].children[0] -->
+                <div class="col-lg-12">
+                    <article style="display: none;">
+                        <div id="page-0" class="page">
+                            
+                            <!-- ========================================== -->
+                            <!-- COMPONENTE BLOCKLY-MIE (CON SLOTS DE CONFIG) -->
+                            <!-- ========================================== -->
+                            <div id="blockly-mie-component" style="width: 100%;">
+                                
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- 1. DEPENDENCIAS NATIVAS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/parallax/parallax.min.js"></script>
+    
+    <script src="js/mainlab.js"></script>
+    <script src="js/v3/q5.min.js"></script>
+    <script src="js/v3/planck.min.js"></script>
+
+    <script> window.mie = { autoLoad: false }; </script>
+    <script src="./js/esprima/esprima.js"></script>
+    <script src="./js/mie.js"></script>
+    <script src="./js/learn1.js"></script> 
+    <script src="./js/alertifyjs/alertify.js"></script> 
+
+    <!-- 2. DEPENDENCIAS DE BLOCKLY -->
+    <script src="https://unpkg.com/blockly@10.4.3/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly@10.4.3/javascript_compressed.js"></script>
+    <script src="https://unpkg.com/blockly@10.4.3/msg/es.js"></script>
+    
+    <!-- 3. NUESTROS MÓDULOS DE LÓGICA E INTERFAZ -->
+    <script src="js/blockly/definitions.js"></script>
+    <script src="js/blockly/generator.js"></script>
+    <script src="js/blockly/config.js"></script>
+    <script src="js/blockly/blockly.js"></script>
+   
+
+</body>
+</html>
