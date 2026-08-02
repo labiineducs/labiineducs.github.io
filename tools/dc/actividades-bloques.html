@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Actividades - LABIIN</title>
+    
+    <!-- Fuentes y Bootstrap -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body { background-color: #f4f6f9; font-family: 'Quicksand', sans-serif; }
+        
+        /* Barra de navegación superior */
+        .navbar-custom { background-color: #212529; padding: 15px 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .navbar-custom a { color: #fff; text-decoration: none; font-weight: 600; font-size: 1.1em; }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <div class="navbar-custom d-flex justify-content-between align-items-center">
+        <div><a href="#" style="font-size: 1.3em;">Pensamiento Computacional</a></div>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="container mt-5 pt-3">
+        
+        <!-- Cabecera -->
+        <div class="text-center mb-5">
+            <h1 style="font-weight: 700; color: #212529;">Guía de Actividades</h1>
+            <p class="text-muted" style="font-size: 1.2em;">Selecciona un desafío de programación con bloques o comienza a crear desde cero.</p>
+        </div>
+
+        <!-- Grilla Dinámica de Tarjetas -->
+        <div class="row" id="contenedor-actividades">
+            <!-- JS inyectará las tarjetas acá leyendo config.js -->
+        </div>
+        
+    </div>
+
+    <!-- 1. Dependencias Nativas -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 2. Arquitectura de Datos y Vista -->
+    <script src="js/blockly/config.js"></script> <!-- Trae window.dbActividades -->
+    <script src="js/blockly/vista-menu.js"></script> <!-- Dibuja las tarjetas -->
+
+</body>
+</html>

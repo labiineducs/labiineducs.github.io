@@ -1,87 +1,61 @@
 document.addEventListener("DOMContentLoaded", () => {
     const contenedorComponente = document.getElementById('blockly-mie-component');
+    if (!contenedorComponente) return; 
+    console.log("[Motor Blockly] Inicializando componente puro...");
+    
+    const parametrosUrl = new URLSearchParams(window.location.search);
+    const idActividad = parametrosUrl.get('id') || parametrosUrl.get('page');
 
-    if (contenedorComponente) {
-        console.log("[Componente] Iniciando armado dinámico...");
+    let toolboxRequerido = contenedorComponente.getAttribute('data-toolbox') || "completo";
+    let bloquesIniciales = contenedorComponente.getAttribute('data-bloques-iniciales');
+    let scriptsMie = "";
+
+    if (idActividad && window.dbActividades && window.dbActividades[idActividad]) {
+        const act = window.dbActividades[idActividad];
+        toolboxRequerido = act.toolbox || "completo";
+        bloquesIniciales = act.archivoBloques;
         
-        //1. ENRUTADOR
-        const parametrosUrl = new URLSearchParams(window.location.search);
-        const idActividad = parametrosUrl.get('id');
-
-        let toolboxRequerido = contenedorComponente.getAttribute('data-toolbox') || "completo";
-        let bloquesIniciales = contenedorComponente.getAttribute('data-bloques-iniciales');
-
-        let contenidoCabecera = "";
-        let scriptsMie = "";
-
-        if (idActividad && window.dbActividades && window.dbActividades[idActividad]) {
-            const act = window.dbActividades[idActividad];
-            toolboxRequerido = act.toolbox || "completo";
-            bloquesIniciales = act.archivoBloques;
-            
-            // 1. Armamos los textos y la imagen
-            contenidoCabecera = `
-                <md id="md0-${idActividad}" style="margin-bottom: 20px; display: block;">
-                    <h2>${act.titulo}</h2>
-                    <p>${act.descripcion}</p>
-                    ${act.imagen ? `<img src="${act.imagen}" alt="Actividad ${idActividad}">` : ''}
-                </md>
-            `;
-            // 2. Armamos los scripts de motor y verificación
-            scriptsMie = `
-                <script type="mie/p5" id="dibujar" min-lines="20" lines="20" data-inic-dc="inic-dibujar" data-verif-dc="verif-dibujar"><\/script>
-                <script type="dc/inic" id="inic-dibujar">
-                    ${act.configCuadricula}
-                <\/script>
-                <script type="dc/verif" id="verif-dibujar">
-                    ${act.verificacion}
-                <\/script>
-            `;
-            console.log(`[Enrutador] Cargando Actividad ID: ${idActividad}`);
-        } else {
-            // Si entran sin ID (Modo Libre)
-            scriptsMie = `
-                <script type="mie/p5" id="dibujar" min-lines="20" lines="20" data-inic-dc="inic-dibujar" config-sel><\/script>
-                <script type="dc/inic" id="inic-dibujar">
-                    gridSize = 400;   
-                    squareSize = 25;
-                    posInicX = 0;
-                    posInicY = 0;
-                    colorInic = "black";
-                    velocidadEjecucion = 25;
-                    inicializarCuadriculaDefecto();
-                <\/script>
-            `;
-        }
-        // 2. CONSTRUCCIÓN DE LA INTERFAZ
-        contenedorComponente.innerHTML = `
-            ${contenidoCabecera}
-            <div class="blockly-mie-wrapper minis horiz" style="width: 100%;">
-                <div class="blockly-panel">
-                    <div id="blocklyDiv" style="height: 520px; width: 100%;"></div>
-                </div>
-                <div class="mie-panel" id="mie-panel-dest">
-                    ${scriptsMie}
-                </div>
-            </div>
+        scriptsMie = `
+            <script type="mie/p5" id="dibujar" min-lines="20" lines="20" data-inic-dc="inic-dibujar" data-verif-dc="verif-dibujar"><\/script>
+            <script type="dc/inic" id="inic-dibujar">${act.configCuadricula}<\/script>
+            <script type="dc/verif" id="verif-dibujar">${act.verificacion}<\/script>
         `;
+    } else {
+        // Si entran sin ID (Modo Libre)
+        scriptsMie = `
+            <script type="mie/p5" id="dibujar" min-lines="20" lines="20" data-inic-dc="inic-dibujar" config-sel><\/script>
+            <script type="dc/inic" id="inic-dibujar">
+                gridSize = 400; squareSize = 25; posInicX = 0; posInicY = 0; colorInic = "black"; velocidadEjecucion = 25;
+                inicializarCuadriculaDefecto();
+            <\/script>
+        `;
+    }
+    contenedorComponente.innerHTML = `
+        <div class="blockly-mie-wrapper minis horiz" style="width: 100%;">
+            <div class="blockly-panel">
+                <div id="blocklyDiv" style="height: 520px; width: 100%;"></div>
+            </div>
+            <div class="mie-panel" id="mie-panel-dest">
+                ${scriptsMie}
+            </div>
+        </div>
+    `;
+    // Secuencia de arranque de los motores
+    inyectarInputArchivos();
+    inicializarWorkspaceBlockly(toolboxRequerido);
+    redefinirBotones();
 
-        const miePanel = document.getElementById('mie-panel-dest');
+    if (bloquesIniciales) {
+        cargarBloquesAct(bloquesIniciales);
+    }
 
-        inyectarInputArchivos();
-        inicializarWorkspaceBlockly(toolboxRequerido);
-        redefinirBotones();
-
-        if (bloquesIniciales) {
-            cargarBloquesAct(bloquesIniciales);
+    setTimeout(() => {
+        if (window.mie && typeof window.mie.load === 'function') {
+            window.mie.load();
+        } else if (window.mie && typeof window.mie.loadMinis === 'function') {
+            window.mie.loadMinis(contenedorComponente);
         }
-
-        setTimeout(() => {
-            if (window.mie && typeof window.mie.load === 'function') {
-                window.mie.load();
-            }
-        }, 100);
-    } 
+    }, 100);
 });
 
 // Función aislada para inyectar el input oculto

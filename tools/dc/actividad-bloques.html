@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad - LABIIN</title>
+    
+    <!-- Fuentes y Bootstrap -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Alertify y CSS Modular -->
+    <link rel="stylesheet" href="./js/alertifyjs/css/alertify.min.css"/>
+    <link rel="stylesheet" href="./js/alertifyjs/css/themes/default.min.css"/>
+    <link rel="stylesheet" href="css/blockly.css">
+
+    <!-- Dependencias de Blockly -->
+    <script src="https://unpkg.com/blockly@10.4.3/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly@10.4.3/javascript_compressed.js"></script>
+    <script src="https://unpkg.com/blockly@10.4.3/msg/es.js"></script>
+
+    <style>
+        body { background-color: #f0f2f5; font-family: 'Quicksand', sans-serif; }
+        
+        /* Ocultamos los divs 0 y 1 del engaño para que no se vean */
+        .mock-header { display: none !important; }
+        
+        /* Barra de navegación superior */
+        .navbar-custom { background-color: #212529; padding: 15px 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .navbar-custom a { color: #fff; text-decoration: none; font-weight: 600; font-size: 1.1em; }
+        .navbar-custom a:hover { color: #f8b400; }
+
+        /* Contenedores principales */
+        .info-box { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .tips-box { background: #e9ecef; padding: 20px; border-radius: 10px; height: 100%; border-left: 5px solid #ffc107; }
+        
+        .page { display: flex; width: 100%; }
+        .minis { height: 520px; width: 100%; }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================================================= -->
+    <!-- EL ENGAÑO DEFINITIVO: La estructura EXACTA que exige learn1.js            -->
+    <!-- ========================================================================= -->
+
+    <div class="top-bar mock-header"></div>       <!-- children[0] -->
+    <div class="navbar mock-header"></div>        <!-- children[1] -->
+    
+    <!-- children[2]: Zona segura para nuestro encabezado dinámico -->
+    <div class="page-header-aux">
+        
+        <!-- Navegación -->
+        <div class="navbar-custom d-flex justify-content-between align-items-center mb-4">
+            <div><a href="actividades-bloques.html" style="font-size: 1.3em;">DC Actividades</a></div>
+            <div><a href="actividades-bloques.html">⬅ Volver al Menú</a></div>
+        </div>
+
+        <div class="container-fluid px-4">
+            <div class="row mb-3">
+                <div class="col-lg-8">
+                    <div class="info-box d-flex align-items-center">
+                        <img id="act-imagen" src="" alt="Icono Actividad" style="width: 60px; display: none; margin-right: 20px;">
+                        <div>
+                            <h2 id="act-titulo" style="font-weight: 700; color: #333;">Cargando...</h2>
+                            <p id="act-desc" class="mb-0 text-muted" style="font-size: 1.1em;"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div id="act-tips" class="tips-box" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- children[3] Acá adentro inyectamos Blockly -->
+    <div class="facts">
+        <div class="container-fluid px-4"> 
+            <div class="row">
+                <div class="col-lg-12">
+                    <article style="display: none;">
+                        <div id="page-0" class="page">
+                            
+                            <!-- COMPONENTE INYECTABLE -->
+                            <div id="blockly-mie-component" style="width: 100%; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);"></div>
+                            
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. Dependencias Nativas y Legacy -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/parallax/parallax.min.js"></script>
+    
+    <script src="js/mainlab.js"></script>
+    <script src="js/v3/q5.min.js"></script>
+    <script src="js/v3/planck.min.js"></script>
+
+    <!-- 2. Motor MIE y el Controlador Legacy (learn1.js) -->
+    <script> window.mie = { autoLoad: false }; </script>
+    <script src="./js/esprima/esprima.js"></script>
+    <script src="./js/mie.js"></script>
+    <script src="./js/learn1.js"></script> 
+    <script src="./js/alertifyjs/alertify.js"></script> 
+
+    <!-- 3. Nuestra Arquitectura Lógica -->
+    <script src="js/blockly/definitions.js"></script>
+    <script src="js/blockly/generator.js"></script>
+    <script src="js/blockly/config.js"></script>
+    <script src="js/blockly/blockly.js"></script> <!-- Motor Blockly -->
+    <script src="js/blockly/vista-actividad.js"></script> <!-- Controlador Visual -->
+
+</body>
+</html>
