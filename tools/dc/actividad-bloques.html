@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actividad - LABIIN</title>
+
+    <link rel="icon" href="./assets/icon_sm.png" type="image/png">
     
     <!-- Fuentes y Bootstrap -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
@@ -36,6 +38,26 @@
         
         .page { display: flex; width: 100%; }
         .minis { height: 520px; width: 100%; }
+
+        /* 1. Pintamos el texto de celeste */
+        .mie-title, .mie-title span {
+            color: #00a8e8 !important; /* Celeste característico */
+            font-weight: 700 !important;
+            font-size: 24px !important; 
+        }
+
+        /* 2. Reemplazamos el logo por defecto por el de LABIIN */
+        .mie-logo {
+            background-image: url('./assets/icon_sm.png') !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
+            
+            /* Le forzamos un tamaño por si el estilo base lo había achicado */
+            width: 32px !important; 
+            height: 32px !important;
+            margin-right: 8px !important;
+        }
     </style>
 </head>
 <body>
