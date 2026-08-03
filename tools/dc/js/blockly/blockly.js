@@ -15,10 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
         toolboxRequerido = act.toolbox || "completo";
         bloquesIniciales = act.archivoBloques;
         
+        const verificacionAutomatizada = act.verificacion.replace(
+            /return\s+true\s*;/g, 
+            "if(typeof mostrarBotonSiguiente === 'function') { mostrarBotonSiguiente(); } return true;"
+        );
+
         scriptsMie = `
             <script type="mie/p5" id="dibujar" min-lines="20" lines="20" data-inic-dc="inic-dibujar" data-verif-dc="verif-dibujar"><\/script>
             <script type="dc/inic" id="inic-dibujar">${act.configCuadricula}<\/script>
-            <script type="dc/verif" id="verif-dibujar">${act.verificacion}<\/script>
+            <script type="dc/verif" id="verif-dibujar">${verificacionAutomatizada}<\/script>
         `;
     } else {
         // Si entran sin ID (Modo Libre)

@@ -196,65 +196,81 @@ function cargarBloques(event) {
 }
 
 // BASE DE DATOS DE ACTIVIDADES 
-window.dbActividades = {
-    "1": {
-        toolbox: "act1",
-        archivoBloques: null,
-        titulo: "Dibuja una línea",
-        descripcion: "Intenta dibujar una línea de 3 cuadraditos como la que vemos abajo.",
-        imagen: "./assets/actividades_icons/actividad_1.png",
-        tips: `
-            <p>🤔 Las funciones <code>izquierda()</code>, <code>derecha()</code>, <code>abajo()</code> y <code>arriba()</code> nos permite mover el cursor al cuadradito vecino (en la dirección indicada).</p>
-            <p>🤔 La función <code>pintar()</code> nos permite colorear el cuadrado donde se encuentra el cursor.</p>
-            <p>🤔 El cursor esta representado por ✏️.</p>
-        `,
-        configCuadricula: `
-            gridSize = 125;   
-            squareSize = 25;
-            posInicX = 1;
-            posInicY = 1;
-            colorInic = "black";
-            velocidadEjecucion = 25;
-            inicializarCuadriculaDefecto();
-        `,
-        verificacion: `
-            if ((cuadricula[1][1] == "black") && (cuadricula[2][1] == "black") && (cuadricula[3][1] == "black")) {
-                return true;
-            } else {
-                return false;
+window.dbCuadernos = {
+    "cuaderno_1" :{
+        titulo: "Instrucciones Básicas",
+        descripcion: "Primeros pasos para entender cómo mover el cursor y dibujar en la cuadrícula.",
+        actividades: {
+            "1": {
+                toolbox: "act1",
+                archivoBloques: null,
+                titulo: "Dibuja una línea",
+                descripcion: "Intenta dibujar una línea de 3 cuadraditos como la que vemos abajo.",
+                imagen: "./assets/actividades_icons/actividad_1.png",
+                tips: `
+                    <p>🤔 Las funciones <code>izquierda()</code>, <code>derecha()</code>, <code>abajo()</code> y <code>arriba()</code> nos permite mover el cursor al cuadradito vecino (en la dirección indicada).</p>
+                    <p>🤔 La función <code>pintar()</code> nos permite colorear el cuadrado donde se encuentra el cursor.</p>
+                    <p>🤔 El cursor esta representado por ✏️.</p>
+                `,
+                configCuadricula: `
+                    gridSize = 125;   
+                    squareSize = 25;
+                    posInicX = 1;
+                    posInicY = 1;
+                    colorInic = "black";
+                    velocidadEjecucion = 25;
+                    inicializarCuadriculaDefecto();
+                `,
+                verificacion: `
+                    if ((cuadricula[1][1] == "black") && (cuadricula[2][1] == "black") && (cuadricula[3][1] == "black")) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                `
+            },
+            "2": {
+                toolbox: "act1",
+                archivoBloques: null,
+                titulo: "Dibuja un cuadrado",
+                descripcion: "Dibuja un cuadrado de 3 cuadraditos por lado, como el que vemos en la figura.",
+                imagen: "./assets/actividades_icons/actividad_2.png",
+                tips: `
+                    <p>🤔 Las funciones <code>izquierda()</code>, <code>derecha()</code>, <code>abajo()</code> y <code>arriba()</code> nos permite mover el cursor al cuadradito vecino (en la dirección indicada).</p>
+                    <p>🤔 La función <code>pintar()</code> nos permite colorear el cuadrado donde se encuentra el cursor.</p>
+                    <p>🤔 El cursor esta representado por ✏️.</p>
+                `,
+                configCuadricula: `
+                    gridSize = 125;   
+                    squareSize = 25;
+                    posInicX = 1;
+                    posInicY = 1;
+                    colorInic = "black";
+                    velocidadEjecucion = 25;
+                    inicializarCuadriculaDefecto();
+                `,
+                verificacion: `
+                    if ((cuadricula[1][1]=="black") && (cuadricula[2][1]=="black") && (cuadricula[3][1]=="black") && 
+                        (cuadricula[3][2]=="black") && (cuadricula[3][3]=="black") && 
+                        (cuadricula[1][3]=="black") && (cuadricula[2][3]=="black") && 
+                        (cuadricula[1][2]=="black") ){
+                            return true;
+                        }else{
+                            return false;
+                        }
+                `
             }
-        `
-    },
-    "2": {
-        toolbox: "act1",
-        archivoBloques: null,
-        titulo: "Dibuja un cuadrado",
-        descripcion: "Dibuja un cuadrado de 3 cuadraditos por lado, como el que vemos en la figura.",
-        imagen: "./assets/actividades_icons/actividad_2.png",
-        tips: `
-            <p>🤔 Las funciones <code>izquierda()</code>, <code>derecha()</code>, <code>abajo()</code> y <code>arriba()</code> nos permite mover el cursor al cuadradito vecino (en la dirección indicada).</p>
-            <p>🤔 La función <code>pintar()</code> nos permite colorear el cuadrado donde se encuentra el cursor.</p>
-            <p>🤔 El cursor esta representado por ✏️.</p>
-        `,
-        configCuadricula: `
-            gridSize = 125;   
-            squareSize = 25;
-            posInicX = 1;
-            posInicY = 1;
-            colorInic = "black";
-            velocidadEjecucion = 25;
-            inicializarCuadriculaDefecto();
-        `,
-        verificacion: `
-            if ((cuadricula[1][1]=="black") && (cuadricula[2][1]=="black") && (cuadricula[3][1]=="black") && 
-		         (cuadricula[3][2]=="black") && (cuadricula[3][3]=="black") && 
-		         (cuadricula[1][3]=="black") && (cuadricula[2][3]=="black") && 
-		         (cuadricula[1][2]=="black") ){
-			        return true;
-			    }else{
-                     return false;
-                }
-        `
+        }
     }
 };
+
+window.dbActividades = {};
+for (const idCuaderno in window.dbCuadernos) {
+    const cuaderno = window.dbCuadernos[idCuaderno];
+    for (const idActividad in cuaderno.actividades) {
+        // Creamos un ID único combinando el cuaderno y la actividad (ej: "cuaderno_1-1")
+        const idUnico = idCuaderno + "-" + idActividad;
+        window.dbActividades[idUnico] = cuaderno.actividades[idActividad];
+    }
+}
 

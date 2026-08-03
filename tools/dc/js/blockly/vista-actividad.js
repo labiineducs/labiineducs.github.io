@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     const parametrosUrl = new URLSearchParams(window.location.search);
-    const idActividad = parametrosUrl.get('id') || parametrosUrl.get('page');
+    const idFull = parametrosUrl.get('id') || parametrosUrl.get('page');
 
-    if (idActividad && window.dbActividades && window.dbActividades[idActividad]) {
-        const act = window.dbActividades[idActividad];
+    if (idFull && window.dbActividades && window.dbActividades[idFull]) {
+        const act = window.dbActividades[idFull];
         
-        // Rellenamos los datos de la interfaz
+        // 1. Rellenamos los datos de la interfaz
         document.getElementById('act-titulo').innerText = act.titulo;
         document.getElementById('act-desc').innerText = act.descripcion;
         
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
         if (act.tips) {
             const tips = document.getElementById('act-tips');
-            // Armamos un botón interactivo usando Bootstrap Collapse
             tips.innerHTML = `
                 <div style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;" data-toggle="collapse" data-target="#contenidoTips" title="Haz clic para revelar u ocultar las pistas">
                     <h5 style="font-weight: 700; margin: 0; color: #856404;">💡 Ver Pistas</h5>
@@ -29,11 +28,40 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
             `;
-            // Le damos un fondo amarillento al contenedor de tips para que resalte como una nota
             tips.style.backgroundColor = "#fff3cd";
             tips.style.borderLeft = "5px solid #ffc107";
             tips.style.display = 'block';
         }
+
+        // 2. LÓGICA DE NAVEGACIÓN: Botón "Siguiente Actividad"
+        const ultimoGuion = idFull.lastIndexOf('-');
+        if (ultimoGuion !== -1) {
+            const idCuaderno = idFull.substring(0, ultimoGuion);
+            const actActual = parseInt(idFull.substring(ultimoGuion + 1));
+            const actSiguiente = actActual + 1; // Calculamos la próxima matemáticamente
+
+            let btnSiguienteHtml = '';
+            
+            // Verificamos si la actividad +1 existe dentro del mismo cuaderno en la base original
+            if (window.dbCuadernos && window.dbCuadernos[idCuaderno] && window.dbCuadernos[idCuaderno].actividades[actSiguiente]) {
+                const idSiguiente = idCuaderno + "-" + actSiguiente;
+                btnSiguienteHtml = `<a href="actividad-bloques.html?id=${idSiguiente}" class="btn btn-success mt-3" style="border-radius: 20px; font-weight: 600; display: none; box-shadow: 0 4px 6px rgba(40,167,69,0.3);" id="btn-siguiente">🎯 ¡Excelente! Siguiente Actividad ➡</a>`;
+            } else {
+                // Si no existe, significa que terminamos el cuaderno
+                btnSiguienteHtml = `<a href="actividades-bloques.html" class="btn btn-primary mt-3" style="border-radius: 20px; font-weight: 600; display: none; box-shadow: 0 4px 6px rgba(0,123,255,0.3);" id="btn-siguiente">🏆 ¡Cuaderno Completado! Volver al Menú</a>`;
+            }
+
+            // Inyectamos el botón oculto en el contenedor del texto
+            const descContenedor = document.getElementById('act-desc').parentNode;
+            descContenedor.insertAdjacentHTML('beforeend', btnSiguienteHtml);
+            
+            // Exponemos la función a nivel global para que el script de verificación la pueda usar
+            window.mostrarBotonSiguiente = function() {
+                const btn = document.getElementById('btn-siguiente');
+                if (btn) btn.style.display = 'inline-block'; // Lo hacemos visible
+            };
+        }
+
     } else {
         const titulo = document.getElementById('act-titulo');
         if(titulo) titulo.innerText = "Modo Libre";
