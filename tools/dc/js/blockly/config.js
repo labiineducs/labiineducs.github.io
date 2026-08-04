@@ -97,7 +97,7 @@ const miToolbox = {
             }
         ]
     },
-    "act1":{
+    "act1-1":{
         "kind": "categoryToolbox",
         "contents": [
             {
@@ -113,7 +113,32 @@ const miToolbox = {
                 ]
             }
         ]    
-    }  
+    },
+    "act1-3":{
+        "kind": "categoryToolbox",
+        "contents": [
+            {
+                "kind": "category",
+                "name": "Funciones Básicas",
+                "colour": "330", 
+                "contents": [
+                    { "kind": "block", "type": "bloque_pintar" },
+                    { "kind": "block", "type": "bloque_subir" },
+                    { "kind": "block", "type": "bloque_bajar" },
+                    { "kind": "block", "type": "bloque_derecha"},
+                    { "kind": "block", "type": "bloque_izquierda"}
+                ]
+            },
+            {
+                "kind": "category",
+                "name": "Color",
+                "colour": "40",
+                "contents": [
+                    { "kind": "block", "type": "bloque_seleccionarColor" },
+                ]
+            }
+        ]    
+    }    
 };
 
 let workspace;
@@ -142,13 +167,23 @@ function inicializarWorkspaceBlockly(toolBox){
     }, 800);
 
     // Sincronización Automática con la Cuadrícula
+    // Sincronización Automática con la Cuadrícula
     workspace.addChangeListener(function(event) {
         const bloqueMain = workspace.getBlocksByType('bloque_dibujar')[0];
         let codigoJS = "";
+
         if (bloqueMain) {
             javascript.javascriptGenerator.init(workspace);
-            codigoJS = javascript.javascriptGenerator.blockToCode(bloqueMain);
-            codigoJS = javascript.javascriptGenerator.finish(codigoJS);
+            
+            const bloquesTop = workspace.getTopBlocks(true);
+            for (let i = 0; i < bloquesTop.length; i++) {
+                const tipo = bloquesTop[i].type;
+                if (tipo === 'procedures_defnoreturn' || tipo === 'procedures_defreturn') {
+                    javascript.javascriptGenerator.blockToCode(bloquesTop[i]);
+                }
+            }
+            let codigoPrincipal = javascript.javascriptGenerator.blockToCode(bloqueMain);
+            codigoJS = javascript.javascriptGenerator.finish(codigoPrincipal);
         } else {
             codigoJS = "// Esperando al bloque principal dibujar()...";
         }
@@ -202,7 +237,7 @@ window.dbCuadernos = {
         descripcion: "Primeros pasos para entender cómo mover el cursor y dibujar en la cuadrícula.",
         actividades: {
             "1": {
-                toolbox: "act1",
+                toolbox: "act1-1",
                 archivoBloques: null,
                 titulo: "Dibuja una línea",
                 descripcion: "Intenta dibujar una línea de 3 cuadraditos como la que vemos abajo.",
@@ -230,7 +265,7 @@ window.dbCuadernos = {
                 `
             },
             "2": {
-                toolbox: "act1",
+                toolbox: "act1-1",
                 archivoBloques: null,
                 titulo: "Dibuja un cuadrado",
                 descripcion: "Dibuja un cuadrado de 3 cuadraditos por lado, como el que vemos en la figura.",
@@ -259,7 +294,103 @@ window.dbCuadernos = {
                             return false;
                         }
                 `
+            },
+            "3": {
+                toolbox: "act1-3",
+                archivoBloques: "./js/blockly/workspaces/act1-3.json",
+                titulo: "Dibuja una escalera de colores",
+                descripcion: "Dibujar una escalera de con los escalones de color rojo, azul y negro, como la que vemos en la figura.",
+                imagen: "./assets/actividades_icons/actividad_3.png",
+                tips: `
+                    <p>🤔 La función <code>seleccionarColor(<strong>< color ></strong>)</code> permite cambiar el color para pintar.</p>
+			        <p>🤔 Por ejemplo, <code>seleccionarColor("blue")</code> selecciona el color azul.</p>
+                `,
+                configCuadricula: `
+                    gridSize = 125;   
+                    squareSize = 25;
+                    posInicX = 0;
+                    posInicY = 0;
+                    colorInic = "black";
+                    velocidadEjecucion = 25;
+                    inicializarCuadriculaDefecto();
+                `,
+                verificacion: `
+                    if ((cuadricula[0][0]=="red") && (cuadricula[1][0]=="red") && 
+	                    (cuadricula[1][1]=="blue" || cuadricula[1][1]=="navy") && (cuadricula[2][1]=="blue" || cuadricula[1][1]=="navy") && 
+	                    (cuadricula[2][2]=="black") && (cuadricula[3][2]=="black")){
+		     	            return true;
+			        }else{
+                            return false;
+                    }
+                `
+            },
+            "4": {
+                toolbox: "act1-3",
+                archivoBloques: null,
+                titulo: "Dibuja un símbolo de suma",
+                descripcion: "Dibuja un símbolo de suma (+) de color verde en el centro de la cuadrícula. ¡Ojo! Vas a tener que moverte sin pintar para llegar al lugar correcto.",
+                imagen: "./assets/actividades_icons/act1-4.png",
+                tips: `
+                    <p>🤔 Recuerda que las funciones de movimiento (<code>arriba()</code>, <code>abajo()</code>, etc.) mueven el cursor pero <strong>NO</strong> pintan por sí solas.</p>
+                    <p>🤔 Usa esto a tu favor para dejar espacios en blanco y posicionarte en el centro antes de usar <code>pintar()</code>.</p>
+                `,
+                configCuadricula: `
+                    gridSize = 125;   
+                    squareSize = 25;
+                    posInicX = 0;
+                    posInicY = 0;
+                    colorInic = "black";
+                    velocidadEjecucion = 25;
+                    inicializarCuadriculaDefecto();
+                `,
+                verificacion: `
+                    if ((cuadricula[2][1]=="green") && 
+                        (cuadricula[1][2]=="green") && (cuadricula[2][2]=="green") && (cuadricula[3][2]=="green") && 
+                        (cuadricula[2][3]=="green")) {
+                            return true;
+                    } else {
+                            return false;
+                    }
+                `
+            },
+            "5": {
+                toolbox: "act1-3",
+                archivoBloques: null,
+                titulo: "Desafío Final: Las cuatro esquinas",
+                descripcion: "¡Llegaste al final del cuaderno! Pinta las cuatro esquinas con colores distintos: Rojo, Azul, Verde y Amarillo.",
+                imagen: "./assets/actividades_icons/act1-5.png",
+                tips: `
+                    <p>🤔 Tómate tu tiempo para planificar la ruta. ¿Por qué esquina te conviene empezar?</p>
+                    <p>🤔 Recuerda usar <code>seleccionarColor()</code> antes de pintar cada esquina.</p>
+                    <p>🏆 ¡Si logras este desafío, estás listo para el siguiente nivel!</p>
+                `,
+                configCuadricula: `
+                    gridSize = 125;   
+                    squareSize = 25;
+                    posInicX = 2; 
+                    posInicY = 2;
+                    colorInic = "black";
+                    velocidadEjecucion = 25;
+                    inicializarCuadriculaDefecto();
+                `,
+                verificacion: `
+                    if ((cuadricula[0][0]=="red") && 
+                        (cuadricula[4][0]=="blue" || cuadricula[4][0]=="navy") && 
+                        (cuadricula[0][4]=="green") && 
+                        (cuadricula[4][4]=="yellow")) {
+                            return true;
+                    } else {
+                            return false;
+                    }
+                `
             }
+        }
+    },
+    "cuaderno_2":{
+        titulo: "Definición de funciones",
+        descripcion: "Llegó el momento de crear tus propios comandos. Aprende a agrupar secuencias de bloques bajo un mismo nombre para reutilizarlos, evitar repeticiones y organizar mejor tu código.",
+        actividades:{
+
         }
     }
 };
