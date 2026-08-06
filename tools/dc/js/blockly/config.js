@@ -167,7 +167,6 @@ function inicializarWorkspaceBlockly(toolBox){
     }, 800);
 
     // Sincronización Automática con la Cuadrícula
-    // Sincronización Automática con la Cuadrícula
     workspace.addChangeListener(function(event) {
         const bloqueMain = workspace.getBlocksByType('bloque_dibujar')[0];
         let codigoJS = "";

@@ -10,11 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let bloquesIniciales = contenedorComponente.getAttribute('data-bloques-iniciales');
     let scriptsMie = "";
 
-    if (idActividad && window.dbActividades && window.dbActividades[idActividad]) {
-        const act = window.dbActividades[idActividad];
+    // De dónde saca la información de la actividad
+    const isCustom = parametrosUrl.get('custom') === 'true';
+    let act = null;
+    if (isCustom) {
+        const dataStr = localStorage.getItem('actividad_personalizada');
+        if (dataStr) act = JSON.parse(dataStr);
+    } else if (idActividad && window.dbActividades && window.dbActividades[idActividad]) {
+        act = window.dbActividades[idActividad];
+    }
+    //Armamos el entorno
+    if (act) {
         toolboxRequerido = act.toolbox || "completo";
-        bloquesIniciales = act.archivoBloques;
-        
         const verificacionAutomatizada = act.verificacion.replace(
             /return\s+true\s*;/g, 
             "if(typeof mostrarBotonSiguiente === 'function') { mostrarBotonSiguiente(); } return true;"
@@ -25,8 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
             <script type="dc/inic" id="inic-dibujar">${act.configCuadricula}<\/script>
             <script type="dc/verif" id="verif-dibujar">${verificacionAutomatizada}<\/script>
         `;
+        // Manejo especial para bloques iniciales 
+        if (isCustom && act.bloquesIniciales) {
+            bloquesIniciales = "CUSTOM_JSON"; 
+            window.bloquesCustomJSON = act.bloquesIniciales; 
+        } else {
+            bloquesIniciales = act.archivoBloques;
+        }
+
     } else {
-        // Si entran sin ID (Modo Libre)
+        // Si entran sin ID y sin Custom (Modo Libre)
         scriptsMie = `
             <script type="mie/p5" id="dibujar" min-lines="20" lines="20" data-inic-dc="inic-dibujar" config-sel><\/script>
             <script type="dc/inic" id="inic-dibujar">
@@ -45,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </div>
     `;
+    
     // Secuencia de arranque de los motores
     inyectarInputArchivos();
     inicializarWorkspaceBlockly(toolboxRequerido);
@@ -101,13 +117,21 @@ function redefinirBotones() {
 
 async function cargarBloquesAct(url) {
     try {
-        console.log(`[Componente] Buscando bloques iniciales en: ${url}`);
-        const respuesta = await fetch(url);
+        let estadoJSON;
         
-        if (!respuesta.ok) {
-            throw new Error(`Error HTTP: ${respuesta.status}`);
+        // Si es personalizada, leemos la variable global. Si no, hacemos el fetch original.
+        if (url === "CUSTOM_JSON") {
+            console.log("[Componente] Cargando bloques iniciales de actividad personalizada...");
+            estadoJSON = JSON.parse(window.bloquesCustomJSON);
+        } else {
+            console.log(`[Componente] Buscando bloques iniciales en: ${url}`);
+            const respuesta = await fetch(url);
+            
+            if (!respuesta.ok) {
+                throw new Error(`Error HTTP: ${respuesta.status}`);
+            }
+            estadoJSON = await respuesta.json();
         }
-        const estadoJSON = await respuesta.json();
         
         if (workspace) {
             workspace.clear(); // Limpia el lienzo por las dudas

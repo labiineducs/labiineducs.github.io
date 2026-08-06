@@ -34,21 +34,27 @@
             <h1 style="font-weight: 700; color: #212529;">Guía de Actividades</h1>
             <p class="text-muted" style="font-size: 1.2em;">Selecciona un desafío de programación con bloques o comienza a crear desde cero.</p>
         </div>
-
+        <!-- Botones de Crear y Carga -->
+        <div class="container mt-4 mb-4 d-flex justify-content-end">
+            <label class="btn btn-info btn-lg font-weight-bold shadow-sm mb-0 mr-2" style="cursor: pointer;">
+                <i class="fas fa-file-upload"></i> Cargar Actividad
+                <input type="file" id="input-cargar-actividad" accept=".json" style="display: none;">
+            </label>
+            <a href="creador-actividades.html" class="btn btn-warning btn-lg font-weight-bold shadow-sm">
+                <i class="fas fa-hammer"></i> Crear Actividad
+            </a>
+        </div>
         <!-- Grilla Dinámica de Tarjetas -->
         <div class="row" id="contenedor-actividades">
-            <!-- JS inyectará las tarjetas acá leyendo config.js -->
         </div>
         
     </div>
 
-    <!-- 1. Dependencias Nativas -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 
-    <!-- 2. Arquitectura de Datos y Vista -->
-    <script src="js/blockly/config.js"></script> <!-- Trae window.dbActividades -->
-    <script src="js/blockly/vista-menu.js"></script> <!-- Dibuja las tarjetas -->
+    <script src="js/blockly/config.js"></script> 
+    <script src="js/blockly/vista-menu.js"></script> 
 
 </body>
 </html>

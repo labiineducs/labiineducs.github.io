@@ -116,4 +116,33 @@ document.addEventListener("DOMContentLoaded", () => {
         t.addEventListener('mouseenter', () => t.style.transform = 'translateY(-5px)');
         t.addEventListener('mouseleave', () => t.style.transform = 'translateY(0)');
     });
+
+    const inputCargar = document.getElementById('input-cargar-actividad');
+    
+    if (inputCargar) {
+        inputCargar.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            
+            reader.onload = function(event) {
+                try {
+                    // Lo convertimos a un objeto de Javascript
+                    const jsonCargado = JSON.parse(event.target.result);
+                    // Lo guardamos en el localStorage del navegador
+                    localStorage.setItem('actividad_personalizada', JSON.stringify(jsonCargado));
+                    // Redirigimos al alumno a la página de juego
+                    window.location.href = 'actividad-bloques.html?custom=true';
+                    
+                } catch (error) {
+                    alert("Uy, hubo un error al leer el archivo. ¿Estás seguro que es el .json correcto?");
+                    console.error(error);
+                }
+            };
+            
+            // Leemos el archivo como texto
+            reader.readAsText(file);
+        });
+    }
 });
