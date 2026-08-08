@@ -105,10 +105,17 @@
                 </div>
                 <!-- Tarjeta 3: Lógica de Verificación -->
                 <div class="card">
-                    <div class="card-header"><i class="fas fa-check-square"></i> 3. Resultado Esperado (Verificación)</div>
+                    <div class="card-header"><i class="fas fa-check-square"></i> 3. Escenario Inicial y Resultado Esperado (Verificación)</div>
                     <div class="card-body">
-                        <p class="text-muted small">Pinta la cuadrícula con el resultado exacto que el alumno debe lograr para ganar la actividad.</p>
-                        
+                        <p class="text-muted small">Pinta la cuadrícula con el estado inicial de la cuadrícula y el resultado exacto que el alumno debe lograr para ganar la actividad.</p>
+                        <!-- Selector de Modo de Pintura -->
+                        <div class="mb-3 text-center border-bottom pb-3">
+                            <label class="font-weight-bold d-block mb-2">Modo de Edición:</label>
+                            <div class="btn-group" role="group" id="selector-modo">
+                                <button type="button" class="btn btn-outline-info active" data-modo="inicial">1. Pintar Escenario Inicial</button>
+                                <button type="button" class="btn btn-outline-success" data-modo="verificacion">2. Pintar Resultado</button>
+                            </div>
+                        </div>
                         <!-- Selector de Pincel -->
                         <div class="mb-3 d-flex align-items-center">
                             <label class="font-weight-bold mr-3 mb-0">Pincel:</label>

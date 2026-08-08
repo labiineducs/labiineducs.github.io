@@ -1,5 +1,7 @@
 let pincelActual = 'none';
 let estadoVerificacion = {};
+let estadoInicial = {};
+let modoPintura = 'inicial'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -13,17 +15,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Lógica del selector de modo (inicio/verificación)
+    const botonesModo = document.querySelectorAll('#selector-modo .btn');
+    botonesModo.forEach(btn => {
+        btn.addEventListener('click', function() {
+            botonesModo.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            modoPintura = this.getAttribute('data-modo');
+            dibujarGridCreador(); // Redibujamos la grilla para mostrar el estado correcto
+        });
+    });
+
     function dibujarGridCreador() {
         const gridContainer = document.getElementById('grid-creador');
         gridContainer.innerHTML = ''; 
-        estadoVerificacion = {}; 
         
         const gridSize = parseInt(document.getElementById('act-grid').value) || 125;
         const squareSize = parseInt(document.getElementById('act-celda').value) || 25;
-        
         const cols = Math.floor(gridSize / squareSize);
         const rows = Math.floor(gridSize / squareSize);
-
         const anchoTotal = cols * squareSize;
         const altoTotal = rows * squareSize;
 
@@ -33,46 +43,49 @@ document.addEventListener('DOMContentLoaded', () => {
         gridContainer.style.height = `${altoTotal}px`;
         gridContainer.style.margin = '0 auto'; 
         gridContainer.style.backgroundColor = '#ffffff'; 
-        gridContainer.style.backgroundImage = 'none'; // Mata cualquier fondo raro
+        gridContainer.style.backgroundImage = 'none'; 
         gridContainer.style.border = '1px solid #ccc'; 
         gridContainer.style.userSelect = 'none'; 
+
+        // Función auxiliar para pintar según el modo actual
+        function aplicarPintura(celda, x, y) {
+            let diccionarioActual = (modoPintura === 'verificacion') ? estadoVerificacion : estadoInicial;
+            
+            if (pincelActual === 'none') {
+                celda.style.backgroundColor = 'transparent';
+                delete diccionarioActual[`${x},${y}`];
+            } else {
+                celda.style.backgroundColor = pincelActual;
+                diccionarioActual[`${x},${y}`] = pincelActual;
+            }
+        }
 
         for (let y = 0; y < rows; y++) {
             for (let x = 0; x < cols; x++) {
                 const celda = document.createElement('div');
+                
                 celda.style.position = 'absolute';
-                celda.style.left = `${x * squareSize}px`; // Columna X
-                celda.style.top = `${y * squareSize}px`;  // Fila Y
+                celda.style.left = `${x * squareSize}px`; 
+                celda.style.top = `${y * squareSize}px`;  
                 celda.style.width = `${squareSize}px`;
                 celda.style.height = `${squareSize}px`;
-                
                 celda.style.boxSizing = 'border-box';
                 celda.style.borderRight = '1px solid #eee';
                 celda.style.borderBottom = '1px solid #eee'; 
-                celda.style.backgroundColor = 'transparent';
                 celda.style.cursor = 'crosshair';
                 
-                // Eventos
+                // Mostrar el color correcto al dibujar la grilla dependiendo de la pestaña en la que estemos
+                const colorGuardado = (modoPintura === 'verificacion') ? estadoVerificacion[`${x},${y}`] : estadoInicial[`${x},${y}`];
+                celda.style.backgroundColor = colorGuardado ? colorGuardado : 'transparent';
+                
+                // Eventos optimizados
                 celda.addEventListener('mousedown', function(e) {
                     e.preventDefault(); 
-                    if (pincelActual === 'none') {
-                        this.style.backgroundColor = 'transparent';
-                        delete estadoVerificacion[`${x},${y}`];
-                    } else {
-                        this.style.backgroundColor = pincelActual;
-                        estadoVerificacion[`${x},${y}`] = pincelActual;
-                    }
+                    aplicarPintura(this, x, y);
                 });
-                
                 celda.addEventListener('mouseenter', function(e) {
                     if (e.buttons === 1) { 
-                        if (pincelActual === 'none') {
-                            this.style.backgroundColor = 'transparent';
-                            delete estadoVerificacion[`${x},${y}`];
-                        } else {
-                            this.style.backgroundColor = pincelActual;
-                            estadoVerificacion[`${x},${y}`] = pincelActual;
-                        }
+                        aplicarPintura(this, x, y);
                     }
                 });
                 
@@ -80,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
     // Dibujar inicialmente la grilla y escuchar cambios en los inputs
     dibujarGridCreador();
     document.getElementById('act-grid').addEventListener('change', dibujarGridCreador);
@@ -120,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const colorInic = document.getElementById('act-color').value;
 
         const codigoVerificacionGenerado = generarStringVerificacion();
+        const codigoInicialGenerado = generarStringEstadoInicial();
 
         let estadoBloquesStr = null;
         if (window.workspaceCreator) {
@@ -140,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 colorInic = "${colorInic}";
                 velocidadEjecucion = 25;
                 inicializarCuadriculaDefecto();
+                ${codigoInicialGenerado}
             `,
             verificacion: codigoVerificacionGenerado,
             bloquesIniciales: estadoBloquesStr
@@ -193,4 +207,23 @@ function generarStringVerificacion() {
     return false;
 }`;
 }
+
+function generarStringEstadoInicial() {
+    const celdasPintadas = Object.keys(estadoInicial);
+    if (celdasPintadas.length === 0) return ""; // Si no pintó nada, no hace nada
+
+    let comandosJS = [];
+    
+    // Sobreescribimos el color de la celda en la matriz de la cuadrícula
+    for (let key of celdasPintadas) {
+        const coords = key.split(','); 
+        const x = coords[0];
+        const y = coords[1];
+        const color = estadoInicial[key];
+        
+        comandosJS.push(`cuadricula[${x}][${y}] = '${color}';`);
+    }
+    return comandosJS.join('\n    ');
+}
+
 
